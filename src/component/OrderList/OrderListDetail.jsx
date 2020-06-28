@@ -103,17 +103,17 @@ const OrderListDetail = (props) => {
                 ) : item.OrderStatus === 2 ? (
                   <li> 交易取消 </li>
                 ) : (
-                  <li>交易完成</li>
-                )}
+                      <li>交易完成</li>
+                    )}
                 <li className="productdetail">
                   <button
                     className="button-two"
                     value={item.orderId}
-                    onClick={(e) => (
+                    onClick={(e) => ((
                       setHidden(!hidden),
                       ListToSever(item.orderId),
                       setValue(e.target.value)
-                    )}
+                    ))}
                   >
                     點我查看
                   </button>
@@ -132,8 +132,8 @@ const OrderListDetail = (props) => {
                 ) : item.OrderStatus === 2 ? (
                   <li> 交易取消</li>
                 ) : (
-                  <li> 交易完成如需退貨請洽客服中心</li>
-                )}
+                      <li> 交易完成如需退貨請洽客服中心</li>
+                    )}
               </ul>
             ))
         ) : Shipping ? (
@@ -167,17 +167,17 @@ const OrderListDetail = (props) => {
             DelToSever={DelToSever}
           />
         ) : (
-          <All
-            data={data}
-            search={search}
-            address={address}
-            hidden={hidden}
-            hiddenID={hiddenID}
-            Value={Value}
-            ListToSever={ListToSever}
-            DelToSever={DelToSever}
-          />
-        )}
+                  <All
+                    data={data}
+                    search={search}
+                    address={address}
+                    hidden={hidden}
+                    hiddenID={hiddenID}
+                    Value={Value}
+                    ListToSever={ListToSever}
+                    DelToSever={DelToSever}
+                  />
+                )}
       </div>
       <div className="notice-list">
         <ul className="notice-list-ul">

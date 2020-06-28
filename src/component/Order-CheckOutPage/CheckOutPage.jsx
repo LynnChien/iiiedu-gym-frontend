@@ -323,7 +323,10 @@ const CheckOutPage = ({ cartItems, history, SelectTotal }) => {
         </>
     );
 };
+
+
 const mapStateToProps = createStructuredSelector({
+
     cartItems: cartItemsSelect,
     cartFavoriteItems: favoriteItemsSelect,
     SelectTotal: SelectTotal

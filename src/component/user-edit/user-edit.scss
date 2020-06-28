@@ -1,0 +1,37 @@
+.edit {
+    flex-grow: 1;
+    background: #fff;
+    border-radius: 0 10px 10px 0;
+    height: calc(100vh - 14rem);
+  
+    .horizontally-line {
+      background: #ccc;
+      height: 2px;
+      border-radius: 2px;
+      width: 900px;
+      margin: 20px 0 20px 0;
+    }
+  
+    .form-wrapper {
+      margin: 0 auto;
+      display: flex;
+  
+      .left-form {
+        flex-grow: 1;
+        input {
+          font-size: 14px;
+          margin: 15px 15px 0 0;
+        }
+      }
+      .right-form {
+        flex-grow: 1;
+        input {
+          font-size: 14px;
+          margin: 15px 15px 0 0;
+        }
+        button {
+          margin-top: 15px;
+        }
+      }
+    }
+  }
