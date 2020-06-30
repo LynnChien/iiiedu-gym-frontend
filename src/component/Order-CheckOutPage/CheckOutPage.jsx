@@ -9,6 +9,7 @@ import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { cartItemsSelect, favoriteItemsSelect, SelectTotal } from '../../redux/cart/cart-selector';
 import { withRouter } from 'react-router-dom';
+import { currentUserSelect } from "../../redux/user/user-selector";
 
 async function addToSever(item) {
     // 注意資料格式要設定，伺服器才知道是json格式
@@ -69,13 +70,14 @@ async function addordersToSever(item) {
 }
 
 
-const CheckOutPage = ({ cartItems, history, SelectTotal }) => {
+const CheckOutPage = ({ cartItems, history, SelectTotal, currentUserSelect }) => {
     // console.log(history.location.state.pay)
-
+    const { memberId } = currentUserSelect
+    // console.log(memberId)
     // console.log(props.location.state)
     const [Name, setName] = useState();
     const [Select, setSelect] = useState("臺北市");
-    const [District, setDistrict] = useState();
+    const [District, setDistrict] = useState("中正區");
     const [Mobile, setMobile] = useState();
     const [Address, setAddress] = useState();
     const [Email, setEmail] = useState();
@@ -100,12 +102,10 @@ const CheckOutPage = ({ cartItems, history, SelectTotal }) => {
         console.log(pay)
     }, [history.location.state.pay, pay])
 
-
+    useEffect(() => {
+        setMember(memberId)
+    }, [currentUserSelect, memberId])
     //////////
-
-
-
- 
 
     const next = () => {
         history.push(`/OrderCompleted`)
@@ -329,7 +329,8 @@ const mapStateToProps = createStructuredSelector({
 
     cartItems: cartItemsSelect,
     cartFavoriteItems: favoriteItemsSelect,
-    SelectTotal: SelectTotal
+    SelectTotal: SelectTotal,
+    currentUserSelect: currentUserSelect
 
 });
 

@@ -12,10 +12,9 @@ import CartItems from './CartItems/CartItems.jsx'
 const CartList = ({ cartItems, cartFavoriteItems }) => {
     // console.log(cartItems)
 
-
     return (
         <>
-            <div className="title">
+            <div className="CartList-title">
                 <div className="title-cotainer">
                     <ol className="title-ol">
                         <li className="icon"><FaRegListAlt /></li>
@@ -62,7 +61,6 @@ const CartList = ({ cartItems, cartFavoriteItems }) => {
                     <CartListButton cartItems={cartItems} />
                 </div>
             </div>
-            <footer className="footer"></footer>
         </>
     )
 }

@@ -16,9 +16,12 @@ import EmployeeSignInOutPage from "./pages/employee-sign-in-out-page/employee-si
 // 訂單----------
 import OrderList from "./pages/orders-list-page/OrderList";
 import OrderListDetail from "./component/OrderList/OrderListDetail";
-import CartList from "./component/Order-CartList/CartList";
+import CartList from "./component/Order-CartList/CartList.jsx";
 import CheckOutPage from "./component/Order-CheckOutPage/CheckOutPage";
 import OrderCompleted from "./component/OrderCompleted/OrderCompleted";
+import CreditCardPage from "./component/Order-CreditCardPage/CreditCardPage";
+
+
 
 import HomePage from "./pages/HomePage/Home";
 // Component------
@@ -31,6 +34,7 @@ import { employeeListStart } from "./redux/employee/employee-action";
 
 import "./App.scss";
 import UserEdit from "./component/user-edit/user-edit";
+// import Footer from "./component/footer/Footer";
 
 // react lazy
 const ShopPage = lazy(() => import("./pages/shop-page/ShopPage"));
@@ -87,11 +91,13 @@ const App = ({ userListStart, employeeListStart }) => {
               <Route path="/CheckOutPage" component={CheckOutPage} />
               <Route path="/OrderCompleted" component={OrderCompleted} />
               <Route path="/UserEdit" component={UserEdit} />
+              <Route path="/CreditCardPage" component={CreditCardPage} />
 
             </Suspense>
           </ErrorBoundary>
         </Switch>
       </main>
+      {/* <Footer /> */}
     </div>
   );
 };

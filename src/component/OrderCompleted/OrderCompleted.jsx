@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom'
 
 import './OrderCompleted.scss'
 
-const OrderCompleted = ({  history }) => {
+const OrderCompleted = ({ history }) => {
     // console.log(match.params.orderId)
     const [data, setData] = useState([]);
     useEffect(() => {
@@ -43,7 +43,7 @@ const OrderCompleted = ({  history }) => {
                     <li className="step3-active-ac">
                     </li>
                 </ul>
-                <div className="content">
+                <div className="content-com">
                     <div className="content-wrap">
                         <h3>Order Compeleted</h3>
                         <span className="content-Cartlist-title">Order Detail</span>
@@ -55,7 +55,7 @@ const OrderCompleted = ({  history }) => {
                         </ul>
                         {data.map((list, index) => (
                             <>
-                                <ul key={index} className="content-wrap-ul-compeleted">
+                                <ul key={index +"6"} className="content-wrap-ul-compeleted">
                                     <li>{list.orderId}</li>
                                     <li>{list.Total}</li>
                                     <li>{list.PayMentMethod}</li>
@@ -72,7 +72,6 @@ const OrderCompleted = ({  history }) => {
 
 
             </div>
-            <footer className="footer"></footer>
         </>
     )
 

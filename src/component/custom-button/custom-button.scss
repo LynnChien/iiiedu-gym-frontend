@@ -18,7 +18,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
   &:focus {
     outline: 2px dotted #1178b8;
   }
@@ -86,7 +85,7 @@
 
   &::after {
     $v-side: if($vertical == "top", "bottom", "top");
-
+    
     border-#{$v-side}-width: $width;
     border-#{$horizontal}-width: $width;
   }

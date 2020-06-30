@@ -1,10 +1,40 @@
-footer {
-    background: rgb(41, 39, 39);
-    width: 100%;
-    position: fixed;
-    bottom: 0;
-  
-    .container {
-      text-align: center;
+.Footer {
+  height: 60px;
+  width: 100%;
+  margin: 0 auto;
+  background: black;
+  display: flex;
+  position: absolute;
+
+  .copyright {
+    color: white;
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+  }
+  .address {
+    color: white;
+    font-size: 12px;
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .icon {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 20px;
+    svg {
+      width: 25px;
+      height: 25px;
+    }
+    a {
+      color: white;
+      margin-right: 20px;
     }
   }
+}

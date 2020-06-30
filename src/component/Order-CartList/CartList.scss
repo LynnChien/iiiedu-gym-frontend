@@ -16,6 +16,7 @@
   margin: 0 auto;
   margin-top: 60px;
   justify-content: center;
+  min-height: 100vh;
 }
 
 .content-left {
@@ -27,12 +28,10 @@
   grid-template-columns: row;
 }
 
-.footer {
-  margin-top: 10px;
-  width: 100%;
-  display: block;
-  min-height: 100px;
-  background-color: #e0e0e0;
+.CartList-title {
+  background-color: #505763;
+  height: 150px;
+  margin-bottom: 80px;
 }
 
 .title-cotainer {
@@ -70,7 +69,7 @@
   justify-content: center;
   padding: 0px;
   font-size: 14px;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 .step li {
   margin: 0 55px;
@@ -81,7 +80,7 @@
   height: 65px;
   background-image: url(//s.azurecdns.com/sff/pazzo/static/img/img-cart-step-new.png);
   background-repeat: no-repeat;
-  background-position: -288px 0px;
+  background-position: -284px 0px;
 }
 .objectFit {
   width: 100%;
@@ -113,7 +112,7 @@
 .content-wrap-ul {
   list-style: none;
   display: grid;
-  grid-template-columns: 0.8fr 0.8fr 0.75fr 0.75fr 0.5fr 0.5fr 0.3fr;
+  grid-template-columns: 0.8fr 1fr 0.75fr 0.75fr 0.5fr 0.5fr 0.3fr;
   border-top: 1px solid #f2f3f5;
   font-size: 14px;
   padding: 40px 0;

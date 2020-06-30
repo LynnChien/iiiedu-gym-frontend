@@ -5,6 +5,7 @@ import { SelectTotal } from '../../../redux/cart/cart-selector';
 import { withRouter } from 'react-router-dom';
 
 import './CartListButton.scss'
+import CreditCardPage from '../../Order-CreditCardPage/CreditCardPage';
 const CartListButton = ({ cartItems, history, SelectTotal }) => {
 
     // console.log(history.location.state)
@@ -12,12 +13,20 @@ const CartListButton = ({ cartItems, history, SelectTotal }) => {
     const [cubon, setcubon] = useState(0)
     const [payType, setpayType] = useState(0)
     const [select, setselect] = useState('disabled')
+    const [test, settest] = useState()
+    const [charCode, setcharCode] = useState()
+    const [visble, setvisble] = useState("none")
+    const [visbletest, setvisbletest] = useState("none")
+    const [credit, setcredit] = useState("none")
+    const [payselected, setpayselected] = useState("none")
+
+
 
     const next = (cartItems) => {
         // console.log(cartItems)
+        if (payType === 0 || payType === '0') {
+            setpayselected("block")
 
-        if (payType === false) {
-            alert('請選擇付款方式')
             return false
         } else if (cartItems.length === 0) {
             alert('購物車無商品請先添加商品')
@@ -30,35 +39,68 @@ const CartListButton = ({ cartItems, history, SelectTotal }) => {
             })
         }
     }
+    const enter = (e) => {
+        // console.log("keyPress", e.charCode, e.keyCode, e.key)
+        setcharCode(e.key)
+    }
 
-    useEffect(() => (
+    useEffect(() => {
+        if (charCode === 'Enter' && test === 'WOW777') {
+            setvisble("block")
+            setvisbletest("none")
+        } else if (charCode === 'Enter' && test !== 'WOW777') {
+            setvisble("none")
+            setvisbletest("block")
+        }
+        else {
+            setvisble("none")
+            setvisbletest("none")
+            setpayselected("none")
+        }
+    }, [charCode, payType, test])
+
+    useEffect(() => {
         cartItems.length === 0 ? setselect('disabled') : setselect()
-    ), [cartItems.length, select])
-
+        charCode === 'Enter' && test === 'WOW777' ? setcubon(777) : setcubon(0)
+    }, [cartItems.length, charCode, test])
+    useEffect(() => {
+        payType === '信用卡' ? setcredit("block") : setcredit("none")
+    }, [payType])
 
     return (
+
         <div className="content-right">
             <div>購物車總額：</div>
             <h3>${SelectTotal}</h3>
             <div>折扣：{cubon}</div>
             <h4>總計：{SelectTotal - cubon}</h4>
-            <div>
-                <select id="select-pay-type" name="PayType" value={payType} required="required" className="select-type" onChange={(e) => setpayType(e.target.value)}>
-                    <option value="0">請選擇付款方式</option>
-                    <option value="信用卡">信用卡</option>
-                    <option value="現金">現金</option>
-                </select>
-            </div>
-            <div>
-                <select disabled={select} id="select-pay-type" value={cubon} name="PayType" required="required" className="select-type" onChange={(e) => (setcubon(e.target.value))}>
+            <select id="select-pay-type" name="PayType" value={payType} required="required" className="select-type" onChange={(e) => setpayType(e.target.value)}>
+                <option value="0">請選擇付款方式</option>
+                <option value="信用卡">信用卡</option>
+                <option value="現金">現金</option>
+            </select>
+            <div style={{ display: payselected }} className="paysuccess">請選擇付款方式！</div>
+
+            <div style={{ display: credit }} ><CreditCardPage /></div>
+
+            {/* <div>
+                <select disabled={select} id="select-pay-type" value={cubon} name="PayType"  className="select-type" onChange={(e) => (setcubon(e.target.value))}>
                     <option value="">請選擇優惠券</option>
-                    <option value="100">100</option>
-                    <option value="200">200</option>
-                    <option value="300">300</option>
+                    <option value="100">WOWGYM100</option>
+                    <option value="200">WOWGYM200</option>
+                    <option value="300">WOWGYM300</option>
                 </select>
+            </div> */}
+            <div className="cubonInput">
+                <input type="text" placeholder="輸入優惠券號碼" name="PayType" className="select-type"
+                    onChange={(e) => (settest(e.target.value))} onKeyPress={enter}></input>
+                <div className="test1">
+                    <span style={{ display: visble }} className="cubunsuccess">折價成功！</span><span style={{ display: visbletest }} className="cubunflase">優惠券無效</span>
+                </div>
             </div>
-            <button onClick={() => next(cartItems)}>下一步</button>
-        </div>
+
+            <button type="submit" onClick={() => next(cartItems)}>下一步</button>
+        </div >
 
     )
 }
