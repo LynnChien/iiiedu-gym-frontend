@@ -185,10 +185,13 @@ img {
 }
 
 .search {
-  color: rgb(41, 39, 39);
+  color: #d3ab2a;
+  padding-left: 10px;
   &:focus {
-    color: rgb(0, 0, 0);
+    color: #d3ab2a;
     outline: 0;
     border: 5px solid rgb(180, 178, 178);
+    font-size: 24px;
+    padding: 20px 10px;
   }
 }

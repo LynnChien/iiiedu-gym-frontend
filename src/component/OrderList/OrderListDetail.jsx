@@ -10,13 +10,13 @@ import LoadingSpinner from "../loading-spinner/LoadingSpinner";
 
 
 const OrderListDetail = (props) => {
+
   const [data, setData] = useState({ rows: [] });
   const [search, setSearch] = useState("");
   const [hidden, setHidden] = useState(false);
   const [hiddenID, sethiddenID] = useState();
   const [address, setaddress] = useState();
   const [deldata, setdeldata] = useState();
-
   const [Value, setValue] = useState();
   const Shipping = props.location.pathname === "/OrderList/shipping";
   const compeleted = props.location.pathname === "/OrderList/compeleted";
@@ -28,7 +28,6 @@ const OrderListDetail = (props) => {
     });
     setdeldata(fetchDeldata)
   }
-
   const ListToSever = async (orderId) => {
     const product = await axios(
       "http://localhost:5000/Orders/api/OrderListDeatail"
@@ -46,23 +45,10 @@ const OrderListDetail = (props) => {
     FetchData();
   }, [deldata]);
 
-
-
-  // console.log(address);
-  // console.log(hiddenID);
-
-  // useEffect(() => {
-  //     const ListToSever = async (orderId) => {
-  //         const result = await axios(
-  //             `http://localhost:3000/address-book/api/OrderList`);
-  //         sethiddenID(result.data.rows.filter((i) => (i.orderId == orderId)))
-  //     }
-  //     ListToSever();
-  // }, [hidden]);
-
   useEffect(() => {
     // console.log(hiddenID)
   }, [hiddenID]);
+  
   return (
     <>
       <input
