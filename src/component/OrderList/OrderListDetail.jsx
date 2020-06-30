@@ -8,19 +8,6 @@ import OrderCancel from "./Cancel";
 import All from "./All";
 import LoadingSpinner from "../loading-spinner/LoadingSpinner";
 
-async function DelToSever(orderId) {
-  // 注意資料格式要設定，伺服器才知道是json格式
-  axios.post(`http://localhost:5000/Orders/api/del/${orderId}`, {
-    method: "POST",
-    credentials: "include", // 需傳送 Cookie 必須開啟
-    headers: new Headers({
-      Accept: "application/json",
-      "Content-Type": "application/json",
-    }),
-    data: { orderId: orderId },
-  });
-  window.location.reload();
-}
 
 const OrderListDetail = (props) => {
   const [data, setData] = useState({ rows: [] });
@@ -28,17 +15,24 @@ const OrderListDetail = (props) => {
   const [hidden, setHidden] = useState(false);
   const [hiddenID, sethiddenID] = useState();
   const [address, setaddress] = useState();
+  const [deldata, setdeldata] = useState();
 
   const [Value, setValue] = useState();
   const Shipping = props.location.pathname === "/OrderList/shipping";
   const compeleted = props.location.pathname === "/OrderList/compeleted";
   const Cancel = props.location.pathname === "/OrderList/Cancel";
 
+  async function DelToSever(orderId) {
+    const fetchDeldata = axios.post(`http://localhost:5000/Orders/api/del/${orderId}`, {
+      data: { orderId: orderId },
+    });
+    setdeldata(fetchDeldata)
+  }
+
   const ListToSever = async (orderId) => {
     const product = await axios(
       "http://localhost:5000/Orders/api/OrderListDeatail"
     );
-
     const address = await axios("http://localhost:5000/Orders/api/address");
     setaddress(address.data.filter((i) => i.orderId === orderId));
     sethiddenID(product.data.rows.filter((i) => i.orderId === orderId));
@@ -50,10 +44,12 @@ const OrderListDetail = (props) => {
       setData(result.data);
     };
     FetchData();
-  }, []);
+  }, [deldata]);
 
-  console.log(address);
-  console.log(hiddenID);
+
+
+  // console.log(address);
+  // console.log(hiddenID);
 
   // useEffect(() => {
   //     const ListToSever = async (orderId) => {
@@ -214,7 +210,6 @@ const OrderListDetail = (props) => {
                     key={623232}
                     data={data}
                     search={search}
-                    address={address}
                     hidden={hidden}
                     hiddenID={hiddenID}
                     Value={Value}
