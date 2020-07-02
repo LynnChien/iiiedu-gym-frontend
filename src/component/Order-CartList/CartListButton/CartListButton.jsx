@@ -6,10 +6,11 @@ import { withRouter } from 'react-router-dom';
 
 import './CartListButton.scss'
 import CreditCardPage from '../../Order-CreditCardPage/CreditCardPage';
-const CartListButton = ({ cartItems, history, SelectTotal }) => {
+import { currentUserSelect } from '../../../redux/user/user-selector';
+const CartListButton = ({ cartItems, history, SelectTotal, currentUserSelect }) => {
 
     // console.log(history.location.state)
-
+    console.log(currentUserSelect)
     const [cubon, setcubon] = useState(0)
     const [payType, setpayType] = useState(0)
     const [select, setselect] = useState('disabled')
@@ -26,10 +27,13 @@ const CartListButton = ({ cartItems, history, SelectTotal }) => {
         // console.log(cartItems)
         if (payType === 0 || payType === '0') {
             setpayselected("block")
-
             return false
         } else if (cartItems.length === 0) {
             alert('購物車無商品請先添加商品')
+            return false
+        } else if (!currentUserSelect) {
+            alert('請先登入會員')
+            history.push('/login')
             return false
         } else {
             history.push('/CheckOutPage', {
@@ -105,8 +109,8 @@ const CartListButton = ({ cartItems, history, SelectTotal }) => {
     )
 }
 const mapStateToProps = createStructuredSelector({
-    SelectTotal: SelectTotal
-
+    SelectTotal: SelectTotal,
+    currentUserSelect: currentUserSelect
 });
 
 

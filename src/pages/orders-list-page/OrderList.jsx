@@ -8,8 +8,6 @@ import OrderListDetail from '../../component/OrderList/OrderListDetail.jsx'
 const OrderList = () => {
     return (
         <>
-
-
             <div className="title">
                 <div className="title-cotainer">
                     <ol className="title-ol">
@@ -32,12 +30,12 @@ const OrderList = () => {
                             </Link>
                         </li>
                         <li>  <Link to="/OrderList/shipping">
-                            <div className='btn-holder'>
-                                <button className="btn btn-3 hover-border-5">
-                                    <span>       出貨中
-                                    </span>
-                                </button>
-                            </div></Link>
+                                <div className='btn-holder'>
+                                    <button className="btn btn-3 hover-border-5">
+                                        <span>       出貨中
+                                        </span>
+                                    </button>
+                                </div></Link>
                         </li>
                         <li><Link to="/OrderList/compeleted">
                             <div className='btn-holder'>
