@@ -6,6 +6,7 @@ import {
   ChangeFavr,
   RedeuceCartItem,
   FavCartItem,
+  delFavCartItem,
 } from "./cart-utils";
 
 const INITIAL_STATE = {
@@ -61,18 +62,28 @@ const cartReducer = (state = INITIAL_STATE, action) => {
       };
 
 
+
     ///還沒改完
     case cartActionTypes.CHANGEFAVR_ITEM:
       return {
         ...state,
-
-        cartFavoriteItems: FavCartItem(
-          state.cartFavoriteItems,
-          action.payload
-        )
-        ,
         cartItems: ChangeFavr(state.cartItems, action.payload),
       };
+
+
+    case cartActionTypes.ADDEFAVR_ITEM:
+      return {
+        ...state,
+        cartFavoriteItems: FavCartItem(state.cartFavoriteItems, action.payload),
+      };
+
+
+    case cartActionTypes.delFavCartItem:
+      return {
+        ...state,
+        cartFavoriteItems: delFavCartItem(state.cartFavoriteItems, action.payload),
+      };
+
 
     default:
       return state;

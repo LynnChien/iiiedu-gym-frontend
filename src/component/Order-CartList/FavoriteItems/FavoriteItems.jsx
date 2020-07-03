@@ -5,9 +5,9 @@ import './FavoriteItems.scss'
 import { FaTrashAlt} from 'react-icons/fa';
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
-import { removeItemFromCart, addItemToCart, ReduceItem, ChangeFavr, unlikeCartItem } from '../../../redux/cart/cart-action';
+import { removeItemFromCart, addItemToCart, ReduceItem, ChangeFavr, unlikeCartItem, delFavCartItem } from '../../../redux/cart/cart-action';
 import { favoriteItemsSelect } from '../../../redux/cart/cart-selector';
-const FavoriteItem = ({ cartFavoriteItems, unlikeCartItem }) => {
+const FavoriteItem = ({ cartFavoriteItems, unlikeCartItem ,delFavCartItem}) => {
 
     return (
         <>
@@ -19,7 +19,7 @@ const FavoriteItem = ({ cartFavoriteItems, unlikeCartItem }) => {
                         <li>{item.itemType}</li>
                         <li>{item.price}</li>
                         <ul className="icon-list">
-                            <a className="icon" onClick={() => unlikeCartItem(item)} ><FaTrashAlt /></a>
+                            <a className="icon" onClick={() => delFavCartItem(item)} ><FaTrashAlt /></a>
                             {/* <a className="icon" onClick={() => ChangeFavr(item)}><FaStar /></a> */}
                         </ul>
                     </ul>
@@ -44,6 +44,8 @@ const mapDispatchToProps = (dispatch) => ({
     ReduceItem: (itemId) => dispatch(ReduceItem(itemId)),
     ChangeFavr: (itemId) => dispatch(ChangeFavr(itemId)),
     unlikeCartItem: (item) => dispatch(unlikeCartItem(item)),
+    delFavCartItem: (item) => dispatch(delFavCartItem(item)),
+
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(FavoriteItem)

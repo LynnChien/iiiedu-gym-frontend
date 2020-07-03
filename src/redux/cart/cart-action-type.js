@@ -10,5 +10,6 @@ export const cartActionTypes = {
   //訂單
   REDUCE_ITEM: "REDUCE_ITEM",
   CHANGEFAVR_ITEM: "CHANGEFAVR_ITEM",
-
+  ADDEFAVR_ITEM:"ADDEFAVR_ITEM",
+  delFavCartItem:"delFavCartItem",
 };

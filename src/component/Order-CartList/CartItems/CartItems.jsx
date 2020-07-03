@@ -4,10 +4,10 @@ import { FaTrashAlt, FaStar } from 'react-icons/fa';
 import './CartItems.scss'
 import { connect } from "react-redux";
 
-import { removeItemFromCart, addItemToCart, ReduceItem, ChangeFavr } from '../../../redux/cart/cart-action';
-const CartItems = ({ cartItems, removeItemFromCart, addItemToCart, ReduceItem, ChangeFavr }) => {
+import { removeItemFromCart, addItemToCart, ReduceItem, ChangeFavr, FavCartItem } from '../../../redux/cart/cart-action';
+const CartItems = ({ cartItems, removeItemFromCart, addItemToCart, ReduceItem, ChangeFavr, FavCartItem }) => {
 
-    // console.log(cartItems)
+    console.log(FavCartItem)
 
     // console.log(cartItems)
 
@@ -32,7 +32,7 @@ const CartItems = ({ cartItems, removeItemFromCart, addItemToCart, ReduceItem, C
                     <li value={item.quantity * item.price} >{item.quantity * item.price}</li>
                     <ul className="icon-list">
                         <div className="icon" onClick={() => removeItemFromCart(item.itemId)} ><FaTrashAlt /></div>
-                        <div className="icon" onClick={() => ChangeFavr(item)}><FaStar /></div>
+                        <div className="icon" onClick={() => FavCartItem(item)}><FaStar /></div>
                     </ul>
                 </ul>
 
@@ -50,7 +50,8 @@ const mapDispatchToProps = (dispatch) => ({
     removeItemFromCart: (itemId) => dispatch(removeItemFromCart(itemId)),
     addItemToCart: (itemId) => dispatch(addItemToCart(itemId)),
     ReduceItem: (itemId) => dispatch(ReduceItem(itemId)),
-    ChangeFavr: (itemId) => dispatch(ChangeFavr(itemId)),
+    ChangeFavr: (item) => dispatch(ChangeFavr(item)),
+    FavCartItem: (item) => dispatch(FavCartItem(item)),
 });
 
 export default connect(null, mapDispatchToProps)(CartItems)

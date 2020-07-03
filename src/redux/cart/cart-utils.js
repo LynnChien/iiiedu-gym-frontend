@@ -37,14 +37,34 @@ export const RedeuceCartItem = (cartItems, cartItemsToReduce) => {
 };
 
 
+
+
 export const ChangeFavr = (cartItems, item) => {
-  return cartItems.filter((i) => i.itemId !== item.itemId)
+  return cartItems.filter((i) => i.itemId !== item.itemId);
 };
+
 
 // item 傳入的參數
-export const FavCartItem = (FavCartItem, item) => {
-  return FavCartItem.filter((i) => i.itemId !== item.itemId)
 
+export const FavCartItem = (cartFavoriteItems, item) => {
+
+
+
+  const test = Object.values(cartFavoriteItems)
+
+  const existCartItem = test.find(
+    (cartFavoriteItems) => cartFavoriteItems.itemId === item.itemId
+  );
+  if (existCartItem) {
+    return Object.values(cartFavoriteItems)
+  } else {
+    return [...Object.values(cartFavoriteItems), { ...item }]
+  }
 };
 
+
+export const delFavCartItem = (cartFavoriteItems, item) => {
+  const test = Object.values(cartFavoriteItems)
+  return test.filter((i) => i.itemId !== item.itemId);
+}
 

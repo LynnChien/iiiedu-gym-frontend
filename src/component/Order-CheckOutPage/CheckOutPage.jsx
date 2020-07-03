@@ -5,6 +5,7 @@ import { FaRegListAlt } from "react-icons/fa";
 import axios from "axios";
 import city from "../../API/AllData.json";
 import CartCheckOutButton from '../Order-cart-checkOut/CartCheckOutButton.jsx'
+
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { cartItemsSelect, favoriteItemsSelect, SelectTotal } from '../../redux/cart/cart-selector';
