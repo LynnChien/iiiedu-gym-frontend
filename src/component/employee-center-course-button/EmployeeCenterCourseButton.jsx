@@ -66,7 +66,7 @@ function CourseButton({ currentEmployee, itemID }) {
     <>
       <button
         type="button"
-        className="edit"
+        className="course-edit"
         onClick={() => {
           setModashow(true);
         }}
@@ -75,7 +75,7 @@ function CourseButton({ currentEmployee, itemID }) {
       </button>
       <button
         type="button"
-        className="delete"
+        className="course-delete"
         onClick={() => {
           handleDelete();
         }}

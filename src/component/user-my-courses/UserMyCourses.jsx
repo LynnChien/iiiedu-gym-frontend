@@ -153,8 +153,8 @@ function UserMyCourses(props) {
         <>
             <ul className="userCoursesInfo">
                 {nowTime > newTime ? <div className="userCoursesInfoCover"></div> : ""}
-                <li className="courseDayUser">{newD}</li>
-                <li className="courseTimeUser">{newT}</li>
+                <li className="courseDayInUser">{newD}</li>
+                <li className="courseTimeInUser">{newT}</li>
                 <li className="courseNameInUser" onClick={() => showCJumpWindow()}>{props.userCourse.courseName}</li>
                 <li className="courseCategoryInUser">{props.userCourse.categoryName}</li>
                 <li className="coachNameInUser" onClick={() => showEJumpWindow()}>{props.userCourse.Ename}</li>

@@ -26,6 +26,7 @@ ul:nth-child(2n) {
     border-radius: 10px;
   }
 
+  .courseDayInUser,
   .courseTimeInUser,
   .courseCategoryInUser {
     padding: 0.5rem;
@@ -49,7 +50,7 @@ ul:nth-child(2n) {
   }
 
   .userCourseBtn {
-    width: 150px;
+    width: 17%;
     position: relative;
 
     .userCourseBtnCover {
