@@ -47,12 +47,10 @@ const Header = ({
           <div className="" />
         </div>
       </div>
-
       <div className="main">
         <Link to="/" className="logo-container">
           <Logo className="logo" />
         </Link>
-
         <div
           className="options"
           onMouseOver={() => {
@@ -129,25 +127,7 @@ const Header = ({
           
         </div>
       </div>
-
       <div className="sub sub-cart" onMouseOver={() => setSubDiv(false)}>
-        {currentEmployee ? (
-          <CustomButton
-            signin
-            onClick={() => {
-              employeeLogout();
-              history.push("/");
-            }}
-          >
-            教練登出
-          </CustomButton>
-        ) : (
-            <CustomButton
-              signin
-              onClick={() => history.push("/employeelogin")}>
-              教練登入
-            </CustomButton>
-          )}
         {currentUser ? (
           <>
             <span className="current-user-title">
