@@ -10,7 +10,7 @@ function UserEdit({ currentUserSelect }) {
   // console.log(currentUserSelect);
   const { id } = { ...currentUserSelect }
   // console.log(id)
-  console.log(currentUserSelect)
+  // console.log(currentUserSelect)
   const [member, setMember] = useState([]);
   const [memberAccount, setmemberAccount] = useState();
 

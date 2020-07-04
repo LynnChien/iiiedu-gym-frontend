@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./CourseBox.scss";
 import CourseBookingButton from "../course-booking-button/CourseBookingButton";
 import Swal from "sweetalert2";
+import Fade from 'react-reveal/Fade';
 //---------------
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
@@ -76,7 +77,7 @@ function CourseBox(props) {
     const thisUserCourseId = props.bookingData && props.bookingData.filter(i => i.memberId === currentUserId).map(p => p)
     //抓要取消的預約編號
     const thisCanceld = thisUserCourseId && thisUserCourseId.filter(i => i.courseId === getThisCourseId).map(p => p.courseBookingId)
-    // console.log(thisCanceld)
+    // console.log(thisUserCourseId)
 
     //取消預約
     async function userCancelBooking() {
@@ -175,11 +176,22 @@ function CourseBox(props) {
     }
 
     //已額滿按鈕
-    const displayFullBtn = (
-        <>
-            <button value={props.value} className="fullBooking">已額滿</button>
-        </>
-    )
+    function displayFullBtn() {
+        if (thisUserCourseId.filter(i=> i.courseId === getThisCourseId).length === 0) {
+            return (
+                <>
+                    <button value={props.value} className="fullBooking">已額滿</button>
+                </>
+            )
+        } else {
+            return (
+                <>
+                    <button value={props.value} className="alreadyBooked courseBtn" onClick={() => props.myConfirmCancelBooking(props.userCancelBooking)}>取消預約</button>
+                </>
+            )
+        }
+
+    }
 
     //課程彈跳視窗
     function showCJumpWindow() {
@@ -219,28 +231,30 @@ function CourseBox(props) {
 
     return (
         <>
-            <div className="courseBox">
-                {getTimeInData <= nowTime ? <div className="courseBoxCover"></div> : ''}
-                <div className="courseName" onClick={() => showCJumpWindow()}>{props.course.courseName}</div>
-                <div className="courseTime">{newT}</div>
-                <div onClick={() => showEJumpWindow()} className="coachName">
-                    {props.course.Ename}
+            <Fade bottom>
+                <div className="courseBox">
+                    {getTimeInData <= nowTime ? <div className="courseBoxCover"></div> : ''}
+                    <div className="courseName" onClick={() => showCJumpWindow()}>{props.course.courseName}</div>
+                    <div className="courseTime">{newT}</div>
+                    <div onClick={() => showEJumpWindow()} className="coachName">
+                        {props.course.Ename}
+                    </div>
+                    <div>{num.map(i => (i))}/{props.course.courseQuoda}</div>
+                    <div>
+                        {+props.course.numberOfCourse >= +props.course.courseQuoda ? displayFullBtn() :
+                            <CourseBookingButton
+                                value={props.course.courseId}
+                                bookingData={props.bookingData}
+                                addBooking={addBooking}
+                                userCancelBooking={userCancelBooking}
+                                myConfirmAddBooking={myConfirmAddBooking}
+                                myConfirmCancelBooking={myConfirmCancelBooking}
+                                thisUserBookingId={props.thisUserBookingId}
+                            />
+                        }
+                    </div>
                 </div>
-                <div>{num.map(i => (i))}/{props.course.courseQuoda}</div>
-                <div>
-                    {+props.course.numberOfCourse >= +props.course.courseQuoda ? displayFullBtn :
-                        <CourseBookingButton
-                            value={props.course.courseId}
-                            bookingData={props.bookingData}
-                            addBooking={addBooking}
-                            userCancelBooking={userCancelBooking}
-                            myConfirmAddBooking={myConfirmAddBooking}
-                            myConfirmCancelBooking={myConfirmCancelBooking}
-                            thisUserBookingId={props.thisUserBookingId}
-                        />
-                    }
-                </div>
-            </div>
+            </Fade>
         </>
     );
 }
