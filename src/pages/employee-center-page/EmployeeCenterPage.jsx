@@ -110,6 +110,7 @@ function EmployeeCenter({ currentEmployee }) {
 
   return (
     <>
+    <div className="employeeCenterPage">
       <div className="center-box">
         <div className="top">
           <div className="top-box">
@@ -146,6 +147,7 @@ function EmployeeCenter({ currentEmployee }) {
             </div>
           </div>
         </div>
+      </div>
       </div>
     </>
   );

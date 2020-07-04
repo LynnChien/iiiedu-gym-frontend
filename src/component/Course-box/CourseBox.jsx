@@ -135,7 +135,7 @@ function CourseBox(props) {
                 cancelButtonText: '取消',
                 confirmButtonText: '確定預約',
                 reverseButtons: true,
-                customClass:{
+                customClass: {
                     confirmButton: 'popupBtn confirmBtn',
                     cancelButton: 'popupBtn cancelBtn'
                 }
@@ -154,9 +154,13 @@ function CourseBox(props) {
                     )
                 }
             })
-        } 
-        else {
-            alert("請先登入會員")
+        } else {
+            Swal.fire({
+                icon: 'warning',
+                title: '請先登入會員',
+            }).then(() => {
+                props.history.push('/login')
+            })
         }
     }
     //確認取消視窗

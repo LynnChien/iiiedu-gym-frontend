@@ -1,3 +1,6 @@
+.employeeCenterPage{
+  width:1260px;
+  margin: 0 auto;
 .top {
   width: 70%;
   height: 20vh;
@@ -105,7 +108,7 @@
 
     .left-box {
       width: 100%;
-      margin: 0 auto;
+      margin: 30px auto 30px auto;
       display: flex;
       flex-wrap: wrap;
       justify-content: flex-start;
@@ -172,6 +175,7 @@
       }
     }
   }
+}
 }
 
 @media screen and (max-width: 992px) {

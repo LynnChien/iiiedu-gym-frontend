@@ -39,3 +39,28 @@ export const decreaseCheckout = (cartItem) => ({
   type: cartActionTypes.CHECKOUT_DECREASE,
   payload: cartItem,
 });
+
+
+
+//訂單
+export const ReduceItem = item => ({
+    type: cartActionTypes.REDUCE_ITEM,
+    payload: item,
+  
+  });
+  
+  
+  export const ChangeFavr = (item) => ({
+    type: cartActionTypes.CHANGEFAVR_ITEM,
+    payload: item,
+  });
+  
+  export const FavCartItem = (favitem) => ({
+    type: cartActionTypes.ADDEFAVR_ITEM,
+    payload: favitem,
+  });
+  
+  export const delFavCartItem = (item) => ({
+    type: cartActionTypes.delFavCartItem,
+    payload: item,
+  });

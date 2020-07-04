@@ -20,20 +20,50 @@ export const unlikeCartItem = (cartFavoriteItems, item) => {
   delete cartFavoriteItems[item.itemId];
   return { ...cartFavoriteItems };
 };
-
-export const decreaseCheckoutItem = (cartItems, removeItem) => {
-  const existingItem = cartItems.find(
-    (cartItem) => cartItem.itemId === removeItem.itemId
+// Object.values(cartFavoriteItems).filter(
+//   (cartItem) => cartItem.itemId !== item.itemId
+// );
+export const RedeuceCartItem = (cartItems, cartItemsToReduce) => {
+  const existCartItem = cartItems.find(
+    (cartItem) => cartItem.itemId === cartItemsToReduce.itemId
   );
-  if (existingItem.quantity === 1) {
-    return cartItems.filter(
-      (cartItem) => cartItem.itemId !== removeItem.itemId
-    );
+  if (existCartItem === 1) {
+    return cartItems.filter((cart => cart.itemId !== cartItemsToReduce.itemId))
+  }
+  return cartItems.map(
+    cartItem => cartItem.itemId === cartItemsToReduce.itemId ? { ...cartItem, quantity: cartItem.quantity - 1 } : cartItem
+  )
+};
+
+
+
+
+export const ChangeFavr = (cartItems, item) => {
+  return cartItems.filter((i) => i.itemId !== item.itemId);
+};
+
+
+// item 傳入的參數
+
+export const FavCartItem = (cartFavoriteItems, item) => {
+
+
+
+  const test = Object.values(cartFavoriteItems)
+
+  const existCartItem = test.find(
+    (cartFavoriteItems) => cartFavoriteItems.itemId === item.itemId
+  );
+  if (existCartItem) {
+    return Object.values(cartFavoriteItems)
   } else {
-    return cartItems.map((cartItem) =>
-      cartItem.itemId === removeItem.itemId
-        ? { ...cartItem, quantity: cartItem.quantity - 1 }
-        : cartItem
-    );
+    return [...Object.values(cartFavoriteItems), { ...item }]
   }
 };
+
+
+export const delFavCartItem = (cartFavoriteItems, item) => {
+  const test = Object.values(cartFavoriteItems)
+  return test.filter((i) => i.itemId !== item.itemId);
+}
+

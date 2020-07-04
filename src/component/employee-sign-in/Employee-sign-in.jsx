@@ -24,6 +24,7 @@ class EmployeeSignIn extends React.Component {
     const currentEmployee = employeeList.find(
       (employee) => employee.Eemail === email && employee.Epwd === password
     );
+    console.log(currentEmployee)
     if (currentEmployee) {
       employeeLogin(currentEmployee);
       history.push(`/employeecenter/${currentEmployee.Eid}`);

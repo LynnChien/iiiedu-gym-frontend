@@ -1,6 +1,5 @@
 import React from "react"
 import './CourseBookingButton.scss'
-import CustomButton from "../custom-button/Custom-button"
 //---------------
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";

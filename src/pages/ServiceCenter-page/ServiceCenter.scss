@@ -1,0 +1,73 @@
+// body {
+//     max-width: 900px;
+// }
+.serviceCenter{
+    width:1260px;
+    margin:0 auto;
+.page {
+    display: flex;
+}
+
+.left-body {
+    width: 300px;
+}
+
+.right-body {
+    width: 620px;
+}
+
+button {
+    outline: none;
+    border: none;
+    background: transparent;
+}
+.reply {
+    width: 70%;
+}
+.home-title {
+    color: #1178b8;
+    cursor: pointer;
+}
+button {
+    outline: none;
+    border: none;
+    background: transparent;
+}
+.nav-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    .nav-button {
+        cursor: pointer;
+        font-size: 16px;
+        margin: 10px 5px 10px 0 ;
+        text-align: left;
+        display: flex;
+        align-items: center;
+        svg {
+            font-size: 24px;
+        }
+    }
+    .nav-button:hover .question-icon {
+        width: 32px;
+    }
+    .nav-button:hover .service-icon {
+        width: 32px;
+    }
+    .nav-button:hover .service-list-icon {
+        width: 32px;
+    }
+    .question-icon {
+        width: 0;
+        transition: 0.5s;
+    }
+    .service-icon {
+        width: 0;
+        transition: 0.5s; 
+    }
+    .service-list-icon {
+        width: 0;
+        transition: 0.5s; 
+    }
+}
+}

@@ -1,41 +1,48 @@
 .articleContainer {
+  width: 1260px;
+  height: 1000px;
   //   border: 1px solid #000000;
-  height: calc(100vh - 284px);
-  margin: 0px auto;
-  width: 100%;
+  margin: 200px auto;
   .edit-list-container {
-    width: 100%;
+    width: 1000px;
     height: 50px;
     margin: 0 auto;
     color: #fecc2f;
     .edit-list {
       list-style: none;
       display: flex;
-      width: 100%;
+      width: 1000px;
       height: 100px;
       justify-content: space-around;
+      
+ 
     }
   }
   .articleItem {
-    width: 100%;
+    width: 1000px;
     height: 50px;
     border: 1px solid #000000;
+   
     margin: 0 auto;
+
 
     .articleList {
       display: flex;
       list-style: none;
-      justify-content: space-around;
-
-      .articleListId {
+      justify-content:space-around;
+  
+      .articleListId{
         margin-left: 60px;
       }
+     
 
+     
+  
       .articleListTitle {
         width: 150px;
         height: 40px;
         margin-left: 60px;
-
+  
         overflow: hidden;
         text-overflow: ellipsis;
         display: -webkit-box;
@@ -46,7 +53,7 @@
       .articleListContent {
         width: 150px;
         height: 40px;
-
+      
         overflow: hidden;
         text-overflow: ellipsis;
         display: -webkit-box;
@@ -54,10 +61,10 @@
         -webkit-box-orient: vertical;
       }
 
-      .features {
+      .features{
         margin: 10px 10px;
-
-        button {
+        
+        button{
           margin-left: 5px;
           color: #1178b8;
         }
