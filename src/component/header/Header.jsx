@@ -89,7 +89,7 @@ const Header = ({
             課程資訊
           </Link>
           <Link
-            to="/articles"
+            to="/ServiceCenter"
             className="option"
             onClick={() => {
               shopShowFilterTag("選擇篩選");
@@ -102,6 +102,16 @@ const Header = ({
             }}
           >
             心得討論
+          </Link>
+          <Link
+            to="/ServiceCenter"
+            className="option"
+            onClick={() => {
+              shopShowFilterTag("選擇篩選");
+              setSubDiv(false);
+            }}
+          >
+            客服中心
           </Link>
           <Link
             to={

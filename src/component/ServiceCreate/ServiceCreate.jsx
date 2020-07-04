@@ -5,6 +5,7 @@ import Swal from 'sweetalert2'
 
 const ServiceCreate = ({onClick , currentUserData}) => {
     const memberId = currentUserData.id
+    console.log(memberId);
     // const [detailOptions, setDetailOptions] = useState();
 
     // useEffect(() => {
@@ -91,7 +92,7 @@ const ServiceCreate = ({onClick , currentUserData}) => {
             {/* <button onClick={()=>()}>test</button> */}
             <h3><span className="h3-span">問題回報</span><span>線上表單</span></h3>
             <div className="select-box">
-                <select name="category" id="category" onChange={e=>setSelectType(e.target.value)} value={selectType}>
+                <select className="select-question-box" name="category" id="category" onChange={e=>setSelectType(e.target.value)} value={selectType}>
                     <option>選擇問題</option>
                     <option value="course">課程問題</option>
                     <option value="coach">教練問題</option>
@@ -106,17 +107,17 @@ const ServiceCreate = ({onClick , currentUserData}) => {
                             <option value={item.value} label={item.name}></option>
                         )} */}
                     {/* </select>:""} */}
-                <input className="input-Question" onChange={e => setName(e.target.value)} value={name} id="Name" type="text" placeholder="您的姓名" />
-                <input className="input-Question" onChange={e => setPhoneNumber(e.target.value)}  value={phoneNumber} id="phoneNumber" type="text" placeholder="您的聯絡電話" />
-                <input className="input-Question" onChange={e => setEmail(e.target.value)}  value={email} id="Email" type="text" placeholder="您的連絡信箱" />
-                <input className="input-Question" onChange={e => setTitle(e.target.value)}  value={title} id="Complaint-title" type="text" placeholder="您的問題主旨" />
+                <input className="input-Question" onChange={e => setName(e.target.value)} value={name} id="Name" type="text" maxlength="10" placeholder="您的姓名" />
+                <input className="input-Question" onChange={e => setPhoneNumber(e.target.value)}  value={phoneNumber} id="phoneNumber" type="tel" maxlength="10" placeholder="您的聯絡電話" />
+                <input className="input-Question" onChange={e => setEmail(e.target.value)}  value={email} id="Email" type="email" maxlength="24" placeholder="您的連絡信箱" />
+                <input className="input-Question" onChange={e => setTitle(e.target.value)}  value={title} id="Complaint-title" type="text" maxlength="24" placeholder="您的問題主旨" />
                 <textarea className="Question-text" value={listText}
                     id="Complaint-textarea" name="question-textarea" rows="10" cols="50"
                     onChange={e => setListText(e.target.value)} placeholder="請描述您的問題..."></textarea>
                 {/* <input type="file" className="uploadImage" /> */}
                 <div className="button-box">
-                    <button className="delete" onClick={()=>  deleteData()}>取消重填</button>
-                    <button className="post" onClick={()=>  clickData()}>確認送出</button>
+                    <button className="create-delete-btn" onClick={()=>  deleteData()}>取消重填</button>
+                    <button className="create-post-btn" onClick={()=>  clickData()}>確認送出</button>
                 </div>
             </div>
         </>

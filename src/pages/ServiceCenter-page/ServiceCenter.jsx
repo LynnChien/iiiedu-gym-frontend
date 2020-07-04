@@ -30,10 +30,9 @@ const handleChange = (i) => {
     console.log(i);
 }
     return (
-        <div className="serviceCenter">
-        <div className="page">
+        <div className="service-page">
             {/* <Header /> */}
-            <div className="left-body">
+            <div className="service-left-body">
                 <h1 href="./home.html" className="home-title" onClick={() => setNav('常見問題')}>客服中心</h1>
                 <div className="nav-box">
                     <button className="nav-button" onClick={() => setNav('常見問題')}>常見問題ＦＡＱ
@@ -46,13 +45,12 @@ const handleChange = (i) => {
                     </button>
                 </div>
             </div>
-            <div className="right-body">
+            <div className="service-right-body">
                 {nav === '常見問題' &&  <FaqList/>  }
                 {nav === '問題回報線上表單' &&  <ServiceCreate onClick={handleChange} currentUserData={currentUserData}/>  }
                 {nav === '回報紀錄列表' &&  <ServiceRecord currentUserData={currentUserData}/>  }
                 {/* 依照state的字串，去顯示component */}
             </div>
-        </div>
         </div>
     )
 }

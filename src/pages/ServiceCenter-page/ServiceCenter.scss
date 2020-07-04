@@ -1,73 +1,64 @@
-// body {
-//     max-width: 900px;
-// }
-.serviceCenter{
-    width:1260px;
-    margin:0 auto;
-.page {
+.service-page {
     display: flex;
-}
+    width: 1260px;
 
-.left-body {
-    width: 300px;
-}
+    .service-right-body {
+        width: 75%;
+        padding-left: 3%;
+    }
 
-.right-body {
-    width: 620px;
-}
+    .service-left-body {
+        width: 25%;
+        padding-left: 8%;
 
-button {
-    outline: none;
-    border: none;
-    background: transparent;
-}
-.reply {
-    width: 70%;
-}
-.home-title {
-    color: #1178b8;
-    cursor: pointer;
-}
-button {
-    outline: none;
-    border: none;
-    background: transparent;
-}
-.nav-box {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    .nav-button {
-        cursor: pointer;
-        font-size: 16px;
-        margin: 10px 5px 10px 0 ;
-        text-align: left;
-        display: flex;
-        align-items: center;
-        svg {
-            font-size: 24px;
+        .home-title {
+            color: #1178b8;
+            cursor: pointer;
         }
+        .nav-box {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            .nav-button {
+                outline: none;
+                border: none;
+                background: transparent;
+                cursor: pointer;
+                font-size: 1rem;
+                margin: 10px 5px 10px 0;
+                text-align: left;
+                display: flex;
+                align-items: center;
+                svg {
+                    font-size: 1.5rem;
+                }
+            }
+            .nav-button:hover .question-icon {
+                width: 2rem;
+            }
+            .nav-button:hover .service-icon {
+                width: 2rem;
+            }
+            .nav-button:hover .service-list-icon {
+                width: 2rem;
+            }
+            .question-icon {
+                width: 0;
+                transition: 0.5s;
+            }
+            .service-icon {
+                width: 0;
+                transition: 0.5s;
+            }
+            .service-list-icon {
+                width: 0;
+                transition: 0.5s;
+            }
+        }
+        
     }
-    .nav-button:hover .question-icon {
-        width: 32px;
-    }
-    .nav-button:hover .service-icon {
-        width: 32px;
-    }
-    .nav-button:hover .service-list-icon {
-        width: 32px;
-    }
-    .question-icon {
-        width: 0;
-        transition: 0.5s;
-    }
-    .service-icon {
-        width: 0;
-        transition: 0.5s; 
-    }
-    .service-list-icon {
-        width: 0;
-        transition: 0.5s; 
-    }
+    
 }
-}
+
+
+

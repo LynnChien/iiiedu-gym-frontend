@@ -71,25 +71,19 @@ const ServiceRecordDetail = (props) => {
 
     return (
         <>
-            {/* <span className="list-title-box">
-                <div className="number">單號</div>
-                <div className="user-id">會員編號</div>
-                <div className="user-name">姓名</div>
-                <div className="phone-number">連絡電話</div>
-                <div className="e-mail">E-mail</div>
-                <div className="QA-body">問答內容</div>
-                <div className="create-time">建立時間</div>
-            </span> */}
             <div className="border-button"></div>
             <span className="list-box">
                 <div className="number">{props.complaintid}</div>
                 <div className="user-id">{props.memberid}</div>
                 <div className="user-name">{props.name}</div>
+                <div className="complaint-title">{props.complainttitle}</div>
                 <div className="phone-number">{props.phonenumber}</div>
                 <div className="e-mail">{props.email}</div>
                 <div className="QA-body">
                     <button className="content-btn"
-                        onClick={handleClick}><FiFileText className="content-icon" /></button>
+                        onClick={handleClick}>
+                        <FiFileText className="content-icon" />
+                    </button>
                 </div>
                 <div className="create-time">{showtime(props.createtime)}</div>
             </span>
@@ -104,18 +98,20 @@ const ServiceRecordDetail = (props) => {
                         <div className="history-body" >
                             <div className={`${props.memberid}` === '1' ? 'history-right' : 'history-left'} >
                                 {props.memberid === '1'
-                                    ? <div>Admin:<br />{props.complainttextarea} <a >{complaintTime(props.createtime)}</a></div>
-                                    : <div>Member:<br />{props.complainttextarea}{complaintTime(props.createtime)}</div>}
+                                    ? <div >Admin:<br />{props.complainttextarea} 
+                                    <div className="reply-time">{complaintTime(props.createtime)}</div></div>
+                                    : <div >Member:<br />{props.complainttextarea}
+                                    <div className="reply-time">{complaintTime(props.createtime)}</div></div>}
                             </div>
                             {/* <div className="history-left">會員-{props.name}：{props.complainttextarea}</div> */}
                             {Data.map((item, index) =>
                                 <div className={item.responder === '1' ? 'history-right' : 'history-left'} >
                                     {item.responder === '1'
-                                        ? <div className="reply-box">Admin: <br/>{item.replycontent} 
-                                        <a className="creat-time">{commentTime(item.replytime)}</a>
+                                        ? <div >Admin: <br />{item.replycontent}
+                                            <div className="reply-time">{commentTime(item.replytime)}</div>
                                         </div>
-                                        : <div className="reply-box">Member: <br/>{item.replycontent}
-                                        <a className="creat-time">{commentTime(item.replytime)}</a>
+                                        : <div >Member: <br />{item.replycontent}
+                                            <div className="reply-time">{commentTime(item.replytime)}</div>
                                         </div>}
                                 </div>
                             )}

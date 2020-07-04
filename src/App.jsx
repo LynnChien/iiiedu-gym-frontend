@@ -3,6 +3,10 @@ import { Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
 
 import Header from "./component/header/Header";
+//首頁----------
+import HomePage from "./pages/home-page/HomePage"
+//footer---------
+import Footer from "./component/footer/Footer"
 
 //課程----------
 import Courses from "./pages/courses-page/Courses";
@@ -64,7 +68,6 @@ const EmployeeSignInOutPage = lazy(() =>
   import("./pages/employee-sign-in-out-page/employee-sign-in-out-page")
 );
 // -----------
-const HomePage = () => <div>HomePage</div>;
 
 // APP component
 const App = ({ userListStart, employeeListStart }) => {
@@ -77,11 +80,11 @@ const App = ({ userListStart, employeeListStart }) => {
     <div>
       <Header />
       <div className="space" />
+      <Route exact path="/" component={HomePage} />
       <main>
         <Switch>
           <ErrorBoundary>
             <Suspense fallback={<LoadingSpinner />}>
-              <Route exact path="/" component={HomePage} />
               <Route exact path="/shopping" component={ShopPage} />
               <Route
                 exact
@@ -129,7 +132,7 @@ const App = ({ userListStart, employeeListStart }) => {
           </ErrorBoundary>
         </Switch>
       </main>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 };
