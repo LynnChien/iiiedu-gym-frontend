@@ -89,7 +89,7 @@ const Header = ({
             課程資訊
           </Link>
           <Link
-            to="/ServiceCenter"
+            to="/articles"
             className="option"
             onClick={() => {
               shopShowFilterTag("選擇篩選");
