@@ -28,11 +28,12 @@
       position: absolute;
       right: 0;
       top: 20px;
-      background: #1178b8;
-      border: none;
+      background: none;
+      border: 2px solid #1178b8;
       cursor: pointer;
       border-radius: 3px;
       &:hover {
+        background: #1178b8;
         color: #ffffff;
       }
     }

@@ -93,10 +93,12 @@
       height: 45px;
       margin: 0 10px;
       border-radius: 5px;
-      border: none;
+      background: none;
+      border: 2px solid #1178b8;
       cursor: pointer;
       &:hover {
         background: #1178b8;
+        color: #ffffff;
       }
     }
     .articleUpdateSubmit {
@@ -104,10 +106,12 @@
       height: 45px;
       margin: 0 10px;
       border-radius: 5px;
-      border: none;
+      background: none;
+      border: 2px solid #1178b8;
       cursor: pointer;
       &:hover {
         background: #1178b8;
+        color: #ffffff;
       }
     }
   }

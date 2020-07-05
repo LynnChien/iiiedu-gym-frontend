@@ -192,7 +192,7 @@ const ArticlesPreview = (props) => {
               </div>
               <div className="card-body-under">
                 <div className="card-like">
-                  <div className="icon">
+                  <div className="article-preview-icon">
                   
                     <AiFillLike onClick={() => {
                       postArticleLikeUpdate({

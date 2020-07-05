@@ -140,11 +140,12 @@ $text: #000000;
           display: flex;
           font-size: 12px;
           margin-left: 180px;
+          margin-top: 2px;
 
           .card-like {
             display: flex;
             margin-top: 1px;
-            .icon {
+            .article-card-icon {
               margin-top: 1px;
             }
           }
