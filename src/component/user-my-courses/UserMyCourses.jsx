@@ -2,9 +2,20 @@ import React, { useState, useEffect } from "react";
 import UserCourseUpdateBtn from "../../component/user-course-update-btn/UserCourseUpdateBtn"
 import "./UserMyCourses.scss"
 import Swal from "sweetalert2";
+//---------------
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
+import { createStructuredSelector } from "reselect";
+import { currentUserSelect } from "../../redux/user/user-selector";
+//---------------
 
 
 function UserMyCourses(props) {
+    //---------------
+    const { currentUser } = props
+    //該使用者的id
+    const currentUserId = currentUser ? currentUser.id : ''
+    //---------------
 // console.log(props.userCourse)
     const [userBooking, setUserBooking] = useState([])
 
@@ -63,12 +74,49 @@ function UserMyCourses(props) {
     // console.log(getThisBookingState)
 
     function userConfirmUpdateBooking(userCancelBooking) {
-        let c = window.confirm("取消後無法再次預約該課程，確定要取消嗎?")
-        if (c === true) {
-            userCancelBooking()
-            
+        if (currentUser !== '') {
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                    confirmButton: 'popupBtn confirmBtn',
+                    cancelButton: 'popupBtn cancelBtn'
+                },
+                buttonsStyling: false
+            })
+
+            swalWithBootstrapButtons.fire({
+                title: `取消課程：${props.userCourse.courseName}`,
+                text: `課程時間：${props.userCourse.courseTime}`,
+                icon: 'question',
+                showCancelButton: true,
+                cancelButtonText: '不取消了',
+                confirmButtonText: '確定取消',
+                reverseButtons: true,
+                customClass: {
+                    confirmButton: 'popupBtn confirmBtn',
+                    cancelButton: 'popupBtn cancelBtn'
+                }
+            }).then((result) => {
+                if (result.value) {
+                    swalWithBootstrapButtons.fire(
+                        '取消成功!',
+                        '期待在其他課程與你相見',
+                        'success'
+                    )
+                    userCancelBooking()
+                } else if (result.dismiss === Swal.DismissReason.cancel) {
+                    swalWithBootstrapButtons.fire(
+                        '太好了!',
+                        '記得來上課喔～',
+                    )
+                }
+            })
         } else {
-            console.log('nooo')
+            Swal.fire({
+                icon: 'warning',
+                title: '請先登入會員',
+            }).then(() => {
+                props.history.push('/login')
+            })
         }
     }
 
@@ -105,8 +153,8 @@ function UserMyCourses(props) {
         <>
             <ul className="userCoursesInfo">
                 {nowTime > newTime ? <div className="userCoursesInfoCover"></div> : ""}
-                <li className="courseDayUser">{newD}</li>
-                <li className="courseTimeUser">{newT}</li>
+                <li className="courseDayInUser">{newD}</li>
+                <li className="courseTimeInUser">{newT}</li>
                 <li className="courseNameInUser" onClick={() => showCJumpWindow()}>{props.userCourse.courseName}</li>
                 <li className="courseCategoryInUser">{props.userCourse.categoryName}</li>
                 <li className="coachNameInUser" onClick={() => showEJumpWindow()}>{props.userCourse.Ename}</li>
@@ -124,4 +172,10 @@ function UserMyCourses(props) {
         </>
     )
 }
-export default UserMyCourses;
+//---------------
+const mapStateToProps = createStructuredSelector({
+    currentUser: currentUserSelect,
+});
+
+export default withRouter(connect(mapStateToProps)(UserMyCourses));
+  //---------------

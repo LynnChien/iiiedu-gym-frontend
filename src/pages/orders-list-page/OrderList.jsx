@@ -3,6 +3,7 @@ import './OrdessrList.scss'
 import { Link } from 'react-router-dom'
 import { FaHome } from 'react-icons/fa';
 import OrderListDetail from '../../component/OrderList/OrderListDetail.jsx'
+import UserCenterPage from '../user-center-page/user-center-page';
 
 
 const OrderList = () => {
@@ -10,6 +11,7 @@ const OrderList = () => {
         <>
 
 <div className="orderlist">
+
             <div className="title">
                 <div className="title-cotainer">
                     <ol className="title-ol">
@@ -19,6 +21,7 @@ const OrderList = () => {
                     <h3>訂單紀錄</h3>
                 </div>
             </div>
+
             <div className="container">
                 <div className="article">
                     <ul className="order-menu">
@@ -32,12 +35,12 @@ const OrderList = () => {
                             </Link>
                         </li>
                         <li>  <Link to="/OrderList/shipping">
-                            <div className='btn-holder'>
-                                <button className="btn btn-3 hover-border-5">
-                                    <span>       出貨中
-                                    </span>
-                                </button>
-                            </div></Link>
+                                <div className='btn-holder'>
+                                    <button className="btn btn-3 hover-border-5">
+                                        <span>       出貨中
+                                        </span>
+                                    </button>
+                                </div></Link>
                         </li>
                         <li><Link to="/OrderList/compeleted">
                             <div className='btn-holder'>
@@ -59,6 +62,7 @@ const OrderList = () => {
                 </div>
             </div>
             </div>
+
         </>
     )
 }

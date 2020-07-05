@@ -24,6 +24,7 @@ class EmployeeSignIn extends React.Component {
     const currentEmployee = employeeList.find(
       (employee) => employee.Eemail === email && employee.Epwd === password
     );
+    console.log(currentEmployee)
     if (currentEmployee) {
       employeeLogin(currentEmployee);
       history.push(`/employeecenter/${currentEmployee.Eid}`);
@@ -41,7 +42,7 @@ class EmployeeSignIn extends React.Component {
     return (
       <div className="sign-in">
         <h2 className="title">教練員工帳號登入</h2>
-        <span>Sign in with your email & password</span>
+        <span>請輸入e-mail和密碼登入</span>
         <form onSubmit={this.handleSubmit}>
           <FormInput
             name="email"
@@ -56,10 +57,11 @@ class EmployeeSignIn extends React.Component {
             value={this.state.password}
             onChange={this.handleChange}
             label="Password"
+            type="password"
             required
           />
           <div className="buttons">
-            <CustomButton type="submit">Sign In</CustomButton>
+            <CustomButton type="submit">登入</CustomButton>
           </div>
         </form>
       </div>

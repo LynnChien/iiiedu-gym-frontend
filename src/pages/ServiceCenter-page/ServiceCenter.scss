@@ -1,0 +1,64 @@
+.service-page {
+    display: flex;
+    width: 1260px;
+
+    .service-right-body {
+        width: 75%;
+        padding-left: 3%;
+    }
+
+    .service-left-body {
+        width: 25%;
+        padding-left: 8%;
+
+        .home-title {
+            color: #1178b8;
+            cursor: pointer;
+        }
+        .nav-box {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            .nav-button {
+                outline: none;
+                border: none;
+                background: transparent;
+                cursor: pointer;
+                font-size: 1rem;
+                margin: 10px 5px 10px 0;
+                text-align: left;
+                display: flex;
+                align-items: center;
+                svg {
+                    font-size: 1.5rem;
+                }
+            }
+            .nav-button:hover .question-icon {
+                width: 2rem;
+            }
+            .nav-button:hover .service-icon {
+                width: 2rem;
+            }
+            .nav-button:hover .service-list-icon {
+                width: 2rem;
+            }
+            .question-icon {
+                width: 0;
+                transition: 0.5s;
+            }
+            .service-icon {
+                width: 0;
+                transition: 0.5s;
+            }
+            .service-list-icon {
+                width: 0;
+                transition: 0.5s;
+            }
+        }
+        
+    }
+    
+}
+
+
+

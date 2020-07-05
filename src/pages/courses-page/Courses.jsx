@@ -96,7 +96,7 @@ function Courses(props) {
 
   return (
     <>
-      <div>
+      <div className="coursesWrapper">
         <div className="courseBannerContainer">
           <div className="courseBanner">
           </div>

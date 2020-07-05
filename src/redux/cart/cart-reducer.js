@@ -3,7 +3,10 @@ import {
   addShopItemToCart,
   removeCartItem,
   unlikeCartItem,
-  decreaseCheckoutItem,
+  ChangeFavr,
+  RedeuceCartItem,
+  FavCartItem,
+  delFavCartItem,
 } from "./cart-utils";
 
 const INITIAL_STATE = {
@@ -51,18 +54,35 @@ const cartReducer = (state = INITIAL_STATE, action) => {
           action.quantity
         ),
       };
-    case cartActionTypes.CHECKOUT_CLEAN:
-      return {
-        ...state,
-        cartItems: state.cartItems.filter(
-          (cartItem) => cartItem.itemId !== action.payload.itemId
-        ),
-      };
-    case cartActionTypes.CHECKOUT_DECREASE:
-      return {
-        ...state,
-        cartItems: decreaseCheckoutItem(state.cartItems, action.payload),
-      };
+      case cartActionTypes.REDUCE_ITEM:
+        return {
+          ...state,
+          cartItems: RedeuceCartItem(state.cartItems, action.payload),
+        };
+  
+  
+  
+      ///還沒改完
+      case cartActionTypes.CHANGEFAVR_ITEM:
+        return {
+          ...state,
+          cartItems: ChangeFavr(state.cartItems, action.payload),
+        };
+  
+  
+      case cartActionTypes.ADDEFAVR_ITEM:
+        return {
+          ...state,
+          cartFavoriteItems: FavCartItem(state.cartFavoriteItems, action.payload),
+        };
+  
+  
+      case cartActionTypes.delFavCartItem:
+        return {
+          ...state,
+          cartFavoriteItems: delFavCartItem(state.cartFavoriteItems, action.payload),
+        };
+  
     default:
       return state;
   }

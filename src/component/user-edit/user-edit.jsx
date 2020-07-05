@@ -8,7 +8,9 @@ import { currentUserSelect } from "../../redux/user/user-selector";
 
 function UserEdit({ currentUserSelect }) {
   // console.log(currentUserSelect);
-
+  const { id } = { ...currentUserSelect }
+  // console.log(id)
+  // console.log(currentUserSelect)
   const [member, setMember] = useState([]);
   const [memberAccount, setmemberAccount] = useState();
 
@@ -21,26 +23,34 @@ function UserEdit({ currentUserSelect }) {
   const [city, setcity] = useState();
   const [contury, setcontury] = useState();
   const [memberAddress, setaddress] = useState();
-  const [memberPwd, setpwd] = useState();
+  const [memberPwd, setpwd] = useState("");
   const [memberImg, setimg] = useState();
 
-  async function AddFromToServer() {
-    axios.post("http://localhost:5000/api/user/UpdateUser", {
+
+  const [memberid, setmemberid] = useState();
+
+
+  async function AddFromToServer(e) {
+
+    axios.post("http://localhost:5000/api/user/profile/UpdateUser", {
       data: {
         memberName,
         memberNickname,
         memberGender,
-        memberBirth,
+        // memberBirth,
         memberEmail,
         memberPhoneNum,
         memberAddress,
         memberPwd,
         memberImg,
       },
-      currentUserSelect,
+      memberid,
       city,
       contury,
+
     });
+    e.preventDefault();
+
   }
   //圖片上傳後轉base64存進資料庫
   const handleImgChange = (e) => {
@@ -56,13 +66,13 @@ function UserEdit({ currentUserSelect }) {
   useEffect(() => {
     const FetchData = async () => {
       const result = await axios(
-        `http://localhost:5000/api/user/${currentUserSelect.id}`
+        `http://localhost:5000/api/user/profile/${memberid}`
       );
-      // console.log(result.data.memberItem.membersRow)
+      // console.log('test',result.data.memberItem.membersRow)
       setMember(result.data.memberItem.membersRow);
     };
     FetchData();
-  }, [currentUserSelect.id]);
+  }, [memberid]);
 
   useEffect(() => {
     member.forEach((el) => {
@@ -71,8 +81,15 @@ function UserEdit({ currentUserSelect }) {
       setmail(el.memberEmail);
       setmemberAccount(el.memberAccount);
       setimg(el.memberImg);
+      setpwd(el.memberPwd)
     });
   }, [member]);
+
+
+  useEffect(() => {
+    setmemberid(id)
+    // console.log('test',memberid)
+  }, [id, memberid])
   return (
     <>
       <div className="edit">
@@ -84,13 +101,14 @@ function UserEdit({ currentUserSelect }) {
 
         <div className="horizontally-line"></div>
         <p className="edit-account">使用者帳號: {memberAccount}</p>
-        <form onSubmit={() => AddFromToServer()}>
+        <form >
           <div className="form-wrapper">
             <div className="left-form">
               <input
                 className="user-input"
                 type="text"
                 placeholder=" 請輸入姓名"
+
                 onChange={(e) => setName(e.target.value)}
               />
               <input
@@ -169,33 +187,35 @@ function UserEdit({ currentUserSelect }) {
                 <p>檔案限制:JPEG、PNG</p>
               </div>
               <div></div>
-              <p className="right-title">修改密碼</p>
-              <input
-                className="user-input-long"
-                minLength="8"
-                type="password"
-                pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z a-z]).*$"
-                placeholder=" 請輸入舊密碼"
-                onChange={(e) => setpwd(e.target.value)}
-              />
-              <div></div>
-              <input
-                className="user-input-long"
-                minLength="8"
-                type="password"
-                pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z a-z]).*$"
-                placeholder=" 請輸入新密碼"
-              />
-              <div></div>
-              <input
-                className="user-input-long"
-                minLength="8"
-                type="password"
-                pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z a-z]).*$"
-                placeholder=" 請再輸入一次新密碼"
-              />
-              <div></div>
-              <button type="submit">儲存</button>
+              <div className="userCard">
+                <p className="right-title">修改密碼</p>
+                <input
+                  className="user-input-long"
+                  minLength="8"
+                  type="password"
+                  pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z a-z]).*$"
+                  placeholder=" 請輸入舊密碼"
+                  onChange={(e) => setpwd(e.target.value)}
+                />
+                <div></div>
+                <input
+                  className="user-input-long"
+                  minLength="8"
+                  type="password"
+                  pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z a-z]).*$"
+                  placeholder=" 請輸入新密碼"
+                />
+                <div></div>
+                <input
+                  className="user-input-long"
+                  minLength="8"
+                  type="password"
+                  pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z a-z]).*$"
+                  placeholder=" 請再輸入一次新密碼"
+                />
+                <div></div>
+                <button onClick={() => AddFromToServer()}>儲存</button>
+              </div>
             </div>
           </div>
         </form>

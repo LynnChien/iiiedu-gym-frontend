@@ -110,39 +110,49 @@ function EmployeeCenter({ currentEmployee }) {
 
   return (
     <>
-      <div className="center-box">
-        <div className="top">
-          <div className="top-box">
-            <figcaption className="people-box-top">
-              <img className="people-top" alt="" src={currentEmployee.Eimg} />
-              <figure className="people-content-top">
-              <h1 className="top-title">{currentEmployee.Ename}</h1>
-              </figure>
-            </figcaption>
-            <button
-              className="addcourse"
-              onClick={() => {
-                window.location.replace("http://localhost:3000/employeeform");
-              }}
-            >
-              課程上傳
-            </button>
+      <div className="employeeCenterPage">
+        <div className="center-box">
+          <div className="center-top">
+            <div className="centertop-box">
+                <figcaption className="centerpeople-box-top">
+                  <img
+                    className="people-top"
+                    alt=""
+                    src={currentEmployee.Eimg}
+                  />
+                  <figure className="centerpeople-content-top">
+                    <h1 className="top-title">{currentEmployee.Ename}</h1>
+                  </figure>
+                </figcaption>
+              <button
+                className="addcourse"
+                onClick={() => {
+                  window.location.replace("http://localhost:3000/employeeform");
+                }}
+              >
+                課程上傳
+              </button>
+            </div>
           </div>
-        </div>
-        <div className="box">
-          <div className="left">
-            <div className="left-box">{course}</div>
-          </div>
-          <div className="right">
-            <figcaption className="people-box-right">
-              <img className="people-right" alt="" src={currentEmployee.Eimg} />
-              <figure className="people-content-right">
-                <h1 className="right-title">{currentEmployee.Ename} 教練</h1>
-              </figure>
-            </figcaption>
-            <div className="data-box">
-              <div className="data">{employeeCapital}</div>
-              <div className="expertise">{employeeRecord}</div>
+          <div className="box">
+            <div className="left">
+              <div className="left-box">{course}</div>
+            </div>
+            <div className="right">
+              <figcaption className="people-box-right">
+                <img
+                  className="people-right"
+                  alt=""
+                  src={currentEmployee.Eimg}
+                />
+                <figure className="people-content-right">
+                  <h1 className="right-title">{currentEmployee.Ename} 教練</h1>
+                </figure>
+              </figcaption>
+              <div className="data-box">
+                <div className="data">{employeeCapital}</div>
+                <div className="expertise">{employeeRecord}</div>
+              </div>
             </div>
           </div>
         </div>

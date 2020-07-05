@@ -84,7 +84,7 @@ const CartDropdown = ({
         <CustomButton
           onClick={() => {
             taggleCartDropdown();
-            history.push("/checkout");
+            history.push("/CartList");
           }}
         >
           結帳
