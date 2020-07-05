@@ -18,18 +18,22 @@ const ArticlesPreview = (props) => {
   const { currentUserData } = props
   //該使用者的id
   const currentUserId = currentUserData ? currentUserData.id : ''
-  console.log(currentUserId)
+  // console.log(currentUserId)
 
   const currentUserImg = currentUserData ? currentUserData.memberImg : ''
   // const currentUserNickname = currentUserData ? currentUserData.memberNickname : ''
+  // const currentUserNickname = currentUserData ? currentUserData.memberNickname : ''
+  const currentUserName = currentUserData ? currentUserData.memberName : ''
+  // console.log(currentUserImg)
 
 
 
 
   const [Data, setData] = useState()
   const [articleId, setArticleId] = useState("")
-  const [memberId] = useState(currentUserId)
-  const [memberName] = useState("")
+  const [memberId,setMemberId] = useState(currentUserId)
+  const [memberName,setmemberName] = useState("")
+  // const [memberNickname, setMemberNickname] = useState("")
   const [content, setContent] = useState("")
   const [memberImg,setMemberImg] = useState("")
   const [comments, setComments] = useState("")
@@ -39,9 +43,11 @@ const ArticlesPreview = (props) => {
 
   // console.log(commentsNum);
 
-  // useEffect(() => {
-  //   setMemberImg(currentUserImg)
-  // },[currentUserImg])
+  useEffect(() => {
+    setMemberImg(currentUserImg)
+    setmemberName(currentUserName)
+    setMemberId(currentUserId)
+  },[currentUserImg,currentUserName,currentUserId])
   //取得文章資料
   useEffect(() => {
     const FetchData = async (id) => {

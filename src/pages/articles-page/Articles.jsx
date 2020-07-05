@@ -1,13 +1,21 @@
 import React, { useState, useEffect } from "react"
-import { Link, withRouter } from "react-router-dom"
-
+import { withRouter } from "react-router-dom"
+import { connect } from "react-redux"
 import "./Articles.scss"
-// import Swal from 'sweetalert2'
+import Swal from 'sweetalert2'
 
 import ArticleCard from "../../component/article-card/ArticleCard"
 import ArticlePopular from "../../component/article-popular/ArticlePopular"
 
+import { createStructuredSelector } from "reselect"
+import { currentUserSelect } from "../../redux/user/user-selector"
+
 function Articles(props) {
+
+  const { currentUserData } = props
+  //該使用者的id
+  const currentUserId = currentUserData ? currentUserData.id : ''
+  // console.log(currentUserId)
   const [allArticles, setAllArticles] = useState([])
 
   const [text, setText] = useState("")
@@ -93,24 +101,31 @@ function Articles(props) {
           </button>
         </div>
 
-        <Link to="./articlesAdd">
+
+
+
+
+
         <div className="articleHomePageAdd">
-          <button className="articleHomePageAdd-btn" 
-          // onClick={() => {
-          //   Swal.fire({
-          //     title: '請先登入會員'
+          <button className="articleHomePageAdd-btn"
+            onClick={() => {
 
-          //   }).then((result) => {
-          //     if (result.value) {
-          //       props.history.push("/login")
-          //     }
-          //   })
 
-          // }}
-          
-          >發表文章</button>
+              if (currentUserId) {
+                props.history.push("/articlesAdd")
+              } else {
+                Swal.fire('請登入會員喔!!').then((result) => {
+                  if (result.value) {
+                    props.history.push("/login")
+                 
+                  }
+                })
+
+              }
+
+            }}>發表文章</button>
         </div>
-        </Link>
+
         <div className="article-page">
           <div className="article-container-left">
             <ArticleCard
@@ -125,7 +140,7 @@ function Articles(props) {
               <ArticlePopular />
             </div>
             <div className="article-Tag-btn">
-            <div className="article-Tag-popular">熱門標籤</div>
+              <div className="article-Tag-popular">熱門標籤</div>
               <button
                 className="articleTagButton"
                 onClick={() => {
@@ -232,4 +247,7 @@ function Articles(props) {
     </>
   );
 }
-export default withRouter(Articles)
+const mapStateToProps = createStructuredSelector({
+  currentUserData: currentUserSelect,
+});
+export default withRouter(connect(mapStateToProps)(Articles))
