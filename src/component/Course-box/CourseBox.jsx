@@ -166,13 +166,41 @@ function CourseBox(props) {
     }
     //確認取消視窗
     function myConfirmCancelBooking(userCancelBooking) {
-        // let b = window.confirm("取消後無法重新預約，確定要取消嗎?")
-        // if (b === true) {
-        //     userCancelBooking()
-        // } else {
-        //     console.log('nooo')
-        // }
+        const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+                confirmButton: 'popupBtn confirmBtn',
+                cancelButton: 'popupBtn cancelBtn'
+            },
+            buttonsStyling: false
+        })
 
+        swalWithBootstrapButtons.fire({
+            title: `取消課程：${props.userCourse.courseName}`,
+            text: `課程時間：${props.userCourse.courseTime}`,
+            icon: 'question',
+            showCancelButton: true,
+            cancelButtonText: '不取消了',
+            confirmButtonText: '確定取消',
+            reverseButtons: true,
+            customClass: {
+                confirmButton: 'popupBtn confirmBtn',
+                cancelButton: 'popupBtn cancelBtn'
+            }
+        }).then((result) => {
+            if (result.value) {
+                swalWithBootstrapButtons.fire(
+                    '取消成功!',
+                    '期待在其他課程與你相見',
+                    'success'
+                )
+                userCancelBooking()
+            } else if (result.dismiss === Swal.DismissReason.cancel) {
+                swalWithBootstrapButtons.fire(
+                    '太好了!',
+                    '記得來上課喔～',
+                )
+            }
+        })
     }
 
     //已額滿按鈕
