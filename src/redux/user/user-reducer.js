@@ -1,10 +1,13 @@
 import { userActionType } from "./user-action-type";
-
+import {
+  click
+} from "./user-utils";
 const INITIAL_STATE = {
   userList: [],
   currentUser: null,
   userSignUpUnVaild: null,
   userSignInUnVaild: null,
+  path:null,
 };
 
 const userReducer = (state = INITIAL_STATE, action) => {
@@ -54,6 +57,15 @@ const userReducer = (state = INITIAL_STATE, action) => {
         ...state,
         userSignInUnVaild: null,
       };
+
+    case userActionType.NavBarOnClick:
+      return {
+        ...state,
+        path: click(action.payload),
+      };
+
+
+
     default:
       return state;
   }

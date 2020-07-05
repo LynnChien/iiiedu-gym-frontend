@@ -15,6 +15,7 @@ const INITIAL_STATE = {
       { linkRoute: "/articles", name: "文章列表" },
       { linkRoute: "/articlesAdd", name: "新增文章" },
     ],
+    user: []
   },
   navChoose: [],
 };
@@ -26,6 +27,8 @@ const navBarReducer = (state = INITIAL_STATE, action) => {
         ...state,
         navChoose: [...state.navLink[action.payload]],
       };
+
+
     default:
       return state;
   }
