@@ -31,9 +31,6 @@ import ArticlesUpdate from "./pages/articles-update-page/ArticlesUpdate";
 //客服中心-----------
 import ServiceCenter from "./pages/ServiceCenter-page/ServiceCenter";
 
-
-
-
 // Component------
 import LoadingSpinner from "./component/loading-spinner/LoadingSpinner";
 import ErrorBoundary from "./component/error-boundary/ErrorBoundary";
@@ -144,4 +141,4 @@ const mapDispatchToProps = (dispatch) => ({
   employeeListStart: () => dispatch(employeeListStart()),
 });
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(null ,mapDispatchToProps)(App);

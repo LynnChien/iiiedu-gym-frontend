@@ -1,6 +1,9 @@
 // @import "~bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400&display=swap');
+
 body {
-  font-family: "Open Sans Condensed", sans-serif;
+  font-family: 'Roboto Condensed','Noto Sans TC', sans-serif,;
   overflow-x: hidden;
   // background: #e3e3e3;
   // color: black;
@@ -9,7 +12,7 @@ body {
 main {
   width: 1260px;
   margin: 0 auto;
-  height:calc(100vh - 164px);
+  // height:calc(100vh - 203px);
   // border: black solid 1px;
 }
 

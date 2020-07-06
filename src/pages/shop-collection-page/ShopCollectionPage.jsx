@@ -68,7 +68,7 @@ const ShopCollectionPage = ({
           </div>
         </>
       )}
-      {isFetching ? null : <Footer /> }
+      {/* {isFetching ? null : <Footer /> } */}
     </div>
   );
 };

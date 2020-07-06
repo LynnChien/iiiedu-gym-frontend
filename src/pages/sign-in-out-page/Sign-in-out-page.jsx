@@ -10,7 +10,7 @@ const SignInOutPage = () => (
   <div className="sign-in-and-sign-out">
     <SignIn /> 
     <SignUp />
-    <Footer />
+    {/* <Footer /> */}
   </div>
 );
 

@@ -27,7 +27,7 @@ const ShopItemPage = ({ isFetching, shopItemStart }) => {
       <div className="shop-item-container">
         {isFetching ? <LoadingSpinner /> : <ShopItemDetail />}
       </div>
-      {isFetching ? null : <Footer /> }
+      {/* {isFetching ? null : <Footer /> } */}
     </div>
   );
 };
