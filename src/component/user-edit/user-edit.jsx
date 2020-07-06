@@ -4,40 +4,46 @@ import axios from "axios";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { withRouter } from "react-router-dom";
-import { currentUserSelect } from "../../redux/user/user-selector";
+import { currentUserSelect, userPath } from "../../redux/user/user-selector";
 
-function UserEdit({ currentUserSelect }) {
+function UserEdit({ currentUserSelect, userPath }) {
   // console.log(currentUserSelect);
   const { id } = { ...currentUserSelect }
   // console.log(id)
   // console.log(currentUserSelect)
   const [member, setMember] = useState([]);
-  const [memberAccount, setmemberAccount] = useState();
-
-  const [memberName, setName] = useState();
-  const [memberNickname, setNickName] = useState();
-  const [memberGender, setsex] = useState();
-  const [memberBirth, setdate] = useState();
-  const [memberEmail, setmail] = useState();
-  const [memberPhoneNum, setphone] = useState();
-  const [city, setcity] = useState();
-  const [contury, setcontury] = useState();
-  const [memberAddress, setaddress] = useState();
+  const [memberAccount, setmemberAccount] = useState("");
+  const [memberName, setName] = useState("");
+  const [memberNickname, setNickName] = useState("");
+  const [memberGender, setsex] = useState("男生");
+  const [memberBirth, setdate] = useState("");
+  const [memberEmail, setmail] = useState("");
+  const [memberPhoneNum, setphone] = useState("");
+  const [city, setcity] = useState("");
+  const [contury, setcontury] = useState("");
+  const [memberAddress, setaddress] = useState("");
   const [memberPwd, setpwd] = useState("");
-  const [memberImg, setimg] = useState();
-
-
+  const [memberImg, setimg] = useState("");
   const [memberid, setmemberid] = useState();
+  console.log("userPath", userPath)
+  // useEffect(() => {
+  //   if (!id) {
+  //     history.push("/login")
+  //     alert("請先登入會員！！")
+  //   }
+  // }, [])
 
+
+  // console.log("history", history);
+  // console.log("location", location);
 
   async function AddFromToServer(e) {
-
-    axios.post("http://localhost:5000/api/user/profile/UpdateUser", {
+    const user = await axios.post("http://localhost:5000/api/user/profile/UpdateUser", {
       data: {
         memberName,
         memberNickname,
         memberGender,
-        // memberBirth,
+        memberBirth,
         memberEmail,
         memberPhoneNum,
         memberAddress,
@@ -47,21 +53,10 @@ function UserEdit({ currentUserSelect }) {
       memberid,
       city,
       contury,
-
     });
-    e.preventDefault();
-
+    // console.log(user)
   }
-  //圖片上傳後轉base64存進資料庫
-  const handleImgChange = (e) => {
-    let input = e.target.files[0];
-    let reader = new FileReader();
-    reader.onload = function () {
-      let dataURL = reader.result;
-      setimg(dataURL);
-    };
-    reader.readAsDataURL(input);
-  };
+
 
   useEffect(() => {
     const FetchData = async () => {
@@ -82,6 +77,12 @@ function UserEdit({ currentUserSelect }) {
       setmemberAccount(el.memberAccount);
       setimg(el.memberImg);
       setpwd(el.memberPwd)
+      setdate(el.memberBirth)
+      setphone(el.memberPhoneNum)
+      setcity(el.city)
+      setcontury(el.contury)
+      setaddress(el.memberAddress)
+
     });
   }, [member]);
 
@@ -104,13 +105,14 @@ function UserEdit({ currentUserSelect }) {
         <form >
           <div className="form-wrapper">
             <div className="left-form">
+              <div>使用者名字: {memberName}</div>
               <input
                 className="user-input"
                 type="text"
                 placeholder=" 請輸入姓名"
-
                 onChange={(e) => setName(e.target.value)}
               />
+              <div>暱稱: {memberNickname}</div>
               <input
                 className="user-input"
                 type="text"
@@ -118,13 +120,14 @@ function UserEdit({ currentUserSelect }) {
                 onChange={(e) => setNickName(e.target.value)}
               />
 
-              <div></div>
+              <div>生日:{memberBirth}</div>
               <input
                 className="user-birth"
                 type="date"
                 placeholder=" 請輸入生日"
                 onChange={(e) => setdate(e.target.value)}
               />
+              <div>性別:{memberGender}</div>
               <select
                 className="user-sex"
                 onChange={(e) => setsex(e.target.value)}
@@ -132,8 +135,7 @@ function UserEdit({ currentUserSelect }) {
                 <option value="男">男生</option>
                 <option value="女">女生</option>
               </select>
-              <div></div>
-
+              <div>手機號碼:{memberPhoneNum}</div>
               <input
                 className="user-input-long"
                 type="text"
@@ -142,20 +144,8 @@ function UserEdit({ currentUserSelect }) {
                 placeholder=" 請輸入手機號碼"
                 onChange={(e) => setphone(e.target.value)}
               />
-              <div></div>
-              <input
-                className="user-input"
-                type="text"
-                placeholder=" 請輸入縣市"
-                onChange={(e) => setcity(e.target.value)}
-              />
-              <input
-                className="user-input"
-                type="text"
-                placeholder=" 請輸入鄉鎮"
-                onChange={(e) => setcontury(e.target.value)}
-              />
-              <div></div>
+              <div>地址:{memberAddress}</div>
+
               <input
                 className="user-input-long"
                 maxLength="40"
@@ -163,7 +153,7 @@ function UserEdit({ currentUserSelect }) {
                 placeholder=" 請輸入地址"
                 onChange={(e) => setaddress(e.target.value)}
               />
-              <div></div>
+              <div>電子郵件:{memberEmail}</div>
               <input
                 className="user-input-long"
                 type="email"
@@ -179,8 +169,14 @@ function UserEdit({ currentUserSelect }) {
                   className="user-img-input"
                   type="file"
                   accept=".jpg,.png"
-                  onChange={(e) => {
-                    handleImgChange(e);
+                  onChange={(event) => {
+                    let input = event.target.files[0];
+                    let reader = new FileReader();
+                    reader.onload = function () {
+                      let dataURL = reader.result;
+                      setimg(dataURL);
+                    };
+                    reader.readAsDataURL(input);
                   }}
                 />
                 <p>檔案大小:最大1Mb</p>
@@ -226,6 +222,7 @@ function UserEdit({ currentUserSelect }) {
 
 const mapStateToProps = createStructuredSelector({
   currentUserSelect: currentUserSelect,
+  userPath: userPath,
 });
 
 export default withRouter(connect(mapStateToProps)(UserEdit));

@@ -18,4 +18,11 @@ export const userActionType = {
   USER_SIGN_UP_RESTART: "USER_SIGN_UP_RESTART",
 
   GOOGLE_LOG_IN_START: "GOOGLE_LOG_IN_START",
+
+
+  NavBarOnClick: "NavBarOnClick",
+
+
+
+
 };

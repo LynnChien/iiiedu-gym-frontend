@@ -11,7 +11,7 @@
     width: 500px;
 
     .article-member-add {
-      width: 100px;
+      width: 120px;
       .article-member-avatar {
         width: 50px;
         height: 50px;
@@ -91,10 +91,12 @@
       height: 45px;
       margin: 0 10px;
       border-radius: 5px;
-      border: none;
+      background: none;
+      border: 2px solid #1178b8;
       cursor: pointer;
       &:hover {
         background: #1178b8;
+        color: #ffffff;
       }
     }
     .articleAddSubmit {
@@ -102,10 +104,12 @@
       height: 45px;
       margin: 0 10px;
       border-radius: 5px;
-      border: none;
+      background: none;
+      border: 2px solid #1178b8;
       cursor: pointer;
       &:hover {
         background: #1178b8;
+        color: #ffffff;
       }
     }
   }

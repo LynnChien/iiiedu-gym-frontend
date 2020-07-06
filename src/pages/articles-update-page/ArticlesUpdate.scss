@@ -93,10 +93,12 @@
       height: 45px;
       margin: 0 10px;
       border-radius: 5px;
-      border: none;
+      background: none;
+      border: 2px solid #1178b8;
       cursor: pointer;
       &:hover {
         background: #1178b8;
+        color: #ffffff;
       }
     }
     .articleUpdateSubmit {
@@ -104,10 +106,12 @@
       height: 45px;
       margin: 0 10px;
       border-radius: 5px;
-      border: none;
+      background: none;
+      border: 2px solid #1178b8;
       cursor: pointer;
       &:hover {
         background: #1178b8;
+        color: #ffffff;
       }
     }
   }
@@ -187,10 +191,11 @@
 }
 @media screen and (max-width: 375px) {
   .article-update-container {
-    width: 100%;
+    width: 90%;
     grid-template-columns: 100%;
 
     .article-update-left {
+      margin-left: 30px;
       width: 300px;
       .articleUpdateSelect {
         width: 300px;
@@ -204,6 +209,7 @@
     }
     .article-update-right {
       width: 300px;
+      margin-left: 30px;
       margin-top: 0px;
       .articleUpdateInputTitle {
         width: 300px;

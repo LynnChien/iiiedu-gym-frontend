@@ -19,7 +19,7 @@ import { currentUserSelect } from "../../redux/user/user-selector";
 import { currentEmployeeSelect } from "../../redux/employee/employee-selector";
 
 // redux action-------------------------------
-import { userLogoutStart } from "../../redux/user/user-action";
+import { userLogoutStart, NavBarOnClick } from "../../redux/user/user-action";
 import { employeeLogout } from "../../redux/employee/employee-action";
 import { shopShowFilterTag } from "../../redux/shop/shop-action";
 
@@ -30,9 +30,13 @@ const Header = ({
   userLogoutStart,
   currentEmployee,
   employeeLogout,
+  NavBarOnClick,
 }) => {
   const [subDiv, setSubDiv] = useState(false);
   const history = useHistory();
+
+  const path = history.location.pathname
+  // console.log(history.location.pathname)
 
   return (
     <div className="header">
@@ -91,8 +95,8 @@ const Header = ({
             to="/articles"
             className="option"
             onClick={() => {
-              shopShowFilterTag("選擇篩選");
               setSubDiv(false);
+              NavBarOnClick(path)
             }}
             onMouseEnter={() => {
               navBarSelect("articles");
@@ -101,6 +105,12 @@ const Header = ({
             }}
           >
             心得討論
+          </Link>
+          <Link
+            to="/ServiceCenter"
+            className="option"
+          >
+            客服中心
           </Link>
           <Link
             to={
@@ -114,9 +124,20 @@ const Header = ({
             教練中心
           </Link>
           <Link
-            to={currentUser ? `/user` : `/login`}
+            to={currentUser
+              ? `/user`
+              : `/login`
+            }
             className="option"
-            onMouseEnter={() => setSubDiv(false)}
+            onClick={() => {
+              setSubDiv(false);
+              NavBarOnClick(path)
+            }}
+            onMouseEnter={() => {
+              navBarSelect("user");
+              if (subDiv) return;
+              setSubDiv(false);
+            }}
           >
             會員中心
           </Link>
@@ -172,5 +193,6 @@ const mapDispatchToProps = (dispatch) => ({
   shopShowFilterTag: (tag) => dispatch(shopShowFilterTag(tag)),
   userLogoutStart: () => dispatch(userLogoutStart()),
   employeeLogout: () => dispatch(employeeLogout()),
+  NavBarOnClick: (currentUser) => dispatch(NavBarOnClick(currentUser)),
 });
 export default connect(mapStateToProps, mapDispatchToProps)(Header);
