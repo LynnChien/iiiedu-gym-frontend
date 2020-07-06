@@ -4,12 +4,13 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router";
 import { createStructuredSelector } from "reselect";
 import { currentEmployeeSelect } from "../../redux/employee/employee-selector";
+import Swal from 'sweetalert2';
 
 import EmployeeFormInput from "../../component/employee-from-input/EmployeeFormInput";
 import EmployeeFormRadio from "../../component/employee-form-checkbox/EmployeeFormRadio";
 import MyTextarea from "../../component/employee-form-textarea/EmployeeFormTextarea";
 
-function EmployeeForm({ currentEmployee }) {
+function EmployeeForm({ currentEmployee ,history}) {
   const [course, setCourse] = useState("");
   const [time, setTime] = useState("");
   const [hour, setHour] = useState("");
@@ -57,11 +58,11 @@ function EmployeeForm({ currentEmployee }) {
     });
 
     const response = await fetch(request);
-    const data = await response.json();
-    console.log(data);
+    await response.json();
+    // console.log(data);
 
-    alert("課程上傳成功");
-    window.location.reload();
+    // alert("課程上傳成功");
+    // window.location.reload();
   }
 
   return (
@@ -72,7 +73,6 @@ function EmployeeForm({ currentEmployee }) {
           type={"text"}
           placeholder={"請輸入課程名稱"}
           value={course}
-          required={"required"}
           onChange={(event) => {
             setCourse(event.target.value);
           }}
@@ -81,7 +81,6 @@ function EmployeeForm({ currentEmployee }) {
           title={"開課時間："}
           type={"datetime-local"}
           value={time}
-          required={"required"}
           onChange={(event) => {
             setTime(event.target.value);
           }}
@@ -91,7 +90,6 @@ function EmployeeForm({ currentEmployee }) {
           type={"number"}
           placeholder={"請選擇課程總時數"}
           value={hour}
-          required={"required"}
           onChange={(event) => {
             setHour(event.target.value);
           }}
@@ -101,7 +99,6 @@ function EmployeeForm({ currentEmployee }) {
           type={"number"}
           placeholder={"請選擇課程上限名額"}
           value={quota}
-          required={"required"}
           onChange={(event) => {
             setQuota(event.target.value);
           }}
@@ -110,7 +107,6 @@ function EmployeeForm({ currentEmployee }) {
           title={"課程說明："}
           placeholder={"請詳述課程介紹"}
           value={explanation}
-          required={"required"}
           onChange={(event) => {
             setExplanation(event.target.value);
           }}
@@ -121,7 +117,6 @@ function EmployeeForm({ currentEmployee }) {
             <EmployeeFormRadio
               title={"有氧教室"}
               value={category}
-              required={"required"}
               onClick={() => {
                 setCategory("有氧教室");
               }}
@@ -129,7 +124,6 @@ function EmployeeForm({ currentEmployee }) {
             <EmployeeFormRadio
               title={"瑜伽教室"}
               value={category}
-              required={"required"}
               onClick={() => {
                 setCategory("瑜伽教室");
               }}
@@ -137,7 +131,6 @@ function EmployeeForm({ currentEmployee }) {
             <EmployeeFormRadio
               title={"飛輪教室"}
               value={category}
-              required={"required"}
               onClick={() => {
                 setCategory("飛輪教室");
               }}
@@ -148,7 +141,6 @@ function EmployeeForm({ currentEmployee }) {
           title={"課程圖片："}
           type={"file"}
           accept=".jpg,.png"
-          required={"required"}
           onChange={(event) => {
             let input = event.target.files[0];
             let reader = new FileReader();
@@ -168,7 +160,30 @@ function EmployeeForm({ currentEmployee }) {
             className="submit"
             type="button"
             onClick={() => {
-              handleSubmit();
+              Swal.fire({
+                    title: '新增課程',
+                    text: "確認欄位已都填寫!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: '確定',
+                    cancelButtonText: '取消'
+                  }).then((result) => {
+                    if (result.value) {
+                      Swal.fire(
+                        '完成!',
+                        '已新增課程!!',
+                        'success'
+                      ).then(() => {
+                        if (result.value) {
+                          history.push(`employeecenter/${currentEmployee.Eid}`);
+                        }
+                      })
+                      handleSubmit();
+                    
+                    }
+                  })
             }}
           >
             送出

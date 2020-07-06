@@ -8,6 +8,7 @@ import { MdKeyboardArrowRight } from "react-icons/md"
 // import Header from '../component/header/Header'
 import Footer from '../../component/footer/Footer'
 
+
 //---------------1
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
@@ -52,6 +53,8 @@ const ServiceCenter = (props) => {
                 {nav === '回報紀錄列表' && <ServiceRecord currentUserData={currentUserData} />}
                 {/* 依照state的字串，去顯示component */}
             </div>
+        <div style={{height: "2rem"}} />
+            <Footer />
         </div>
 
     )

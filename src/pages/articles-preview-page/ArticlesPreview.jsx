@@ -133,7 +133,6 @@ const ArticlesPreview = (props) => {
     const response = await fetch(request);
     const data = await response.json();
     setCommentsNum(data[0].COUNT);
-
   }
 
   useEffect(() => {
@@ -155,9 +154,6 @@ const ArticlesPreview = (props) => {
         flag: flag
       });
     setArticleLike(articleLikeData)
-    
-   
-
   }
 
 

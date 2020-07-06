@@ -14,6 +14,7 @@ import { shopFetchStart } from "../../redux/shop/shop-action";
 import FilterBar from "../../component/filter-bar/FilterBar";
 
 import "./ShopCollectionPage.scss";
+import Footer from "../../component/footer/Footer";
 
 const ShopCollectionPage = ({
   collections,
@@ -67,6 +68,7 @@ const ShopCollectionPage = ({
           </div>
         </>
       )}
+      {isFetching ? null : <Footer /> }
     </div>
   );
 };
