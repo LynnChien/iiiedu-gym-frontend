@@ -1,18 +1,21 @@
 import React, { useState, useEffect } from "react"
+import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
 import { withRouter } from "react-router-dom"
-import { connect } from "react-redux"
 import "./Articles.scss"
 import Swal from 'sweetalert2'
 
 import ArticleCard from "../../component/article-card/ArticleCard"
 import ArticlePopular from "../../component/article-popular/ArticlePopular"
-
-import { createStructuredSelector } from "reselect"
-import { currentUserSelect } from "../../redux/user/user-selector"
+import { userPath, currentUserSelect } from "../../redux/user/user-selector";
 
 function Articles(props) {
 
-  const { currentUserData } = props
+  const { currentUserData, userPath } = props
+
+
+  console.log(userPath)
+
   //該使用者的id
   const currentUserId = currentUserData ? currentUserData.id : ''
   // console.log(currentUserId)
@@ -102,6 +105,11 @@ function Articles(props) {
           </button>
         </div>
 
+
+
+
+
+
         <div className="articleHomePageAdd">
           <button className="articleHomePageAdd-btn"
             onClick={() => {
@@ -112,6 +120,9 @@ function Articles(props) {
               } else {
                 Swal.fire('請登入會員喔!!').then((result) => {
                   if (result.value) {
+                    props.history.push("/login", {
+                      userPath: userPath
+                    })
                     props.history.push("/login")
 
                   }
@@ -246,7 +257,15 @@ function Articles(props) {
     </>
   );
 }
+
+
 const mapStateToProps = createStructuredSelector({
+  userPath: userPath,
   currentUserData: currentUserSelect,
+
 });
+
+
+
+
 export default withRouter(connect(mapStateToProps)(Articles))
