@@ -7,7 +7,6 @@ import { FaTwitterSquare } from 'react-icons/fa';
 
 function Footer(props) {
   return (
-    <>
       <div className="footer-wrapper">
         <div className="copyright">
         <p>Copyright © 2020 WoW FIT Inc.</p>
@@ -25,7 +24,6 @@ function Footer(props) {
           <img src="./line-logo-messenger-png-2109-64x64.png" alt=""></img>
         </div>
       </div>
-    </>
   );
 }
 export default Footer;
