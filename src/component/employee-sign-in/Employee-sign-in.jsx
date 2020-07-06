@@ -41,8 +41,8 @@ class EmployeeSignIn extends React.Component {
   render() {
     return (
       <div className="sign-in">
-        <h2 className="title">教練員工帳號登入</h2>
-        <span>請輸入e-mail和密碼登入</span>
+        <h2 className="title-login">教練員工帳號登入</h2>
+        <span>輸入帳號 & 密碼登入</span>
         <form onSubmit={this.handleSubmit}>
           <FormInput
             name="email"
@@ -60,7 +60,7 @@ class EmployeeSignIn extends React.Component {
             type="password"
             required
           />
-          <div className="buttons">
+          <div className="buttons-login">
             <CustomButton type="submit">登入</CustomButton>
           </div>
         </form>
