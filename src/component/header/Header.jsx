@@ -109,6 +109,11 @@ const Header = ({
           <Link
             to="/ServiceCenter"
             className="option"
+            onClick={() => {
+              shopShowFilterTag("選擇篩選");
+              setSubDiv(false);
+            }}
+            onMouseEnter={() => setSubDiv(false)}
           >
             客服中心
           </Link>

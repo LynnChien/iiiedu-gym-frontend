@@ -12,6 +12,7 @@ function UserMyCoursesList(props) {
                 setAllCoursesOfThisUser={props.setAllCoursesOfThisUser}
                 getCoursesDataInAllUser={props.getCoursesDataInAllUser}
                 getUserBooking={props.getUserBooking}
+                choose={props.choose}
             />))
 
 
