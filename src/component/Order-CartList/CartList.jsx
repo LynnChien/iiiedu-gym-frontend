@@ -14,6 +14,7 @@ const CartList = ({ cartItems, cartFavoriteItems }) => {
 
     return (
         <>
+        <div className="CartList">
             <div className="CartList-title">
                 <div className="title-cotainer">
                     <ol className="title-ol">
@@ -60,6 +61,7 @@ const CartList = ({ cartItems, cartFavoriteItems }) => {
                     </div>
                     <CartListButton cartItems={cartItems} />
                 </div>
+            </div>
             </div>
         </>
     )

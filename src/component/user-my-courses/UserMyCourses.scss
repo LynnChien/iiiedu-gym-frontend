@@ -6,9 +6,9 @@
   width: 100%;
   height: 100%;
 }
-ul:nth-child(2n) {
-  background: rgba(142, 142, 142, 0.2);
-}
+
+
+
 .userCoursesInfo {
   display: flex;
   list-style: none;
@@ -16,6 +16,9 @@ ul:nth-child(2n) {
   justify-content: center;
   align-items: center;
   position: relative;
+  ul:nth-child(2n) {
+    background: rgba(142, 142, 142, 0.2);
+  }
 
   li {
     font-size: 1.1rem;
@@ -52,6 +55,7 @@ ul:nth-child(2n) {
   .userCourseBtn {
     width: 17%;
     position: relative;
+    cursor: pointer;
 
     .userCourseBtnCover {
       width: 100%;
