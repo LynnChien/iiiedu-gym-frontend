@@ -11,12 +11,12 @@ import { currentUserSelect } from "../../redux/user/user-selector";
 
 
 function UserMyCourses(props) {
-    //---------------
+    // //---------------
     const { currentUser } = props
-    //該使用者的id
-    const currentUserId = currentUser ? currentUser.id : ''
-    //---------------
-// console.log(props.userCourse)
+    // //該使用者的id
+    // const currentUserId = currentUser ? currentUser.id : ''
+    // //---------------
+    // console.log(props.userCourse)
     const [userBooking, setUserBooking] = useState([])
 
     const T = props.userCourse.courseTime
@@ -26,17 +26,20 @@ function UserMyCourses(props) {
     //轉換時間格式比較先後
     const newTime = new Date(T).getTime()
     const nowTime = Date.now()
-    // console.log(T)
+
+    //彈跳視窗的時間格式
+    const jumpT = T.split("T")
+    // console.log(jumpT)
+    const jumpT2 = jumpT[1].split(".")[0]
+    // console.log(jumpT2)
 
     //會員的預約編號
     const userBookingId = props.userCourse.courseBookingId
     //該課程id
     const thisCourseId = props.userCourse.courseId
-
     // console.log(props.userCourse)
 
     async function userCancelBooking() {
-
         const updateBookingJson = {
             bookingState: 0
         }
@@ -64,7 +67,6 @@ function UserMyCourses(props) {
             }),
         })
         await fetch(req)
-        
     }
 
     // console.log(props.userCourseId)
@@ -82,10 +84,9 @@ function UserMyCourses(props) {
                 },
                 buttonsStyling: false
             })
-
             swalWithBootstrapButtons.fire({
                 title: `取消課程：${props.userCourse.courseName}`,
-                text: `課程時間：${props.userCourse.courseTime}`,
+                text: `課程時間：${jumpT[0] + ' ' + jumpT2}`,
                 icon: 'question',
                 showCancelButton: true,
                 cancelButtonText: '不取消了',
@@ -120,7 +121,6 @@ function UserMyCourses(props) {
         }
     }
 
-    
     //課程彈跳視窗
     function showCJumpWindow() {
         Swal.fire({
@@ -165,6 +165,7 @@ function UserMyCourses(props) {
                             userConfirmUpdateBooking={userConfirmUpdateBooking}
                             userCancelBooking={userCancelBooking}
                             getThisBookingState={getThisBookingState}
+                            choose={props.choose}
                         />
                     </div>
                 </li>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Footer.scss";
 import { FaFacebookSquare } from 'react-icons/fa';
 import { FiInstagram } from 'react-icons/fi';

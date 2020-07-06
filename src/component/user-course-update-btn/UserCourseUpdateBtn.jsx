@@ -2,8 +2,7 @@ import React from "react";
 import "./UserCourseUpdateBtn.scss"
 
 function UserCourseUpdateBtn(props) {
-
-    // console.log(props.userCancelBooking)
+// console.log(props)
     const displayUserBookingButton = (
         <>
             <button
@@ -13,7 +12,7 @@ function UserCourseUpdateBtn(props) {
                 按我取消
              </button>
         </>
-    )   
+    )
     const displayUserCancelButton = (
         <>
             <button
@@ -23,8 +22,6 @@ function UserCourseUpdateBtn(props) {
              </button>
         </>
     )
-
-
     return (
         <>
             {+props.getThisBookingState === 0 ? displayUserCancelButton : displayUserBookingButton}
