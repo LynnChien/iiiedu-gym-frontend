@@ -10,6 +10,7 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { createStructuredSelector } from "reselect";
 import { currentUserSelect } from "../../redux/user/user-selector";
+import Footer from "../../component/footer/Footer";
 //---------------
 
 
@@ -124,6 +125,8 @@ function Courses(props) {
             />
           </div>
         </div>
+        <div style={{height: "2rem"}} />
+        <Footer />
       </div>
     </>
   );

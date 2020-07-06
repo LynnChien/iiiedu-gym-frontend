@@ -95,7 +95,7 @@ const App = ({ userListStart, employeeListStart }) => {
                 path="/shopitem/:collection/:itemId"
                 component={ShopItemPage}
               />
-               <Route exact path="/checkout" component={CheckOutPage} />
+              <Route exact path="/checkout" component={CheckOutPage} />
               <Route path="/login" component={SignInOutPage} />
 
               {/* Lola */}
@@ -105,7 +105,7 @@ const App = ({ userListStart, employeeListStart }) => {
                 component={EmployeeCenterPage}
               />
               <Route path="/employeelogin" component={EmployeeSignInOutPage} />
-             
+
               {/* 育琳 */}
               <Route path="/courses" component={Courses} />
               <Route path="/coaches" component={Coaches} />
@@ -132,7 +132,7 @@ const App = ({ userListStart, employeeListStart }) => {
           </ErrorBoundary>
         </Switch>
       </main>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };
