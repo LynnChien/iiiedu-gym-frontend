@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { connect } from "react-redux";
@@ -60,7 +59,7 @@ const Header = ({
           onMouseOver={() => {
             if (subDiv) return;
           }}
-        // onMouseLeave={() => setSubDiv(false)}
+          // onMouseLeave={() => setSubDiv(false)}
         >
           <Link
             to="/shopping"
@@ -142,13 +141,25 @@ const Header = ({
           >
             會員中心
           </Link>
-
         </div>
       </div>
       <div className="sub sub-cart" onMouseOver={() => setSubDiv(false)}>
+        {currentEmployee !== null ? (
+          <CustomButton
+            onClick={() => {
+              employeeLogout();
+              history.push("/");
+            }}
+          >
+            教練登出
+          </CustomButton>
+        ) : (
+          ""
+        )}
+
         {currentUser ? (
           <>
-            <span className="current-user-title">
+            <span clgassName="current-user-title">
               嗨! {currentUser.memberName}
             </span>
             <CustomButton signin unMobileMode onClick={() => userLogoutStart()}>
@@ -156,14 +167,14 @@ const Header = ({
             </CustomButton>
           </>
         ) : (
-            <CustomButton
-              signin
-              unMobileMode
-              onClick={() => history.push("/login")}
-            >
-              登入
-            </CustomButton>
-          )}
+          <CustomButton
+            signin
+            unMobileMode
+            onClick={() => history.push("/login")}
+          >
+            登入
+          </CustomButton>
+        )}
         <CartIcon />
       </div>
       <HeaderDropdown setSubDiv={setSubDiv} subDiv={subDiv} />
