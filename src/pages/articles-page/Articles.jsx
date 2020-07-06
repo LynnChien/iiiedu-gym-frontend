@@ -47,6 +47,7 @@ function Articles(props) {
 
 
   return (
+
     <>
       <div className="articles-container">
         <div className="articleCategory">
@@ -101,11 +102,6 @@ function Articles(props) {
           </button>
         </div>
 
-
-
-
-
-
         <div className="articleHomePageAdd">
           <button className="articleHomePageAdd-btn"
             onClick={() => {
@@ -117,7 +113,7 @@ function Articles(props) {
                 Swal.fire('請登入會員喔!!').then((result) => {
                   if (result.value) {
                     props.history.push("/login")
-                 
+
                   }
                 })
 
@@ -140,6 +136,7 @@ function Articles(props) {
               <ArticlePopular />
             </div>
             <div className="article-Tag-btn">
+
               <div className="article-Tag-popular">熱門標籤</div>
               <button
                 className="articleTagButton"
@@ -238,12 +235,14 @@ function Articles(props) {
                 <p>川字肌</p>
               </button>
 
+
             </div>
 
           </div>
 
         </div>
       </div>
+
     </>
   );
 }

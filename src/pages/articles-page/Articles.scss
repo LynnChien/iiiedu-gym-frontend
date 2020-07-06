@@ -40,7 +40,8 @@
   }
 
   .article-page {
-    position: relative;
+  display: flex;
+    // position: relative;
     width: 100%;
     margin: 60px auto;
 
@@ -49,14 +50,15 @@
     }
 
     .article-container-right {
-      position: absolute;
+      // position: absolute;
       width: 20%;
-      height: 820px;
-      border: 1px solid #000000;
-      background: #fcfcfc;
+      height: 1250px;
+      // border: 1px solid #000000;
+      box-shadow:1px 1px 9px #000000;
+      background: #ffffff;
       right: 0;
       top: 0;
-      border-radius: 3px;
+      border-radius: 5px;
       .article-popular-top {
         text-align: center;
         border-bottom: 1px solid #000000;
@@ -71,6 +73,7 @@
         margin-top: 100px;
 
         .articleTagButton {
+      
           .article-Tag-popular{
            font-size: 16px;
           }
