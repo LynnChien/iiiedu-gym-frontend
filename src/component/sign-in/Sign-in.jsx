@@ -17,16 +17,22 @@ import {
 import ErrorModel from "../error-model/ErrorModel";
 
 class SignIn extends React.Component {
+
   state = {
     email: "",
     password: "",
   };
 
-  handleSubmit = (e) => {
+  handleSubmit = async (e) => {
+    const { history } = this.props;
+    setTimeout(function () {
+      history.goBack();
+    }, 2500)
     e.preventDefault();
     const { email, password } = this.state;
     const { userLoginStart } = this.props;
     userLoginStart({ memberAccount: email, memberPwd: password });
+
   };
 
   handleChange = (e) => {
@@ -34,10 +40,12 @@ class SignIn extends React.Component {
     this.setState({ [name]: value });
   };
 
-  handleIsValid = () => {};
+  handleIsValid = () => { };
 
   render() {
+
     const { userSignInUnVaild, history, userLoginRestart } = this.props;
+    console.log(history)
     return (
       <div className="sign-in">
         <h2 className="sign-in-title">會員登入</h2>
@@ -68,7 +76,7 @@ class SignIn extends React.Component {
             <CustomButton
               type="button"
               google
-              // onClick={this.googleHandleSubmit}
+            // onClick={this.googleHandleSubmit}
             >
               <a
                 href={`${process.env.REACT_APP_BACKEND_URL}/api/user/google`}
