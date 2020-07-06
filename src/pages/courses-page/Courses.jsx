@@ -126,7 +126,7 @@ function Courses(props) {
           </div>
         </div>
         <div style={{height: "2rem"}} />
-        <Footer />
+        {/* <Footer /> */}
       </div>
     </>
   );

@@ -134,7 +134,7 @@ const App = ({ userListStart, employeeListStart }) => {
           </Switch>
         </main>
       </div>
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 };
