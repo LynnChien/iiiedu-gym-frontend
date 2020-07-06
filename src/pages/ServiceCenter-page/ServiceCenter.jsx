@@ -5,8 +5,6 @@ import FaqList from '../../component/Faq_list/FaqList'
 // import '../component/ServiceNav/ServiceNav.scss'
 import './ServiceCenter.scss'
 import { MdKeyboardArrowRight } from "react-icons/md"
-// import Header from '../component/header/Header'
-import Footer from '../../component/footer/Footer'
 
 //---------------1
 import { connect } from "react-redux";

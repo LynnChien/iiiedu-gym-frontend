@@ -77,7 +77,7 @@ const App = ({ userListStart, employeeListStart }) => {
   }, [userListStart, employeeListStart]);
 
   return (
-    <div>
+    <div >
       <Header />
       <div className="space" />
       <Route exact path="/" component={HomePage} />
@@ -127,13 +127,12 @@ const App = ({ userListStart, employeeListStart }) => {
               <Route path="/CreditCardPage" component={CreditCardPage} />
               {/* Jason */}
               <Route path="/ServiceCenter" component={ServiceCenter} />
-
             </Suspense>
           </ErrorBoundary>
         </Switch>
       </main>
       <Footer />
-    </div>
+      </div>
   );
 };
 
