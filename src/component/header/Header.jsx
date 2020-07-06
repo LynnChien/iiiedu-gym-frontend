@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
 import "./header.scss";
+import ErrorModel from "../error-model/ErrorModel";
 
 // Component-------------------------------
 import { ReactComponent as Logo } from "../../assets/logo.svg";
@@ -15,13 +16,15 @@ import CustomButton from "../custom-button/Custom-button";
 // Select
 import { cartHiddenSelect } from "../../redux/cart/cart-selector";
 import { navBarSelect } from "../../redux/nav-bar/navBar-action";
-import { currentUserSelect } from "../../redux/user/user-selector";
+import { currentUserSelect, userSignInUnVaildSelect } from "../../redux/user/user-selector";
 import { currentEmployeeSelect } from "../../redux/employee/employee-selector";
 
 // redux action-------------------------------
 import { userLogoutStart, NavBarOnClick } from "../../redux/user/user-action";
 import { employeeLogout } from "../../redux/employee/employee-action";
 import { shopShowFilterTag } from "../../redux/shop/shop-action";
+
+
 
 const Header = ({
   navBarSelect,
@@ -31,12 +34,20 @@ const Header = ({
   currentEmployee,
   employeeLogout,
   NavBarOnClick,
+  userSignInUnVaild,
 }) => {
   const [subDiv, setSubDiv] = useState(false);
   const history = useHistory();
 
   const path = history.location.pathname
   // console.log(history.location.pathname)
+
+  const next = () => {
+
+    history.push("/")
+
+  }
+
 
   return (
     <div className="header">
@@ -167,7 +178,7 @@ const Header = ({
             <span clgassName="current-user-title">
               嗨! {currentUser.memberName}
             </span>
-            <CustomButton signin unMobileMode onClick={() => userLogoutStart()}>
+            <CustomButton signin unMobileMode onClick={() => (userLogoutStart(), next())}>
               登出
             </CustomButton>
           </>
@@ -184,7 +195,7 @@ const Header = ({
       </div>
       <HeaderDropdown setSubDiv={setSubDiv} subDiv={subDiv} />
       <CartDropdown />
-    </div>
+    </div >
   );
 };
 // redux mapState & mapDispatch
@@ -192,6 +203,8 @@ const mapStateToProps = createStructuredSelector({
   hidden: cartHiddenSelect,
   currentUser: currentUserSelect,
   currentEmployee: currentEmployeeSelect,
+  userSignInUnVaild: userSignInUnVaildSelect,
+
 });
 const mapDispatchToProps = (dispatch) => ({
   navBarSelect: (select) => dispatch(navBarSelect(select)),
