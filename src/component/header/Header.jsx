@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { connect } from "react-redux";
@@ -30,7 +29,7 @@ const Header = ({
   currentUser,
   userLogoutStart,
   currentEmployee,
-  employeeLogout
+  employeeLogout,
 }) => {
   const [subDiv, setSubDiv] = useState(false);
   const history = useHistory();
@@ -56,7 +55,7 @@ const Header = ({
           onMouseOver={() => {
             if (subDiv) return;
           }}
-        // onMouseLeave={() => setSubDiv(false)}
+          // onMouseLeave={() => setSubDiv(false)}
         >
           <Link
             to="/shopping"
@@ -104,16 +103,6 @@ const Header = ({
             心得討論
           </Link>
           <Link
-            to="/ServiceCenter"
-            className="option"
-            onClick={() => {
-              shopShowFilterTag("選擇篩選");
-              setSubDiv(false);
-            }}
-          >
-            客服中心
-          </Link>
-          <Link
             to={
               currentEmployee
                 ? `/employeecenter/${currentEmployee.Eid}`
@@ -125,22 +114,31 @@ const Header = ({
             教練中心
           </Link>
           <Link
-            to={currentUser
-              ?`/user`
-              :`/login`
-              }
+            to={currentUser ? `/user` : `/login`}
             className="option"
             onMouseEnter={() => setSubDiv(false)}
           >
             會員中心
           </Link>
-          
         </div>
       </div>
       <div className="sub sub-cart" onMouseOver={() => setSubDiv(false)}>
+        {currentEmployee !== null ? (
+          <CustomButton
+            onClick={() => {
+              employeeLogout();
+              history.push("/");
+            }}
+          >
+            教練登出
+          </CustomButton>
+        ) : (
+          ""
+        )}
+
         {currentUser ? (
           <>
-            <span className="current-user-title">
+            <span clgassName="current-user-title">
               嗨! {currentUser.memberName}
             </span>
             <CustomButton signin unMobileMode onClick={() => userLogoutStart()}>
@@ -148,14 +146,14 @@ const Header = ({
             </CustomButton>
           </>
         ) : (
-            <CustomButton
-              signin
-              unMobileMode
-              onClick={() => history.push("/login")}
-            >
-              登入
-            </CustomButton>
-          )}
+          <CustomButton
+            signin
+            unMobileMode
+            onClick={() => history.push("/login")}
+          >
+            登入
+          </CustomButton>
+        )}
         <CartIcon />
       </div>
       <HeaderDropdown setSubDiv={setSubDiv} subDiv={subDiv} />
