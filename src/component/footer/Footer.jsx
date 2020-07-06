@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Footer.scss";
 import { FaFacebookSquare } from 'react-icons/fa';
 import { FiInstagram } from 'react-icons/fi';
@@ -7,7 +7,6 @@ import { FaTwitterSquare } from 'react-icons/fa';
 
 function Footer(props) {
   return (
-    <>
       <div className="footer-wrapper">
         <div className="copyright">
         <p>Copyright © 2020 WoW FIT Inc.</p>
@@ -25,7 +24,6 @@ function Footer(props) {
           <img src="./line-logo-messenger-png-2109-64x64.png" alt=""></img>
         </div>
       </div>
-    </>
   );
 }
 export default Footer;

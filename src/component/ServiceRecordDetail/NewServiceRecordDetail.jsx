@@ -118,7 +118,7 @@ const ServiceRecordDetail = (props) => {
                         </div>
                         <div className="textarea-box">
                             <textarea value={userInput} className="textarea-body"
-                                onChange={e => setUserInput(e.target.value)} maxlength="300">
+                                onChange={e => setUserInput(e.target.value)} maxlength="300" placeholder="請輸入..">
                             </textarea>
                         </div>
                         <div className="testPost-btn">

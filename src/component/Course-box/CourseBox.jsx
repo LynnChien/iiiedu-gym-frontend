@@ -10,7 +10,6 @@ import { createStructuredSelector } from "reselect";
 import { currentUserSelect } from "../../redux/user/user-selector";
 //---------------
 
-
 function CourseBox(props) {
 
     //---------------
@@ -21,9 +20,8 @@ function CourseBox(props) {
     const [num, setNum] = useState([props.course.numberOfCourse])
     const [changeState, setChangeState] = useState(false)
     const [changeState2, setChangeState2] = useState(false)
-    //    console.log( [props.course.numberOfCourse])
-    // console.log(currentUser)`
-
+    // console.log( [props.course.numberOfCourse])
+    // console.log(currentUser)
 
     //將現在時間的星期轉換成毫秒
     const nowTime = Date.now()
@@ -67,7 +65,6 @@ function CourseBox(props) {
             }),
         })
         await fetch(request)
-
         // getNumFromData()
         props.getBookingData()
         setChangeState(!changeState)
@@ -75,6 +72,7 @@ function CourseBox(props) {
 
     //抓該會員預約過的課程資料
     const thisUserCourseId = props.bookingData && props.bookingData.filter(i => i.memberId === currentUserId).map(p => p)
+
     //抓要取消的預約編號
     const thisCanceld = thisUserCourseId && thisUserCourseId.filter(i => i.courseId === getThisCourseId).map(p => p.courseBookingId)
     // console.log(thisUserCourseId)
@@ -175,8 +173,8 @@ function CourseBox(props) {
         })
 
         swalWithBootstrapButtons.fire({
-            title: `取消課程：${props.userCourse.courseName}`,
-            text: `課程時間：${props.userCourse.courseTime}`,
+            title: `取消課程：${props.course.courseName}`,
+            text: `課程時間：${props.course.courseTime}`,
             icon: 'question',
             showCancelButton: true,
             cancelButtonText: '不取消了',
@@ -205,7 +203,7 @@ function CourseBox(props) {
 
     //已額滿按鈕
     function displayFullBtn() {
-        if (thisUserCourseId.filter(i=> i.courseId === getThisCourseId).length === 0) {
+        if (thisUserCourseId.filter(i => i.courseId === getThisCourseId).length === 0) {
             return (
                 <>
                     <button value={props.value} className="fullBooking">已額滿</button>
@@ -214,11 +212,10 @@ function CourseBox(props) {
         } else {
             return (
                 <>
-                    <button value={props.value} className="alreadyBooked courseBtn" onClick={() => props.myConfirmCancelBooking(props.userCancelBooking)}>取消預約</button>
+                    <button value={props.value} className="alreadyBooked courseBtn" onClick={() => myConfirmCancelBooking(userCancelBooking)}>取消預約</button>
                 </>
             )
         }
-
     }
 
     //課程彈跳視窗
@@ -291,7 +288,6 @@ function CourseBox(props) {
 const mapStateToProps = createStructuredSelector({
     currentUser: currentUserSelect,
 });
-
 export default withRouter(connect(mapStateToProps)(CourseBox));
   //---------------
 
