@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { connect } from "react-redux";
@@ -20,7 +19,7 @@ import { currentUserSelect } from "../../redux/user/user-selector";
 import { currentEmployeeSelect } from "../../redux/employee/employee-selector";
 
 // redux action-------------------------------
-import { userLogoutStart } from "../../redux/user/user-action";
+import { userLogoutStart, NavBarOnClick } from "../../redux/user/user-action";
 import { employeeLogout } from "../../redux/employee/employee-action";
 import { shopShowFilterTag } from "../../redux/shop/shop-action";
 
@@ -30,10 +29,14 @@ const Header = ({
   currentUser,
   userLogoutStart,
   currentEmployee,
-  employeeLogout
+  employeeLogout,
+  NavBarOnClick,
 }) => {
   const [subDiv, setSubDiv] = useState(false);
   const history = useHistory();
+
+  const path = history.location.pathname
+  // console.log(history.location.pathname)
 
   return (
     <div className="header">
@@ -56,7 +59,7 @@ const Header = ({
           onMouseOver={() => {
             if (subDiv) return;
           }}
-        // onMouseLeave={() => setSubDiv(false)}
+          // onMouseLeave={() => setSubDiv(false)}
         >
           <Link
             to="/shopping"
@@ -92,8 +95,8 @@ const Header = ({
             to="/articles"
             className="option"
             onClick={() => {
-              shopShowFilterTag("選擇篩選");
               setSubDiv(false);
+              NavBarOnClick(path)
             }}
             onMouseEnter={() => {
               navBarSelect("articles");
@@ -127,21 +130,41 @@ const Header = ({
           </Link>
           <Link
             to={currentUser
-              ?`/user`
-              :`/login`
-              }
+              ? `/user`
+              : `/login`
+            }
             className="option"
-            onMouseEnter={() => setSubDiv(false)}
+            onClick={() => {
+              setSubDiv(false);
+              NavBarOnClick(path)
+            }}
+            onMouseEnter={() => {
+              navBarSelect("user");
+              if (subDiv) return;
+              setSubDiv(false);
+            }}
           >
             會員中心
           </Link>
-          
         </div>
       </div>
       <div className="sub sub-cart" onMouseOver={() => setSubDiv(false)}>
+        {currentEmployee !== null ? (
+          <CustomButton
+            onClick={() => {
+              employeeLogout();
+              history.push("/");
+            }}
+          >
+            教練登出
+          </CustomButton>
+        ) : (
+          ""
+        )}
+
         {currentUser ? (
           <>
-            <span className="current-user-title">
+            <span clgassName="current-user-title">
               嗨! {currentUser.memberName}
             </span>
             <CustomButton signin unMobileMode onClick={() => userLogoutStart()}>
@@ -149,14 +172,14 @@ const Header = ({
             </CustomButton>
           </>
         ) : (
-            <CustomButton
-              signin
-              unMobileMode
-              onClick={() => history.push("/login")}
-            >
-              登入
-            </CustomButton>
-          )}
+          <CustomButton
+            signin
+            unMobileMode
+            onClick={() => history.push("/login")}
+          >
+            登入
+          </CustomButton>
+        )}
         <CartIcon />
       </div>
       <HeaderDropdown setSubDiv={setSubDiv} subDiv={subDiv} />
@@ -175,5 +198,6 @@ const mapDispatchToProps = (dispatch) => ({
   shopShowFilterTag: (tag) => dispatch(shopShowFilterTag(tag)),
   userLogoutStart: () => dispatch(userLogoutStart()),
   employeeLogout: () => dispatch(employeeLogout()),
+  NavBarOnClick: (currentUser) => dispatch(NavBarOnClick(currentUser)),
 });
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

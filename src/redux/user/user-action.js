@@ -69,3 +69,11 @@ export const userLoginRestart = () => ({
 export const googleLoginStart = () => ({
   type: userActionType.GOOGLE_LOG_IN_START,
 });
+
+
+
+
+export const NavBarOnClick = (currentUser) => ({
+  type: userActionType.NavBarOnClick,
+  payload: currentUser,
+});
