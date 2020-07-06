@@ -20,7 +20,7 @@ const CartList = ({ cartItems, cartFavoriteItems }) => {
                         <li className="icon"><FaRegListAlt /></li>
                         <li>購物車</li>
                     </ol>
-                    <h3>購物車</h3>
+                    <h3>CartList</h3>
                 </div>
             </div>
             <div className="container">
@@ -32,16 +32,16 @@ const CartList = ({ cartItems, cartFavoriteItems }) => {
                     <li className="step3-active">
                     </li>
                 </ul>
-                <div className="content">
+                <div className="CartListcontent">
                     <div className="content-wrap">
                         <h3>CartList</h3>
                         <span className="content-Cartlist-title">CartList Detail</span>
                         <ul className="content-wrap-ul">
                             <li>商品圖片</li>
                             <li>商品名稱</li>
-                            <li>商品類型</li>
-                            <li>商品價錢</li>
-                            <li>商品數量</li>
+                            <li>類型</li>
+                            <li>價錢</li>
+                            <li>數量</li>
                             <li>小計</li>
                             <li>功能</li>
                         </ul>
