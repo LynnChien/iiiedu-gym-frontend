@@ -25,7 +25,7 @@ function UserEdit({ currentUserSelect, userPath }) {
   const [memberPwd, setpwd] = useState("");
   const [memberImg, setimg] = useState("");
   const [memberid, setmemberid] = useState();
-  console.log("userPath", userPath)
+  // console.log("userPath", userPath)
   // useEffect(() => {
   //   if (!id) {
   //     history.push("/login")

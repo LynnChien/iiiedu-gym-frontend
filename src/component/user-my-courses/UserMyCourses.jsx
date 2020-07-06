@@ -166,6 +166,8 @@ function UserMyCourses(props) {
                             userCancelBooking={userCancelBooking}
                             getThisBookingState={getThisBookingState}
                             choose={props.choose}
+                            filterCoursesOfData={props.filterCoursesOfData}
+                            userCourseId={props.userCourseId}
                         />
                     </div>
                 </li>

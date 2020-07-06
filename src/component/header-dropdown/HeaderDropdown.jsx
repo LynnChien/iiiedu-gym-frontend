@@ -63,7 +63,6 @@ const HeaderDropdown = ({
               </Link>
             ))}
           </div>
-
           {currentUser ? (
             <>
               <span className="side-sub-user-title">

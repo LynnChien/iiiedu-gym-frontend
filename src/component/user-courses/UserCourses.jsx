@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react"
 import "./UserCourses.scss"
 import UserMyCoursesList from "../../component/user-my-courses-list/UserMyCoursesList"
-// import UserCanceledCourses from "../user-canceled-courses/UserCanceledCourses"
-// import UserFinishedCourses from "../user-finished-courses/UserFinishedCourses"
 //---------------
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
@@ -59,24 +57,17 @@ function UserCourses(props) {
         const response = await fetch(request);
         const data = await response.json();
         const courseOfUser = data.coursesRow.filter(i => i.id === currentUserId).map(f => f)
-
-        // console.log()
         setAllCoursesOfThisUser(courseOfUser)
     }
 
-
-
     const handleChange = (e) => {
         if (e.target.value === "預約的課程") {
-
             setChoose("預約的課程")
         } else if (e.target.value === "已取消的課程") {
             setChoose("已取消的課程")
         } else {
             setChoose("歷史課程")
         }
-
-        // console.log(e.target.value)
     }
 
     const filterCourse = function () {
@@ -95,27 +86,21 @@ function UserCourses(props) {
         }
     }
 
-    // useEffect(() => {
-    //     // getCoursesDataInAllUser()
-    // }, [])
-
     useEffect(() => {
         getUserBooking()
         filterCourse()
         getCoursesDataInAllUser()
-        // console.log(choose)
     }, [choose])
 
 
     return (
         <>
             <div className="userCourseContainer">
-               
                 <div className="userMyCoursesContainer">
                 <div className="userCorsesBtnContainer">
                     <button className="bookedBtn" onClick={(e) => handleChange(e)} value={"預約的課程"}>預約的課程</button>
                     <button className="canceledBtn" onClick={(e) => handleChange(e)} value={"已取消的課程"}>已取消的課程</button>
-                    <button className="finishedBtn" onClick={(e) => handleChange(e)} value={"歷史課程"}>歷史課程</button>
+                    <button className="finishedBtn" onClick={(e) => handleChange(e)} value={"歷史紀錄"}>歷史紀錄</button>
                 </div>
                     <ul className="userCoursesTitle">
                         <li>課程日期</li>
@@ -136,7 +121,6 @@ function UserCourses(props) {
                         choose={choose}
                         currentUserId={currentUserId}
                     />
-
                 </div>
             </div>
         </>

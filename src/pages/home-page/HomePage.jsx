@@ -190,7 +190,7 @@ const HomePage = () => {
               </li>
               <li>
                 <div class="view view-first">
-                  <img src="https://i.ibb.co/V9Fgzwq/3-STRIPES-04.jpg" />
+                  <img alt="" src="https://i.ibb.co/V9Fgzwq/3-STRIPES-04.jpg" />
                   <div class="mask">
                     <h2>黑色無袖</h2>
                     <a href="#" class="info">
@@ -201,7 +201,7 @@ const HomePage = () => {
               </li>
               <li>
                 <div class="view view-first">
-                  <img src="https://i.ibb.co/V9Fgzwq/3-STRIPES-04.jpg" />
+                  <img alt="" src="https://i.ibb.co/V9Fgzwq/3-STRIPES-04.jpg" />
                   <div class="mask">
                     <h2>黑色無袖</h2>
                     <a href="#" class="info">
@@ -212,7 +212,7 @@ const HomePage = () => {
               </li>
               <li>
                 <div class="view view-first">
-                  <img src="https://i.ibb.co/V9Fgzwq/3-STRIPES-04.jpg" />
+                  <img alt="" src="https://i.ibb.co/V9Fgzwq/3-STRIPES-04.jpg" />
                   <div class="mask">
                     <h2>黑色無袖</h2>
                     <a href="#" class="info">
@@ -223,7 +223,7 @@ const HomePage = () => {
               </li>
               <li>
                 <div class="view view-first">
-                  <img src="https://i.ibb.co/V9Fgzwq/3-STRIPES-04.jpg" />
+                  <img alt="" src="https://i.ibb.co/V9Fgzwq/3-STRIPES-04.jpg" />
                   <div class="mask">
                     <h2>黑色無袖</h2>
                     <a href="#" class="info">
@@ -234,7 +234,7 @@ const HomePage = () => {
               </li>
               <li>
                 <div class="view view-first">
-                  <img src="https://i.ibb.co/V9Fgzwq/3-STRIPES-04.jpg" />
+                  <img alt="" src="https://i.ibb.co/V9Fgzwq/3-STRIPES-04.jpg" />
                   <div class="mask">
                     <h2>黑色無袖</h2>
                     <a href="#" class="info">
@@ -245,7 +245,7 @@ const HomePage = () => {
               </li>
               <li>
                 <div class="view view-first">
-                  <img src="https://i.ibb.co/V9Fgzwq/3-STRIPES-04.jpg" />
+                  <img alt="" src="https://i.ibb.co/V9Fgzwq/3-STRIPES-04.jpg" />
                   <div class="mask">
                     <h2>黑色無袖</h2>
                     <a href="#" class="info">
@@ -261,7 +261,7 @@ const HomePage = () => {
             <ul>
               <li>
                 <div class="view view-first">
-                  <img src="https://i.ibb.co/V9Fgzwq/3-STRIPES-04.jpg" />
+                  <img alt="" src="https://i.ibb.co/V9Fgzwq/3-STRIPES-04.jpg" />
                   <div class="mask">
                     <h2>黑色無袖</h2>
                     <a href="#" class="info">
@@ -272,7 +272,7 @@ const HomePage = () => {
               </li>
               <li>
                 <div class="view view-first">
-                  <img src="https://i.ibb.co/V9Fgzwq/3-STRIPES-04.jpg" />
+                  <img alt="" src="https://i.ibb.co/V9Fgzwq/3-STRIPES-04.jpg" />
                   <div class="mask">
                     <h2>黑色無袖</h2>
                     <a href="#" class="info">
@@ -283,7 +283,7 @@ const HomePage = () => {
               </li>
               <li>
                 <div class="view view-first">
-                  <img src="https://i.ibb.co/V9Fgzwq/3-STRIPES-04.jpg" />
+                  <img alt="" src="https://i.ibb.co/V9Fgzwq/3-STRIPES-04.jpg" />
                   <div class="mask">
                     <h2>黑色無袖</h2>
                     <a href="#" class="info">
@@ -294,7 +294,7 @@ const HomePage = () => {
               </li>
               <li>
                 <div class="view view-first">
-                  <img src="https://i.ibb.co/V9Fgzwq/3-STRIPES-04.jpg" />
+                  <img alt="" src="https://i.ibb.co/V9Fgzwq/3-STRIPES-04.jpg" />
                   <div class="mask">
                     <h2>黑色無袖</h2>
                     <a href="#" class="info">
@@ -305,7 +305,7 @@ const HomePage = () => {
               </li>
               <li>
                 <div class="view view-first">
-                  <img src="https://i.ibb.co/V9Fgzwq/3-STRIPES-04.jpg" />
+                  <img alt="" src="https://i.ibb.co/V9Fgzwq/3-STRIPES-04.jpg" />
                   <div class="mask">
                     <h2>黑色無袖</h2>
                     <a href="#" class="info">
@@ -316,7 +316,7 @@ const HomePage = () => {
               </li>
               <li>
                 <div class="view view-first">
-                  <img src="https://i.ibb.co/V9Fgzwq/3-STRIPES-04.jpg" />
+                  <img alt="" src="https://i.ibb.co/V9Fgzwq/3-STRIPES-04.jpg" />
                   <div class="mask">
                     <h2>黑色無袖</h2>
                     <a href="#" class="info">
@@ -327,7 +327,7 @@ const HomePage = () => {
               </li>
               <li>
                 <div class="view view-first">
-                  <img src="https://i.ibb.co/V9Fgzwq/3-STRIPES-04.jpg" />
+                  <img alt="" src="https://i.ibb.co/V9Fgzwq/3-STRIPES-04.jpg" />
                   <div class="mask">
                     <h2>黑色無袖</h2>
                     <a href="#" class="info">

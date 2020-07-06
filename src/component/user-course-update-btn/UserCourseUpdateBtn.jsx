@@ -2,17 +2,36 @@ import React from "react";
 import "./UserCourseUpdateBtn.scss"
 
 function UserCourseUpdateBtn(props) {
-// console.log(props)
-    const displayUserBookingButton = (
-        <>
-            <button
-                className="userUpdateBtn"
-                value={props.userBookingId}
-                onClick={() => props.userConfirmUpdateBooking(props.userCancelBooking)}>
-                按我取消
+
+    const nowTime = Date.now()
+    // console.log(props)
+    const courseTime = props.filterCoursesOfData && props.filterCoursesOfData.filter(i => i.courseId === props.userCourseId).map(p => p.courseTime2)
+    // console.log(aa)
+    function displayUserBookingButton() {
+        if (courseTime < nowTime) {
+            return (
+                <>
+                    <button
+                        className="userUpdateBtn"
+                        value={props.userBookingId}
+                    >
+                        已完成課程
              </button>
-        </>
-    )
+                </>
+            )
+        } else {
+            return (
+                <>
+                    <button
+                        className="userUpdateBtn"
+                        value={props.userBookingId}
+                        onClick={() => props.userConfirmUpdateBooking(props.userCancelBooking)}>
+                        按我取消
+             </button>
+                </>
+            )
+        }
+    }
     const displayUserCancelButton = (
         <>
             <button
@@ -24,7 +43,7 @@ function UserCourseUpdateBtn(props) {
     )
     return (
         <>
-            {+props.getThisBookingState === 0 ? displayUserCancelButton : displayUserBookingButton}
+            {+props.getThisBookingState === 0 ? displayUserCancelButton : displayUserBookingButton()}
         </>
     )
 }
