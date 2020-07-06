@@ -6,7 +6,7 @@ import "./employee-sign-in-out-page.scss";
 
 const EmployeeSignInOutPage = () => (
   <>
-  <div className="sign-in-and-sign-out">
+  <div className="Employee-sign-in-and-sign-out">
     <EmployeeSignIn />
   </div>
   </>
