@@ -32,7 +32,7 @@ const ServiceRecord = (props) => {
     return (
         <>
             <div className="ServiceRecord">
-                <h3><span className="h3-span">問題</span><span>紀錄列表</span></h3>
+                <h3><span className="h3-span">問題回報</span><span>紀錄列表</span></h3>
                 <span className="service-list-title-box">
                     <div className="number">單號</div>
                     <div className="user-id">會員編號</div>
@@ -44,10 +44,13 @@ const ServiceRecord = (props) => {
                     <div className="create-time">建立時間</div>
                 </span>
             </div>
-            {AllData.map((item, index) =>
+            {AllData.length > 0 ?
+             AllData.map((item, index) =>
                 <NewServiceRecordDetail number={index + 1} key={index}{...item} currentUserData={currentUserData} >
                 </NewServiceRecordDetail>
-            )}
+            ):
+            <div className="border-button"></div>} 
+            
         </>
     )
 }
