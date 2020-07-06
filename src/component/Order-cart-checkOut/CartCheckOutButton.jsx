@@ -29,11 +29,14 @@ const CartCheckOutButton = ({ history, addToSever, additemToSever, SelectTotal }
     return (
         <div className="content-right">
             <div>總計：</div>
-            <h3>${SelectTotal}</h3>
+            <h3>NT : {SelectTotal}</h3>
             <div>折扣：{cubon}</div>
-            <div>總計：{SelectTotal - cubon}</div>
-            <button onClick={() => back()}>修改付款方式</button>
-            <button type="submit" onClick={() => ((addToSever, additemToSever))}>結帳</button>
+            <div>總計：NT {SelectTotal - cubon}</div>
+            <ul className="content-right-button" >
+                <button class="CartListButton wobble-vertical" onClick={() => back()}>修改付款方式</button>
+                <button class="CartListButton wobble-vertical" type="submit" onClick={() => ((addToSever, additemToSever))}>結帳</button>
+            </ul>
+
         </div >
     )
 }

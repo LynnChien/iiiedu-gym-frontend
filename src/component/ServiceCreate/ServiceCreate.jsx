@@ -90,7 +90,7 @@ const ServiceCreate = ({onClick , currentUserData}) => {
     return (
         <>
             {/* <button onClick={()=>()}>test</button> */}
-            <h3><span className="h3-span">問題回報</span><span>線上表單</span></h3>
+            <h3 className="create-title-box"><span className="h3-span">問題回報</span><span>線上表單</span></h3>
             <div className="create-list-box">
                 <div className="create-select-list">
                     <div className="create-list-select-box">

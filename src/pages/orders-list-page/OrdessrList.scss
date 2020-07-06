@@ -1,18 +1,36 @@
-// body {
-//   background-color: #555555;
-//   color: rgb(197, 194, 194);
-// }
-// a {
-//   color: rgb(216, 215, 215);
-// }
+$defaultDuration: 0.3s;
+$primaryColour: #ececec;
+$secondaryColour: #666;
+$shadowColour: rgba(0, 0, 0, 0.6);
+$tipWidth: 10px; //the width of the speech bubble tip
+$tipHeight: 10px; //the height of the speech bubble tip
+$tipColour: $primaryColour;
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap");
+
+@mixin hideTapHighlightColor() {
+  //Prevent highlight colour when element is tapped
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+@mixin hardwareAccel() {
+  //Improve performance on mobile/tablet devices
+  transform: translateZ(0);
+}
+
+@mixin improveAntiAlias() {
+  //Improve aliasing on mobile/tablet devices
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+}
 
 .container {
   width: 1260px;
   min-height: 100%;
   margin: 0 auto;
+  font-family: 'Roboto Condensed', sans-serif;
 }
 
-.article {
+.OrderListarticle {
   margin: 5px;
   margin-top: 15px;
   padding: 5px;
@@ -207,12 +225,14 @@ figure {
   margin: 20px 0px;
   padding-bottom: 20px;
   justify-content: center;
+  background-color: transparent !important;
 }
-.title {
+.OrderDetail-title {
   width: 100%;
-  background-color: #505763;
-  height: 135px;
-  color: darkgray;
+  background-image: url(https://images4.alphacoders.com/692/692043.jpg);
+  background-position: bottom left;
+  height: 160px;
+  color: rgb(255, 255, 255);
 }
 .title-cotainer {
   width: 60%;
@@ -258,7 +278,7 @@ figure {
   list-style: none;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  background-color: #ffffff;
+  background-color: #ffffff !important;
   color: #555555;
 
   padding: 10px;
@@ -272,7 +292,7 @@ figure {
   padding: 0;
   padding-bottom: 12px;
   padding: 20px;
-  background-color: #ffffff;
+  background-color: #ffffff !important;
   color: #333030;
 }
 
@@ -292,13 +312,15 @@ figure {
 }
 
 .info {
-  background-image: linear-gradient(to right, #434343 0%, black 100%);
+  background-image: linear-gradient(to right, #434343 0%, black 70%);
   color: #ffffff;
   padding-top: 10px;
   padding-bottom: 10px;
 }
 
 .button-two {
+  letter-spacing:1.2px;
+  width: 135px;
   outline: none;
   border: none;
   z-index: 1;
@@ -336,9 +358,52 @@ figure {
 .motumb-btn {
   background: transparent;
   border: transparent;
+  font-size: 15px;
+  cursor: pointer;
 
   &:hover {
     position: relative;
     top: -20%;
+  }
+}
+
+// Curl dimensions
+$curlWidth: 25px;
+$curlHeight: 25px;
+$revealAreaColour: white; // reveal area behind the curl
+$curlLineColour: #aaa; // crease line
+$curlTransitionColour: #ccc; // colour transitioning from crease line to final colour
+$curlLastColour: white;
+.curl-bottom-left {
+  display: inline-block;
+  position: relative;
+  @include hideTapHighlightColor();
+  @include hardwareAccel();
+  @include improveAntiAlias();
+
+  &:before {
+    pointer-events: none;
+    position: absolute;
+    content: "";
+    height: 0;
+    width: 0;
+    bottom: 0;
+    left: 0;
+    background: $revealAreaColour; /* IE9 */
+    background: linear-gradient(
+      45deg,
+      $revealAreaColour 45%,
+      $curlLineColour 50%,
+      $curlTransitionColour 56%,
+      $curlLastColour 80%
+    );
+    box-shadow: 1px -1px 1px rgba(0, 0, 0, 0.4);
+    transition-duration: $defaultDuration;
+    transition-property: width height;
+  }
+
+  &:hover:before {
+    width: $curlWidth;
+    height: $curlHeight;
   }
 }

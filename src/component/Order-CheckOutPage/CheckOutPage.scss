@@ -20,9 +20,11 @@
   padding-right: 10px;
 }
 .content-list-detail {
+  margin-top: 10px;
   display: grid;
   padding: 15px;
   grid-gap: 18px;
+  background-color: transparent !important;
 }
 .content-list-title {
   text-align: left;
@@ -37,6 +39,7 @@
   border-bottom: 1px solid #e8e8e8;
   width: 70%;
   text-align: center;
+  margin-right: 20px;
 }
 
 .detail-select {
@@ -60,4 +63,11 @@
   height: 23px;
   margin-top: 7px;
   margin-right: 20px;
+}
+.CheckOuttitle {
+  width: 100%;
+  background-image: url(https://images4.alphacoders.com/692/692043.jpg);
+  background-position: bottom left;
+  height: 160px;
+  color: rgb(255, 255, 255);
 }
