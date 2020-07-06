@@ -6,7 +6,8 @@ import FaqList from '../../component/Faq_list/FaqList'
 import './ServiceCenter.scss'
 import { MdKeyboardArrowRight } from "react-icons/md"
 // import Header from '../component/header/Header'
-import Footer from "../../component/footer/Footer"
+import Footer from '../../component/footer/Footer'
+
 
 //---------------1
 import { connect } from "react-redux";
@@ -19,17 +20,17 @@ const ServiceCenter = (props) => {
     const [nav, setNav] = useState('常見問題')
     // 改變state後，用state內的字串，去改變component。
 
- //---------------2
- const { currentUserData } = props
- console.log(currentUserData);
- //該使用者的id
-//  const currentUserId = currentUserData ? currentUserData.id : ''
- //---------------
+    //---------------2
+    const { currentUserData } = props
+    console.log(currentUserData);
+    //該使用者的id
+    //  const currentUserId = currentUserData ? currentUserData.id : ''
+    //---------------
 
-const handleChange = (i) => {
-    setNav(i)
-    console.log(i);
-}
+    const handleChange = (i) => {
+        setNav(i)
+        console.log(i);
+    }
     return (
         <div className="service-page">
             {/* <Header /> */}
@@ -42,26 +43,27 @@ const handleChange = (i) => {
                     <button className="nav-button" onClick={() => setNav('問題回報線上表單')}>問題回報線上表單<MdKeyboardArrowRight className="service-icon" />
                     </button>
                     <button className="nav-button" onClick={() => setNav('回報紀錄列表')}>回報紀錄列表<MdKeyboardArrowRight className="service-list-icon" />
-                    {/* onclick後，變更state的字串。 */}
+                        {/* onclick後，變更state的字串。 */}
                     </button>
                 </div>
             </div>
             <div className="service-right-body">
-                {nav === '常見問題' &&  <FaqList/>  }
-                {nav === '問題回報線上表單' &&  <ServiceCreate onClick={handleChange} currentUserData={currentUserData}/>  }
-                {nav === '回報紀錄列表' &&  <ServiceRecord currentUserData={currentUserData}/>  }
+                {nav === '常見問題' && <FaqList />}
+                {nav === '問題回報線上表單' && <ServiceCreate onClick={handleChange} currentUserData={currentUserData} />}
+                {nav === '回報紀錄列表' && <ServiceRecord currentUserData={currentUserData} />}
                 {/* 依照state的字串，去顯示component */}
             </div>
         <div style={{height: "2rem"}} />
             <Footer />
         </div>
+
     )
 }
 
 //---------------
 const mapStateToProps = createStructuredSelector({
     currentUserData: currentUserSelect,
-  });
-  
-  export default withRouter(connect(mapStateToProps)(ServiceCenter));
+});
+
+export default withRouter(connect(mapStateToProps)(ServiceCenter));
   //---------------

@@ -2,7 +2,7 @@ $midnight: #1178b8;
 $clouds: #ecf0f1;
 
 .faq-title-box {
-    width: 32.5rem;
+    width: 90%;
     height: 3rem;
     background: $midnight;
     margin-top: 15px;
@@ -18,10 +18,10 @@ $clouds: #ecf0f1;
         color: #fff;
     }
     svg {
-        width: 1.5rem;
-        height: 1.5rem;
+        font-size: 2rem;
         padding-right: 8px;
         display: inline-block;
+        color: #fff;
     }
     &:hover {
         background: darken($midnight, 10%);
@@ -29,16 +29,16 @@ $clouds: #ecf0f1;
     }
 }
 .faq-body-box {
-    width: 32.5rem;
-    display: flex;
+    width: 90%;
     line-height: 2rem;
+    max-height: 6rem;
+    margin-bottom: 5px;
     .faq-body {
         width: 100%;
         color: #000;
         word-break: break-all;
         background: rgb(127, 227, 250);
         border-radius: 0 0 3px 3px;
-        padding: 16px;
+        padding: 12px;
     }
 }
-
