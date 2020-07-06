@@ -17,13 +17,13 @@ function UserCourses(props) {
     const [allCoursesOfThisUser, setAllCoursesOfThisUser] = useState([])
     const [filterCoursesOfData, setFilterCoursesOfData] = useState([])
     const [choose, setChoose] = useState("")
-
+    const nowTime = Date.now()
     //---------------
     const { currentUser } = props
     //該使用者的id
     const currentUserId = currentUser ? currentUser.id : ''
     //---------------
-    console.log(currentUserId)
+    // console.log(currentUserId)
 
     //Fetch 預約資料
     async function getUserBooking() {
@@ -82,15 +82,14 @@ function UserCourses(props) {
     const filterCourse = function () {
         if (choose === "預約的課程") {
             // console.log('1')
-            const getBookingState = allCoursesOfThisUser && allCoursesOfThisUser.filter(i => +i.bookingState === +1).map(p => p)
+            const getBookingState = allCoursesOfThisUser && allCoursesOfThisUser.filter(i => +i.bookingState === +1 && i.courseTime2 > nowTime).map(p => p)
             // console.log(getBookingState)
             setFilterCoursesOfData(getBookingState)
         } else if (choose === "已取消的課程") {
-            const getBookingState2 = allCoursesOfThisUser && allCoursesOfThisUser.filter(i => +i.bookingState === +0).map(p => p)
+            const getBookingState2 = allCoursesOfThisUser && allCoursesOfThisUser.filter(i => +i.bookingState === +0 && i.courseTime2 > nowTime).map(p => p)
             // console.log(getBookingState2)
             setFilterCoursesOfData(getBookingState2)
         } else {
-            const nowTime = Date.now()
             const getCourseTime = allCoursesOfThisUser && allCoursesOfThisUser.filter(i => i.courseTime2 < nowTime).map(p=>p)
             setFilterCoursesOfData(getCourseTime)
         }

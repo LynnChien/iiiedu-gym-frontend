@@ -32,7 +32,6 @@ function CourseBookingButton(props) {
         if (+checkBookingState === 0) {
             return (
                 <>
-               
                     <button value={props.value} className="canceledBooked courseBtn ">已取消</button>
                 </>)
         } else {

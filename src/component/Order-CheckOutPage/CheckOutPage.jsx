@@ -114,7 +114,7 @@ const CheckOutPage = ({ cartItems, history, SelectTotal, currentUserSelect }) =>
 
     return (
         <>
-            <div className="title">
+            <div className="CheckOuttitle">
                 <div className="title-cotainer">
                     <ol className="title-ol">
                         <li className="icon">
@@ -132,7 +132,7 @@ const CheckOutPage = ({ cartItems, history, SelectTotal, currentUserSelect }) =>
                     <li className="step3-active"></li>
                 </ul>
                 <form
-                    className="content"
+                    className="CartListcontent"
                     onSubmit={() => {
                         addToSever({
                             Member,
@@ -194,6 +194,14 @@ const CheckOutPage = ({ cartItems, history, SelectTotal, currentUserSelect }) =>
                                 </select>
                             </div>
                             <input
+                                onChange={(event) => setAddress(event.target.value)}
+                                className="content-list-detail-input"
+                                type="text"
+                                name="address"
+                                placeholder="請輸入地址"
+                                required="required"
+                            />
+                            <input
                                 onChange={(event) => setMobile(event.target.value)}
                                 className="content-list-detail-input"
                                 type="text"
@@ -202,14 +210,7 @@ const CheckOutPage = ({ cartItems, history, SelectTotal, currentUserSelect }) =>
                                 placeholder="請輸入手機號碼"
                                 required="required"
                             ></input>
-                            <input
-                                onChange={(event) => setAddress(event.target.value)}
-                                className="content-list-detail-input"
-                                type="text"
-                                name="address"
-                                placeholder="請輸入地址"
-                                required="required"
-                            />
+
                             <input
                                 onChange={(event) => setEmail(event.target.value)}
                                 className="content-list-detail-input"

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react"
-import { Link } from "react-router-dom"
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { withRouter } from "react-router-dom"
@@ -14,19 +13,19 @@ function Articles(props) {
 
   const { currentUserData, userPath } = props
 
+
   console.log(userPath)
 
   //該使用者的id
   const currentUserId = currentUserData ? currentUserData.id : ''
   // console.log(currentUserId)
-
   const [allArticles, setAllArticles] = useState([])
+
   const [text, setText] = useState("")
 
   function handleClick(value) {
     setText(value);
   }
-
 
   //取得文章列表資料
   async function getData() {
@@ -51,6 +50,7 @@ function Articles(props) {
 
 
   return (
+
     <>
       <div className="articles-container">
         <div className="articleCategory">
@@ -123,6 +123,7 @@ function Articles(props) {
                     props.history.push("/login", {
                       userPath: userPath
                     })
+                    props.history.push("/login")
 
                   }
                 })
@@ -146,6 +147,7 @@ function Articles(props) {
               <ArticlePopular />
             </div>
             <div className="article-Tag-btn">
+
               <div className="article-Tag-popular">熱門標籤</div>
               <button
                 className="articleTagButton"
@@ -244,12 +246,14 @@ function Articles(props) {
                 <p>川字肌</p>
               </button>
 
+
             </div>
 
           </div>
 
         </div>
       </div>
+
     </>
   );
 }
@@ -260,6 +264,7 @@ const mapStateToProps = createStructuredSelector({
   currentUserData: currentUserSelect,
 
 });
+
 
 
 

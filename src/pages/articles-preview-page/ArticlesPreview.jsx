@@ -5,8 +5,8 @@ import { withRouter } from "react-router-dom"
 import axios from "axios"
 import "./ArticlesPreview.scss"
 import Moment from "react-moment"
+import { AiOutlineLike } from "react-icons/ai"
 import { AiFillLike } from "react-icons/ai"
-// import { AiOutlineLike } from "react-icons/ai"
 
 
 import { createStructuredSelector } from "reselect"
@@ -30,6 +30,7 @@ const ArticlesPreview = (props) => {
 
 
   const [Data, setData] = useState()
+  console.log(Data)
   const [articleId, setArticleId] = useState("")
   const [memberId,setMemberId] = useState(currentUserId)
   const [memberName,setmemberName] = useState("")
@@ -40,8 +41,7 @@ const ArticlesPreview = (props) => {
   const [text, setText] = useState("")
   const [commentsNum, setCommentsNum] = useState("")
   const [articleLike, setArticleLike] = useState("")
-
-  // console.log(commentsNum);
+  const [active,setActive] = useState("")
 
   useEffect(() => {
     setMemberImg(currentUserImg)
@@ -53,6 +53,7 @@ const ArticlesPreview = (props) => {
     const FetchData = async (id) => {
       const result = await axios(`http://localhost:5000/api/articles/${id}`);
       setData(result.data);
+      console.log(result.data)
     };
     FetchData(props.match.params.articleId);
   }, [props.match.params.articleId, articleLike])
@@ -78,6 +79,7 @@ const ArticlesPreview = (props) => {
           memberName: item.memberName,
           content: item.content,
           memberImg: item.memberImg,
+       
         },
       },
       // window.location.reload()
@@ -131,7 +133,6 @@ const ArticlesPreview = (props) => {
     const response = await fetch(request);
     const data = await response.json();
     setCommentsNum(data[0].COUNT);
-
   }
 
   useEffect(() => {
@@ -143,16 +144,16 @@ const ArticlesPreview = (props) => {
 
   //更新點讚數
 
-  async function postArticleLikeUpdate(item) {
+  async function postArticleLikeUpdate(articleId,flag) {
     // 注意資料格式要設定，伺服器才知道是json格式
 
     const articleLikeData = axios.post(
       `http://localhost:5000/api/articles/postArticleLikeUpdate`,
       {
-        articleId: item.articleId,
+        articleId: articleId,
+        flag: flag
       });
     setArticleLike(articleLikeData)
-
   }
 
 
@@ -193,12 +194,21 @@ const ArticlesPreview = (props) => {
               <div className="card-body-under">
                 <div className="card-like">
                   <div className="article-preview-icon">
-                  
-                    <AiFillLike onClick={() => {
-                      postArticleLikeUpdate({
-                        articleId
-                      });
+                    {list.flag !== 'Y' || (!active && active !=='Y')? 
+                    <AiOutlineLike onClick={() => {
+                      postArticleLikeUpdate(
+                        articleId,
+                        'Y'
+                      );
+                      setActive('Y');
                     }} />
+                    :  <AiFillLike  onClick={() => {
+                      postArticleLikeUpdate(
+                        articleId,
+                        'N'
+                      );
+                      setActive('N');
+                    }}/>}
                   </div>
                   <p>{list.articleLike}</p>
                 </div>
@@ -226,7 +236,7 @@ const ArticlesPreview = (props) => {
                         type="text"
                         value={content}
                         onChange={(event) => setContent(event.target.value)}
-                        placeholder="分享你的留言"
+                        placeholder="分享你的留言" 
                       />
 
                       <button
