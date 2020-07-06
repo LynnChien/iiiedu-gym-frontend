@@ -23,7 +23,7 @@ function UserCourses(props) {
     //該使用者的id
     const currentUserId = currentUser ? currentUser.id : ''
     //---------------
-    console.log(currentUserId)
+    // console.log(currentUserId)
 
     //Fetch 預約資料
     async function getUserBooking() {
@@ -39,7 +39,7 @@ function UserCourses(props) {
         const data = await response.json()
 
         const booking = data && data.filter(i => i.memberId === currentUserId).map(p => p)
-        console.log(booking)
+        // console.log(booking)
         setUserBooking(booking)
         // setNumOfCourse(props.course.numberOfCourse)
         // console.log(booking)

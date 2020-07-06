@@ -110,6 +110,7 @@ const Header = ({
               shopShowFilterTag("選擇篩選");
               setSubDiv(false);
             }}
+            onMouseEnter={() => setSubDiv(false)}
           >
             客服中心
           </Link>
