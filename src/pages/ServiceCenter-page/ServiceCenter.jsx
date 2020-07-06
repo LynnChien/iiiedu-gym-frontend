@@ -54,7 +54,7 @@ const ServiceCenter = (props) => {
                 {/* 依照state的字串，去顯示component */}
             </div>
         <div style={{height: "2rem"}} />
-            <Footer />
+            {/* <Footer /> */}
         </div>
 
     )
