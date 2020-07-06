@@ -7,6 +7,9 @@ import './OrderCompleted.scss'
 const OrderCompleted = ({ history }) => {
     // console.log(match.params.orderId)
     const [data, setData] = useState([]);
+    const [item, setitem] = useState([]);
+    const [Value, setValue] = useState();
+
     useEffect(() => {
         const FetchData = async () => {
             const result = await axios(
@@ -24,6 +27,25 @@ const OrderCompleted = ({ history }) => {
         }
         FetchData()
     }, []);
+
+    useEffect(() => {
+        const ListToSever = async () => {
+            const product = await axios(
+                "http://localhost:5000/Orders/api/OrderListDeatail"
+            );
+            setitem(product.data.rows.filter((i) => i.orderId === Value));
+        };
+        ListToSever();
+    }, [Value])
+
+    useEffect(() => {
+        data.forEach((i) => (
+            setValue(i.orderId)
+        ))
+    }, [data])
+
+    console.log(item);
+
     return (
         <>
             <div className="title">
@@ -55,7 +77,7 @@ const OrderCompleted = ({ history }) => {
                         </ul>
                         {data.map((list, index) => (
                             <>
-                                <ul key={index +"6"} className="content-wrap-ul-compeleted">
+                                <ul key={index + "6"} className="content-wrap-ul-compeleted">
                                     <li>{list.orderId}</li>
                                     <li>{list.Total}</li>
                                     <li>{list.PayMentMethod}</li>
@@ -63,14 +85,29 @@ const OrderCompleted = ({ history }) => {
                                 </ul>
                             </>
                         ))}
+                        <ul className="content-wrap-ul-compeleted">
+                            <li>商品名稱</li>
+                            <li>商品價格</li>
+                            <li>商品數量</li>
+                            <li>商品種類</li>
+                        </ul>
+                        {item.map((list, index) => (
+                            <>
+                                <ul key={index + "6"} className="content-wrap-ul-compeleted">
+                                    <li>{list.ItemName}</li>
+                                    <li>{list.ItemNamePrice}</li>
+                                    <li>{list.itemQuantity}</li>
+                                    <li>{list.itemType}</li>
+                                </ul>
+                            </>
+                        ))}
+
+                    </div>
+                    <div className="buttonContainer">
+                        <div className="button-two" onClick={() => (history.push('/OrderList'))}>歷史訂單</div>
+                        <div className="button-two" onClick={() => (history.push('/'))}>返回首頁</div>
                     </div>
                 </div>
-                <div className="buttonContainer">
-                    <div className="push first" onClick={() => (history.push('/OrderList'))}>點我查看歷史訂單</div>
-                    <div className="push first" onClick={() => (history.push('/'))}>返回首頁</div>
-                </div>
-
-
             </div>
         </>
     )
