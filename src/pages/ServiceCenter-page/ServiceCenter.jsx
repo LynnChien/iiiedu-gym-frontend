@@ -14,6 +14,7 @@ import { createStructuredSelector } from "reselect";
 import { currentUserSelect } from "../../redux/user/user-selector";
 //---------------
 
+// const {id} = {...currentUserData} 
 const ServiceCenter = (props) => {
     const [nav, setNav] = useState('常見問題')
     // 改變state後，用state內的字串，去改變component。
@@ -24,7 +25,7 @@ const ServiceCenter = (props) => {
     //該使用者的id
     //  const currentUserId = currentUserData ? currentUserData.id : ''
     //---------------
-
+    console.log(currentUserData);
     const handleChange = (i) => {
         setNav(i)
         console.log(i);
@@ -38,8 +39,8 @@ const ServiceCenter = (props) => {
                     <button className="nav-button" onClick={() => setNav('常見問題')}>常見問題ＦＡＱ
                     <MdKeyboardArrowRight className="question-icon" />
                     </button>
-                    <button className="nav-button" onClick={() => setNav('問題回報線上表單')}>問題回報線上表單<MdKeyboardArrowRight className="service-icon" />
-                    </button>
+                    {!currentUserData?'':<button className="nav-button" onClick={() => setNav('問題回報線上表單')}>問題回報線上表單<MdKeyboardArrowRight className="service-icon" />
+                    </button>}
                     <button className="nav-button" onClick={() => setNav('回報紀錄列表')}>回報紀錄列表<MdKeyboardArrowRight className="service-list-icon" />
                         {/* onclick後，變更state的字串。 */}
                     </button>

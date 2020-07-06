@@ -12,7 +12,7 @@ const OrderList = () => {
 
 <div className="orderlist">
 
-            <div className="title">
+            <div className="OrderDetail-title">
                 <div className="title-cotainer">
                     <ol className="title-ol">
                         <li className="icon"><FaHome /></li>
@@ -23,7 +23,7 @@ const OrderList = () => {
             </div>
 
             <div className="container">
-                <div className="article">
+                <div className="OrderListarticle">
                     <ul className="order-menu">
                         <li>
                             <Link to="/OrderList">

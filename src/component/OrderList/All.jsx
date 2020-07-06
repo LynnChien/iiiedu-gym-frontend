@@ -17,7 +17,7 @@ const All = ({ data, hiddenID, ListToSever, history, DelToSever, address, key })
                     <li>{item.PayMentMethod}</li>
                     {item.OrderStatus === '1' ? <li>交易進行中</li> : item.OrderStatus === '2' ? <li> 交易取消 </li> : <li>交易完成</li>}
                     <li className="productdetail">
-                        <button className="button-two" value={item.orderId} onClick={(e) => ((setHidden(!hidden), ListToSever(item.orderId), setValue(e.target.value)))}>點我查看</button>
+                        <button className="button-two CartListButton curl-bottom-left" value={item.orderId} onClick={(e) => ((setHidden(!hidden), ListToSever(item.orderId), setValue(e.target.value)))}>點我查看</button>
                     </li>
                     {item.OrderStatus === '1' ?
                         <button onClick={() => { DelToSever(item.orderId) }} className="motumb-btn">

@@ -64,8 +64,6 @@ const userReducer = (state = INITIAL_STATE, action) => {
         path: click(action.payload),
       };
 
-
-
     default:
       return state;
   }

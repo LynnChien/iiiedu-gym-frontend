@@ -1,15 +1,39 @@
+@mixin hideTapHighlightColor() {
+  //Prevent highlight colour when element is tapped
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+@mixin hardwareAccel() {
+  //Improve performance on mobile/tablet devices
+  transform: translateZ(0);
+}
+
+@mixin improveAntiAlias() {
+  //Improve aliasing on mobile/tablet devices
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+}
+$primaryColour: #ececec;
+$secondaryColour: #666;
+$defaultDuration: 0.3s;
+
 .select-type {
   margin-top: 20px;
   cursor: pointer;
   color: #6f6a66;
-  border: 1px solid #646565;
+  border: 2px solid #646565;
   border-radius: 5px;
   padding: 0.5rem 1rem;
   background: #fff;
   font-size: 14px;
   margin-bottom: 5px;
   line-height: 1;
-  width: 155px;
+  width: 175px;
+  &:focus {
+    border: 2px solid rgb(0, 0, 0);
+  }
+  &:focus::placeholder {
+    font-size: 14px;
+  }
 }
 
 .select-coupon-type {
@@ -31,6 +55,7 @@
   input {
     margin: 0;
     padding-left: 20px !important;
+    padding-bottom: 10px;
   }
 
   .cubunsuccess {
@@ -47,7 +72,59 @@
   }
 }
 
-
 .paysuccess {
   color: rgb(185, 74, 74);
+}
+
+.CartListButton {
+  letter-spacing: 4px;
+  width: 155px;
+  font-size: 18px;
+  cursor: pointer;
+  background: $primaryColour;
+  text-decoration: none;
+  color: $secondaryColour;
+}
+
+
+/* Wobble Vertical */
+@keyframes wobble-vertical {
+	16.65% {
+		transform: translateY(8px);
+	}
+
+	33.3% {
+		transform: translateY(-6px);
+	}
+
+	49.95% {
+		transform: translateY(4px);
+	}
+
+	66.6% {
+		transform: translateY(-2px);
+	}
+
+	83.25% {
+		transform: translateY(1px);
+	}
+
+	100% {
+		transform: translateY(0);
+	}
+}
+
+.wobble-vertical {
+	display: inline-block;
+
+	@include hideTapHighlightColor();
+	@include hardwareAccel();
+	@include improveAntiAlias();
+
+	&:hover {
+		animation-name: wobble-vertical;
+		animation-duration: 1s;
+		animation-timing-function: ease-in-out;
+		animation-iteration-count: 1;
+	}
 }

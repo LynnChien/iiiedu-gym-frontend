@@ -28,6 +28,7 @@ class SignIn extends React.Component {
     setTimeout(function () {
       history.goBack();
     }, 2500)
+
     e.preventDefault();
     const { email, password } = this.state;
     const { userLoginStart } = this.props;
@@ -45,7 +46,7 @@ class SignIn extends React.Component {
   render() {
 
     const { userSignInUnVaild, history, userLoginRestart } = this.props;
-    console.log(history)
+    console.log("history", history)
     return (
       <div className="sign-in">
         <h2 className="sign-in-title">會員登入</h2>

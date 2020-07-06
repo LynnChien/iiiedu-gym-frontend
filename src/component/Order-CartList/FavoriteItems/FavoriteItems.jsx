@@ -17,7 +17,7 @@ const FavoriteItem = ({ cartFavoriteItems, unlikeCartItem ,delFavCartItem}) => {
                         <li><img className="objectFit" src={item.img1} /></li>
                         <li>{item.name}</li>
                         <li>{item.itemType}</li>
-                        <li>{item.price}</li>
+                        <li>$ {item.price}</li>
                         <ul className="icon-list">
                             <a className="icon" onClick={() => delFavCartItem(item)} ><FaTrashAlt /></a>
                             {/* <a className="icon" onClick={() => ChangeFavr(item)}><FaStar /></a> */}
