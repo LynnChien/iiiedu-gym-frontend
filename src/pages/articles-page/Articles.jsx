@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
+
 import "./Articles.scss"
-// import Swal from 'sweetalert2'
+import Swal from 'sweetalert2'
 
 import ArticleCard from "../../component/article-card/ArticleCard"
 import ArticlePopular from "../../component/article-popular/ArticlePopular"
@@ -12,8 +13,7 @@ import { userPath } from "../../redux/user/user-selector";
 function Articles({ userPath }) {
 
 
-  console.log(userPath);
-
+//   console.log(userPath);
 
   const [allArticles, setAllArticles] = useState([])
   const [text, setText] = useState("")
@@ -46,6 +46,7 @@ function Articles({ userPath }) {
 
 
   return (
+
     <>
       <div className="articles-container">
         <div className="articleCategory">
@@ -230,21 +231,20 @@ function Articles({ userPath }) {
                 <p>川字肌</p>
               </button>
 
+
             </div>
 
           </div>
 
         </div>
       </div>
+
     </>
   );
 }
 
-
 const mapStateToProps = createStructuredSelector({
   userPath: userPath,
 });
-
-
 
 export default connect(mapStateToProps)(Articles);

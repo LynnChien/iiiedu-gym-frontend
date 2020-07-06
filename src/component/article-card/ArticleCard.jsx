@@ -85,7 +85,7 @@ const ArticleCard = (props) => {
                       <div className="article-under-line"></div>
                       <div className="card-body-under">
                         <div className="card-like">
-                          <div className="icon">
+                          <div className="article-card-icon">
                             <AiFillLike />
                           </div>
                           <p>{list.articleLike}</p>
