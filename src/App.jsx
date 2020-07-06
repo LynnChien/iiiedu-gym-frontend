@@ -132,7 +132,7 @@ const App = ({ userListStart, employeeListStart }) => {
           </ErrorBoundary>
         </Switch>
       </main>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 };

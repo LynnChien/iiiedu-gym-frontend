@@ -14,7 +14,7 @@ function UserCenterPage(props) {
     <>
       <div className="user-center-page-wrapper">
         <div className="user-sidebar">
-          <div className="center-line"></div>
+          {/* <div className="center-line"></div> */}
           <p className="sidebar-title">會員中心</p>
           <ul className="list-unstyled">
             <li>
