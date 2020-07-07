@@ -28,11 +28,13 @@ $clouds: #ecf0f1;
         cursor: pointer;
     }
 }
+
 .faq-body-box {
+    max-height: 0px;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+    margin: 0 0 0 0px;
     width: 90%;
-    line-height: 2rem;
-    // max-height: 15rem;
-    margin-bottom: 5px;
     .faq-body {
         width: 100%;
         color: #000;
@@ -43,3 +45,36 @@ $clouds: #ecf0f1;
         border: 1px solid #1178b8;
     }
 }
+
+.jason{
+    position: absolute;
+}
+.faq-active {
+    width:90%;
+    padding: 0;
+    max-height: 2000px;
+    transition: all 0.3s ease-in;
+}
+.faq-title-icon-1st{
+    transform: rotate(0deg);
+    transition: all 0.3s ease-in;
+}
+.faq-title-icon-2nd{
+    transform: rotate(90deg);
+    transition: all 0.3s ease-in;
+}
+// .faq-body-box {
+//     width: 90%;
+//     line-height: 2rem;
+//     // max-height: 15rem;
+//     margin-bottom: 5px;
+//     .faq-body {
+//         width: 100%;
+//         color: #000;
+//         word-break: break-all;
+//         background: #fff;
+//         border-radius: 0 0 3px 3px;
+//         padding: 12px;
+//         border: 1px solid #1178b8;
+//     }
+// }
