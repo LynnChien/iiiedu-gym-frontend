@@ -143,7 +143,7 @@ const ServiceRecordDetail = (props) => {
 
                                         :
                                         <div>
-                                            <p className="history-admin">Member:</p>
+                                            <p className="history-member">Member:</p>
                                             <div className="history-left">
                                                 {item.replycontent}
                                                 <div className="reply-time">{commentTime(item.replytime)}</div>
