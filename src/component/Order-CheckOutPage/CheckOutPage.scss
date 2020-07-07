@@ -1,5 +1,19 @@
 @import "../Order-CartList/CartList.scss";
 @import "../../pages/orders-list-page/OrdessrList.scss";
+@import url("https://fonts.googleapis.com/css2?family=Bangers&family=Noto+Sans+TC:wght@500;900&display=swap");
+
+.container-class {
+  font-family: "Bangers", cursive;
+  font-family: "Noto Sans TC", sans-serif;
+  .confirm-button-class {
+    font-family: "Bangers", cursive !important;
+    font-family: "Noto Sans TC", sans-serif !important;
+  }
+  .cancel-button-class {
+    font-family: "Bangers", cursive !important;
+    font-family: "Noto Sans TC", sans-serif !important;
+  }
+}
 
 .step2-active-extend {
   @extend .step2-active;
@@ -40,6 +54,7 @@
   width: 70%;
   text-align: center;
   margin-right: 20px;
+  font-family: "Bangers, cursive", cursive;
 }
 
 .detail-select {
@@ -52,6 +67,7 @@
   margin: 0;
   width: 100%;
   padding: 15px;
+  font-family: "Bangers, cursive", cursive;
 }
 .recipient-district-input {
   display: flex;
@@ -70,4 +86,5 @@
   background-position: bottom left;
   height: 160px;
   color: rgb(255, 255, 255);
+  font-family: "Bangers, cursive", cursive;
 }
