@@ -50,7 +50,7 @@
       width: 50vw;
       left: 50vw;
       z-index: 0;
-      background-image: url("./PhotosImgFront.png");
+      background-image: url("./page2.jpg");
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center center;
@@ -59,8 +59,8 @@
 
     #page2-right.sticky {
       position: fixed;
-      top: 104px;
-      left: calc(49vw + 2px);
+      top: 44px;
+      // left: calc(49vw + 2px);
     }
   }
 
@@ -95,7 +95,7 @@
       width: 50vw;
       left: 50vw;
       z-index: 0;
-      background-image: url("./PhotosImgFront.png");
+      background-image: url("./page3.jpg");
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center center;
@@ -104,8 +104,8 @@
 
     #page3-right.sticky {
       position: fixed;
-      top: 104px;
-      left: calc(49vw + 2px);
+      top: 24px;
+      // left: calc(49vw + 2px);
     }
   }
 
@@ -120,7 +120,7 @@
       top: calc(300vh + 144px);
       height: 100vh;
       width: 50vw;
-      background-image: url("./CoachBackGround.jpg");
+      background-image: url("./GYMMAIN.png");
       background-repeat: no-repeat;
       background-size: cover;
       filter: grayscale(50%);
@@ -129,8 +129,8 @@
 
     #page4-left.sticky {
       position: fixed;
-      top: 104px;
-      left: calc(-1vw + 2px);
+      top: 0px;
+      // left: calc(-1vw + 2px);
     }
     .page4-left-wrapper-rwd {
       display: none;
@@ -165,7 +165,7 @@
 
   #page4-left.sticky {
     position: fixed;
-    top: 104px;
+    top: 44px;
   }
   .page4-left-wrapper-rwd {
     display: none;
@@ -209,7 +209,7 @@
     top: calc(400vh + 144px);
     height: 100vh;
     width: 50vw;
-    background-image: url("./CoachBackGround.jpg");
+    background-image: url("./Gy.png");
     background-repeat: no-repeat;
     background-size: cover;
     filter: grayscale(50%);
@@ -218,8 +218,8 @@
 
   #page5-left.sticky {
     position: fixed;
-    top: 104px;
-    left: calc(-1vw + 2px);
+    top: 0px;
+    // left: calc(-1vw + 2px);
     z-index: -1;
   }
   .page5-left-wrapper-rwd {
@@ -263,6 +263,7 @@
   background-size: cover;
   align-items: center;
   z-index: 2;
+  // filter: grayscale(50%);
   .page6-menu-rwd {
     display: none;
   }
@@ -297,6 +298,12 @@
           background: rgba(black, 0);
           height: 60vh;
           margin: 50px;
+          h2 {
+            color: #fecc2f;
+            font-size: 30px;
+            font-weight: bold;
+            line-height: 40px;
+          }
           span {
             color: white;
             font-size: 24px;

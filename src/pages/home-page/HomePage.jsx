@@ -1,50 +1,51 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./HomePage.scss";
 import GYM2 from "../../API/GYM.mp4";
 import PhotosImgbackground from "./PhotosImgbackground1.png";
-// import PhotosImgFront from "./PhotosImgFront.png";
-// import CoachBackGround from "./CoachBackGround.jpg";
+import ChrisHemsworth from "./Chris-Hemsworth.jpg";
+import ChrisEvans from "./Chris-Evans.jpg";
+import Alice from "./Alice.png";
 import CustomButton from "../../component/custom-button/Custom-button";
 
 const HomePage = () => {
-  
-  // window.addEventListener("scroll", function () {
-  //   if (((this.height = 987), this.scrollY > this.height)) {
-  //     document.getElementById("page2-right").classList.add("sticky");
-  //   } else {
-  //     document.getElementById("page2-right").classList.remove("sticky");
-  //   }
+  // document.getElementById("homepagescroll").addEventListener("scroll");
 
-  //   if (((this.height = 1900), this.scrollY > this.height)) {
-  //     document.getElementById("page3-right").classList.add("sticky");
-  //     document.getElementById("page2-right").classList.remove("sticky");
-  //   } else {
-  //     document.getElementById("page3-right").classList.remove("sticky");
-  //   }
+  useEffect(() => {
+    window.addEventListener("scroll", handlescroll);
 
-  //   if (((this.height = 2850), this.scrollY > this.height)) {
-  //     document.getElementById("page4-left").classList.add("sticky");
-  //     document.getElementById("page3-right").classList.remove("sticky");
+    return () => window.removeEventListener("scroll", handlescroll);
+  }, []);
 
-  //     // document.getElementById("page6").classList.add("position");
-  //   } else {
-  //     document.getElementById("page4-left").classList.remove("sticky");
-  //   }
+  const handlescroll = function () {
+    if (((this.height = 1050), this.scrollY > this.height)) {
+      document.getElementById("page2-right").classList.add("sticky");
+    } else {
+      document.getElementById("page2-right").classList.remove("sticky");
+    }
 
-  //   if (((this.height = 3780), this.scrollY > this.height)) {
-  //     document.getElementById("page5-left").classList.add("sticky");
-  //     document.getElementById("page4-left").classList.remove("sticky");
-  //   } else {
-  //     document.getElementById("page5-left").classList.remove("sticky");
-  //   }
-
-  //   if (((this.height = 4750), this.scrollY > this.height)) {
-  //     document.getElementById("page5-left").classList.remove("sticky");
-  //   } else {
-  //   }
-  // }
-  // );
-
+    if (((this.height = 2000), this.scrollY > this.height)) {
+      document.getElementById("page3-right").classList.add("sticky");
+      document.getElementById("page2-right").classList.remove("sticky");
+    } else {
+      document.getElementById("page3-right").classList.remove("sticky");
+    }
+    if (((this.height = 2950), this.scrollY > this.height)) {
+      document.getElementById("page4-left").classList.add("sticky");
+      document.getElementById("page3-right").classList.remove("sticky");
+    } else {
+      document.getElementById("page4-left").classList.remove("sticky");
+    }
+    if (((this.height = 3880), this.scrollY > this.height)) {
+      document.getElementById("page5-left").classList.add("sticky");
+      document.getElementById("page4-left").classList.remove("sticky");
+    } else {
+      document.getElementById("page5-left").classList.remove("sticky");
+    }
+    if (((this.height = 4750), this.scrollY > this.height)) {
+      document.getElementById("page5-left").classList.remove("sticky");
+    } else {
+    }
+  };
   return (
     <>
       <div className="homepage" id="homepagescroll">
@@ -140,7 +141,7 @@ const HomePage = () => {
                 </div>
               </li>
               <li>
-                <img src={PhotosImgbackground} alt=""></img>
+                <img src={ChrisHemsworth} alt=""></img>
                 <div className="page6-card-right">
                   <span>
                     包含最熱門的飛輪、 舞蹈、瑜珈、LESM ILLS、MOSSA與
@@ -149,7 +150,7 @@ const HomePage = () => {
                 </div>
               </li>
               <li>
-                <img src={PhotosImgbackground} alt=""></img>
+                <img src={ChrisEvans} alt=""></img>
                 <div className="page6-card-right">
                   <span>
                     包含最熱門的飛輪、 舞蹈、瑜珈、LESM ILLS、MOSSA與
@@ -158,11 +159,13 @@ const HomePage = () => {
                 </div>
               </li>
               <li>
-                <img src={PhotosImgbackground} alt=""></img>
+                <img src={Alice} alt=""></img>
                 <div className="page6-card-right">
+                <h2>Alice</h2>
                   <span>
-                    包含最熱門的飛輪、 舞蹈、瑜珈、LESM ILLS、MOSSA與
-                    獨家系列，有氧老師師資也非常充足與專業，滿足您隨時想上課的需求。
+                    AFAA WT重量訓練證照、FRE-F泡棉滾筒運動證照、TRX
+                    STC懸吊訓練師、MMA4Ffifcoach Level 1
+                    、綜合格鬥適能教練認證、CKC壺鈴教練認證Level 1、CPR+AED證照
                   </span>
                 </div>
               </li>
@@ -177,9 +180,19 @@ const HomePage = () => {
             <ul>
               <li>
                 <div class="view view-first">
-               
-                  <img src="https://i.ibb.co/V9Fgzwq/3-STRIPES-04.jpg" />
-                
+                  <img src="https://i.ibb.co/2KT3nqN/clothes66.jpg" />
+
+                  <div class="mask">
+                    <h2>女-白色運動內衣</h2>
+                    <a href="#" class="info">
+                      More
+                    </a>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="view view-first">
+                  <img alt="" src="https://i.ibb.co/3m0Cp19/clothes94.jpg" />
                   <div class="mask">
                     <h2>黑色無袖</h2>
                     <a href="#" class="info">
@@ -190,7 +203,7 @@ const HomePage = () => {
               </li>
               <li>
                 <div class="view view-first">
-                  <img alt="" src="https://i.ibb.co/V9Fgzwq/3-STRIPES-04.jpg" />
+                  <img alt="" src="https://i.ibb.co/kqjHd2f/clothes21.jpg" />
                   <div class="mask">
                     <h2>黑色無袖</h2>
                     <a href="#" class="info">
@@ -201,7 +214,7 @@ const HomePage = () => {
               </li>
               <li>
                 <div class="view view-first">
-                  <img alt="" src="https://i.ibb.co/V9Fgzwq/3-STRIPES-04.jpg" />
+                  <img alt="" src="https://i.ibb.co/rMwSmzB/clothes3.jpg" />
                   <div class="mask">
                     <h2>黑色無袖</h2>
                     <a href="#" class="info">
@@ -212,7 +225,7 @@ const HomePage = () => {
               </li>
               <li>
                 <div class="view view-first">
-                  <img alt="" src="https://i.ibb.co/V9Fgzwq/3-STRIPES-04.jpg" />
+                  <img alt="" src="https://i.ibb.co/80qHPs3/Men-s-Charged-Cotton-Short-Sleeve-T-Shirt-gray.jpg" />
                   <div class="mask">
                     <h2>黑色無袖</h2>
                     <a href="#" class="info">
@@ -223,7 +236,7 @@ const HomePage = () => {
               </li>
               <li>
                 <div class="view view-first">
-                  <img alt="" src="https://i.ibb.co/V9Fgzwq/3-STRIPES-04.jpg" />
+                  <img alt="" src="https://i.ibb.co/JnDCfp9/Men-s-Charged-Cotton-Short-Sleeve-T-Shirt-white.png" />
                   <div class="mask">
                     <h2>黑色無袖</h2>
                     <a href="#" class="info">
@@ -234,18 +247,7 @@ const HomePage = () => {
               </li>
               <li>
                 <div class="view view-first">
-                  <img alt="" src="https://i.ibb.co/V9Fgzwq/3-STRIPES-04.jpg" />
-                  <div class="mask">
-                    <h2>黑色無袖</h2>
-                    <a href="#" class="info">
-                      More
-                    </a>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div class="view view-first">
-                  <img alt="" src="https://i.ibb.co/V9Fgzwq/3-STRIPES-04.jpg" />
+                  <img alt="" src="https://i.ibb.co/k89LvDx/image-QC28803187-2000-1.jpg" />
                   <div class="mask">
                     <h2>黑色無袖</h2>
                     <a href="#" class="info">
@@ -261,7 +263,7 @@ const HomePage = () => {
             <ul>
               <li>
                 <div class="view view-first">
-                  <img alt="" src="https://i.ibb.co/V9Fgzwq/3-STRIPES-04.jpg" />
+                  <img alt="" src="https://i.ibb.co/vPpKg48/image-QC28852702-2000-1.jpg" />
                   <div class="mask">
                     <h2>黑色無袖</h2>
                     <a href="#" class="info">
@@ -272,7 +274,7 @@ const HomePage = () => {
               </li>
               <li>
                 <div class="view view-first">
-                  <img alt="" src="https://i.ibb.co/V9Fgzwq/3-STRIPES-04.jpg" />
+                  <img alt="" src="https://i.ibb.co/Yd6Pfd5/image-QC28830101-2000-1.jpg" />
                   <div class="mask">
                     <h2>黑色無袖</h2>
                     <a href="#" class="info">
@@ -283,7 +285,7 @@ const HomePage = () => {
               </li>
               <li>
                 <div class="view view-first">
-                  <img alt="" src="https://i.ibb.co/V9Fgzwq/3-STRIPES-04.jpg" />
+                  <img alt="" src="https://i.ibb.co/jHBhfzT/image-QC28855581-2000-2.jpg" />
                   <div class="mask">
                     <h2>黑色無袖</h2>
                     <a href="#" class="info">
@@ -294,7 +296,7 @@ const HomePage = () => {
               </li>
               <li>
                 <div class="view view-first">
-                  <img alt="" src="https://i.ibb.co/V9Fgzwq/3-STRIPES-04.jpg" />
+                  <img alt="" src="https://i.ibb.co/Wprv96j/image-QC28847341-2000-2.jpg" />
                   <div class="mask">
                     <h2>黑色無袖</h2>
                     <a href="#" class="info">
@@ -305,7 +307,7 @@ const HomePage = () => {
               </li>
               <li>
                 <div class="view view-first">
-                  <img alt="" src="https://i.ibb.co/V9Fgzwq/3-STRIPES-04.jpg" />
+                  <img alt="" src="https://i.ibb.co/qm6vTXR/10.jpg" />
                   <div class="mask">
                     <h2>黑色無袖</h2>
                     <a href="#" class="info">
@@ -316,7 +318,7 @@ const HomePage = () => {
               </li>
               <li>
                 <div class="view view-first">
-                  <img alt="" src="https://i.ibb.co/V9Fgzwq/3-STRIPES-04.jpg" />
+                  <img alt="" src="https://i.ibb.co/9sBWgCD/ADIDAS-X-SPEZIAL-HESWALL-1.jpg" />
                   <div class="mask">
                     <h2>黑色無袖</h2>
                     <a href="#" class="info">
@@ -327,7 +329,7 @@ const HomePage = () => {
               </li>
               <li>
                 <div class="view view-first">
-                  <img alt="" src="https://i.ibb.co/V9Fgzwq/3-STRIPES-04.jpg" />
+                  <img alt="" src="https://i.ibb.co/0jxVyrz/Women-s-Project-Rock-Terry-Joggers-Trousers-black-grey.png" />
                   <div class="mask">
                     <h2>黑色無袖</h2>
                     <a href="#" class="info">
