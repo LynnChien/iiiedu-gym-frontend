@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Bangers&family=Noto+Sans+TC:wght@500;900&display=swap");
+
 .container {
   width: 1260px;
   min-height: 100%;
@@ -41,20 +42,68 @@
   letter-spacing: 4px;
 }
 
-.title-ol {
-  list-style: none;
-  display: flex;
-  font-size: 14px;
-  text-align: left;
-  padding: 0;
-  padding-top: 20px;
-  padding-left: 15px;
-  margin: 0;
-}
-.title-ol li {
-  margin-left: 10px;
+.CartList-title {
+  background-image: url(https://images4.alphacoders.com/692/692043.jpg);
+  background-position: center left;
+  height: 150px;
+  margin-bottom: 80px;
+  color: white;
+  font-family: "Bangers", cursive;
 }
 
+.title-cotainer {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.step2-active {
+  width: 250px;
+  background-color: silver;
+  height: 65px;
+  background-image: url(//s.azurecdns.com/sff/pazzo/static/img/img-cart-step-new.png);
+  background-repeat: no-repeat;
+  background-position: 0 -68px;
+}
+.step3-active {
+  width: 250px;
+  background-color: silver;
+  height: 65px;
+  background-image: url(//s.azurecdns.com/sff/pazzo/static/img/img-cart-step-new.png);
+  background-repeat: no-repeat;
+  background-position: 0 -136px;
+}
+.content-wrap {
+  width: 70%;
+  padding: 0;
+  text-align: center;
+}
+.content-wrap-ul {
+  font-family: "Roboto Condensed", sans-serif;
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 0.75fr 1.2fr 0.85fr 0.9fr 0.8fr;
+  border-top: 1px solid #f2f3f5;
+  font-size: 18px;
+  padding: 40px 0;
+  align-items: center;
+  justify-items: center;
+}
+.icon-list {
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  li {
+    padding: 0;
+    padding-top: 20px;
+    padding-left: 15px;
+    margin: 0;
+  }
+  .title-ol li {
+    margin-left: 10px;
+  }
+}
 .title-cotainer h3 {
   padding-left: 26px;
   width: 80%;
@@ -113,7 +162,7 @@
   font-family: "Roboto Condensed", sans-serif;
   list-style: none;
   display: grid;
-  grid-template-columns: 1fr 1.5fr 0.75fr 1.2fr 0.85fr 0.9fr 0.8fr;
+  grid-template-columns: 0.8fr 1.5fr 0.75fr 1.2fr 0.85fr 0.9fr 0.8fr;
   border-top: 1px solid #f2f3f5;
   font-size: 18px;
   padding: 40px 0;

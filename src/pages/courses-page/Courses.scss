@@ -1,6 +1,6 @@
 .coursesWrapper {
   // max-width: 1260px;
-  width:100%;
+  width: 100%;
   margin: 0 auto;
 
   .coursesContainer {
@@ -58,7 +58,6 @@
 @media screen and (max-width: 375px) {
   .coursesWrapper {
     width: 100%;
-    background: black !important;
 
     .coursesContainer {
       width: 100%;
@@ -66,7 +65,7 @@
 
       .courseBannerContainer {
         width: 100%;
-        display: none;
+        // display: none;
 
         .courseBanner {
           width: 100%;
