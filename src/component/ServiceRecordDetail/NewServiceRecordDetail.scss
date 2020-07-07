@@ -115,42 +115,46 @@
         font-size: 16px;
         font-weight: bold;
         overflow: scroll;
+        .history-admin{
+            font-size: 12px;
+            margin: 1rem 10px 0 auto;
+            width: 48%;
+            max-width: 70%;
+        }
         .history-right {
-            margin: 10px 10px 10px auto;
+            margin: 0 10px 10px auto;
             background: rgba(254, 204, 47, 0.8);
             width: 48%;
             max-width: 70%;
-            margin-top: 10px;
             padding: 6px;
             border-radius: 6px;
             word-break: break-all;
+            color: #000;
             .reply-time {
                 text-align: right;
                 margin-left: auto;
                 font-size: 0.75rem;
             }
-            .history-admin{
-                font-size: 12px;
-            }
+            
+        }
+        .history-member {
+            font-size: 12px;
+            margin-top: 0.75rem;
         }
         .history-left {
             text-align: left;
             background: rgba(17, 120, 184, 0.8);
             width: 48%;
             max-width: 70%;
-            margin-top: 0.65rem;
             padding: 6px;
             border-radius: 6px;
             word-break: break-all;
+            color: #fff;
             .reply-time {
                 text-align: right;
                 margin-left: auto;
                 font-size: 0.75rem;
-            }
-            .history-member {
-                font-size: 12px;
-            }
-            
+            }  
         }
     }
 }
@@ -167,7 +171,7 @@
         max-width: 100%;
         max-height: 100%;
         resize: none;
-        padding-left: 2px;
+        padding: 5px ;
     }
 }
 .testPost-btn {
