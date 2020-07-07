@@ -46,8 +46,10 @@ const HeaderDropdown = ({
             </Link>
           ))}
         </div>
-
         <div className="side-sub-div">
+          <h2 onClick={() => { history.push("/user"); setSubDiv(false) }}>會員中心</h2>
+          <h2 onClick={() => { history.push("/employeelogin"); setSubDiv(false) }}>教練中心</h2>
+          <h2 onClick={() => { history.push("/ServiceCenter"); setSubDiv(false) }}>客服中心</h2>
           <h2 onClick={() => history.push("/shopping")}>商城專區</h2>
           <div className="side-sub-link-container">
             {navLink["shop"].map((linkInfo) => (
@@ -93,51 +95,36 @@ const HeaderDropdown = ({
               </Link>
             ))}
           </div>
-          {/* <h2 onClick={() => history.push("/ServiceCenter") setSubDiv(false);}>客服中心</h2> */}
-          {/* <div className="side-sub-link-container">
-            {navLink["articles"].map((linkInfo) => (
-              <Link
-                key={linkInfo.name + "h1"}
-                to={`${linkInfo.linkRoute}`}
-                onClick={() => {
-                  dispatch(shopShowFilterTag("選擇篩選"));
-                  setSubDiv(false);
-                }}
-              >
-                {linkInfo.name}
-              </Link>
-            ))} */}
-          {/* </div> */}
-          {currentUser ? (
-            <>
-              <span className="side-sub-user-title">
-                嗨! {currentUser.memberName}
-              </span>
-              <CustomButton
-                signin
-                mobileMode
-                onClick={() => {
-                  setSubDiv(false);
-                  history.push("/login");
-                }}
-              >
-                登出
+            {currentUser ? (
+              <>
+                {/* <span className="side-sub-user-title">
+                  嗨! {currentUser.memberName}
+                </span> */}
+                <CustomButton
+                  signin
+                  mobileMode
+                  onClick={() => {
+                    setSubDiv(false);
+                    history.push("/login");
+                  }}
+                >
+                  登出
               </CustomButton>
-            </>
-          ) : (
-            <CustomButton
-              signin
-              mobileMode
-              onClick={() => {
-                setSubDiv(false);
-                history.push("/login");
-              }}
-            >
-              登入
-            </CustomButton>
-          )}
+              </>
+            ) : (
+                <CustomButton
+                  signin
+                  mobileMode
+                  onClick={() => {
+                    setSubDiv(false);
+                    history.push("/login");
+                  }}
+                >
+                  登入
+                </CustomButton>
+              )}
+          </div>
         </div>
-      </div>
     </CSSTransition>
   );
   // return ReactDOM.createPortal(

@@ -4,7 +4,7 @@
     margin: 2.5rem auto 0;
 
     .courseCategoryTitle {
-        margin:auto auto 1rem auto;
+        margin: auto auto 1rem auto;
         font-size: 2rem;
     }
 
@@ -15,16 +15,16 @@
     }
 }
 
-@media (max-width: 375px) {
+@media screen and (max-width: 375px) {
     .information {
+        // width: 90%;
 
+        .courseCategoryTitle {
+            font-size: 1.3rem;
+        }
 
-    .courseCategoryTitle {
-        font-size: 1.3rem;
-    }
-
-    .introduce{
-        font-size: 1rem;
-    }
+        .introduce {
+            font-size: 1rem;
+        }
     }
 }

@@ -14,28 +14,35 @@
   }
 }
 
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
   .dayContainer {
     .day {
       width: 100%;
     }
-.courseBoxWrapper{
+
+    .courseBoxWrapper {
 
 
-    .courseBoxContainer {
-      width: 100%;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-  justify-content:space-around;
+      .courseBoxContainer {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        justify-content: space-around;
 
+      }
     }
   }
 }
-}
 
-@media (max-width: 375px) {
-  .courseBoxContainer {
-    grid-template-columns:repeat(2, 1fr);
-    // grid-template-rows: 1fr 1fr;
+@media screen and (max-width: 375px) {
+  .dayContainer {
+    
+    .courseBoxWrapper {
+
+      .courseBoxContainer {
+        grid-template-columns: repeat(2, 1fr);
+        // grid-template-rows: 1fr 1fr;
+      }
+    }
   }
 }
