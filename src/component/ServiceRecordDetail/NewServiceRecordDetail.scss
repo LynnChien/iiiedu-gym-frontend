@@ -28,19 +28,19 @@
     .complaint-title {
         text-align: center;
         width: 13%;
-        word-break:break-all
+        word-break: break-all;
     }
 
     .phone-number {
         text-align: center;
         width: 12%;
-        word-break:break-all
+        word-break: break-all;
     }
 
     .e-mail {
         text-align: center;
         width: 27%;
-        word-break:break-all
+        word-break: break-all;
     }
 
     .QA-body {
@@ -80,19 +80,21 @@
         left: 50%;
         transform: translate(-50%, -50%);
         background-color: white;
-        padding: 1rem 1.5rem;
+        padding: 0.5rem 1.5rem;
         border-radius: 0.5rem;
+        margin-top: 2rem;
     }
     .button-box {
         display: flex;
         justify-content: flex-end;
         padding: 3px;
+        margin: 0;
         width: 100%;
         .close-button {
             outline: none;
             border: none;
             background: transparent;
-            font-size: 1rem;
+            font-size: 1.5rem;
             width: 1.5rem;
             height: 1.5rem;
             padding: 0;
@@ -101,7 +103,6 @@
             justify-content: center;
             cursor: pointer;
             border-radius: 0.25rem;
-            background-color: lightgray;
             svg {
             }
             ＆:hover {
@@ -116,7 +117,7 @@
         overflow: scroll;
         .history-right {
             margin: 10px 10px 10px auto;
-            background: rgb(111, 208, 223);
+            background: rgba(254, 204, 47, 0.8);
             width: 48%;
             max-width: 70%;
             margin-top: 10px;
@@ -128,10 +129,13 @@
                 margin-left: auto;
                 font-size: 0.75rem;
             }
+            .history-admin{
+                font-size: 12px;
+            }
         }
         .history-left {
             text-align: left;
-            background: rgb(111, 208, 223);
+            background: rgba(17, 120, 184, 0.8);
             width: 48%;
             max-width: 70%;
             margin-top: 0.65rem;
@@ -143,6 +147,10 @@
                 margin-left: auto;
                 font-size: 0.75rem;
             }
+            .history-member {
+                font-size: 12px;
+            }
+            
         }
     }
 }
