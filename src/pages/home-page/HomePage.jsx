@@ -336,7 +336,7 @@ const HomePage = () => {
                       <br />
                       SHMOO 長袖
                     </h2>
-                    <a href="#" class="info">
+                    <a href={'#'} class="info">
                       More
                     </a>
                   </div>
