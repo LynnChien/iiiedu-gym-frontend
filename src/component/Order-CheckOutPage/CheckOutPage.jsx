@@ -5,12 +5,15 @@ import { FaRegListAlt } from "react-icons/fa";
 import axios from "axios";
 import city from "../../API/AllData.json";
 import CartCheckOutButton from '../Order-cart-checkOut/CartCheckOutButton.jsx'
-
+import Swal from "sweetalert2";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { cartItemsSelect, favoriteItemsSelect, SelectTotal } from '../../redux/cart/cart-selector';
 import { withRouter } from 'react-router-dom';
 import { currentUserSelect } from "../../redux/user/user-selector";
+
+
+
 
 async function addToSever(item) {
     // 注意資料格式要設定，伺服器才知道是json格式
@@ -54,6 +57,7 @@ async function additemToSever(cartItems, Total, Member) {
         }),
         cartItems: cartItems, Total, Member
     });
+
 }
 
 async function addordersToSever(item) {
@@ -108,9 +112,48 @@ const CheckOutPage = ({ cartItems, history, SelectTotal, currentUserSelect }) =>
     }, [currentUserSelect, id])
     //////////
 
-    const next = () => {
-        history.push(`/OrderCompleted`)
+
+
+
+    const next = async () => {
+        Swal.fire({
+            customClass: {
+                container: 'container-class',
+                popup: 'popup-class',
+                header: 'header-class',
+                title: 'title-class',
+                closeButton: 'close-button-class',
+                icon: 'icon-class',
+                image: 'image-class',
+                content: 'content-class',
+                input: 'input-class',
+                actions: 'actions-class',
+                confirmButton: 'confirm-button-class',
+                cancelButton: 'cancel-button-class',
+                footer: 'footer-class'
+            },
+            width: '333',
+            heigth: '258',
+            title: '確定資訊無誤',
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes,Confirm It.'
+        }).then((result) => {
+            if (result.value) {
+                Swal.fire(
+                    '訂單完成',
+                    'Your Order has been Completed.',
+                    'success',
+                    history.push(`/OrderCompleted`)
+                )
+            }
+        })
+
+
     }
+
 
     return (
         <>
@@ -133,7 +176,8 @@ const CheckOutPage = ({ cartItems, history, SelectTotal, currentUserSelect }) =>
                 </ul>
                 <form
                     className="CartListcontent"
-                    onSubmit={() => {
+                    onSubmit={(e) => {
+                        e.preventDefault()
                         addToSever({
                             Member,
                             Name,
@@ -148,7 +192,7 @@ const CheckOutPage = ({ cartItems, history, SelectTotal, currentUserSelect }) =>
                             recipientMobile,
                             recipientAddress,
                             recipientEmail,
-                        }, additemToSever(cartItems, Total, Member), (addordersToSever({ pay, Total, Member })), next())
+                        }, additemToSever(cartItems, Total, Member), (addordersToSever({ pay, Total, Member })), next(e))
                     }}
                 >
                     <div className="content-wrap-Checkoutpage">

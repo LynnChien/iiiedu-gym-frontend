@@ -10,7 +10,7 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { createStructuredSelector } from "reselect";
 import { currentUserSelect } from "../../redux/user/user-selector";
-import Footer from "../../component/footer/Footer";
+// import Footer from "../../component/footer/Footer";
 //---------------
 
 
@@ -98,35 +98,36 @@ function Courses(props) {
   return (
     <>
       <div className="coursesWrapper">
-        <div className="courseBannerContainer">
-          <div className="courseBanner">
+        <div className="coursesContainer">
+          <div className="courseBannerContainer">
+            <div className="courseBanner">
+            </div>
+            <h1 className="categoryTitle">課程資訊 Class information</h1>
           </div>
-          <h1 className="categoryTitle">課程資訊 Class information</h1>
-        </div>
-        <div className="courseContainer">
-          <CourseInformation
-            choose={choose}
-            newCourses={newCourses}
-            newCategory={newCategory}
-          />
-
-          <CourseSelector
-            choose={choose}
-            handleChange={handleChange}
-          />
-          <div>
-            <CourseCalender
+          <div className="container">
+            <CourseInformation
+              choose={choose}
               newCourses={newCourses}
-              bookingData={bookingData}
-              getBookingData={getBookingData}
-              currentUserId={currentUserId}
-              getCoursesData={getCoursesData}
-              setNewCourses={setNewCourses}
+              newCategory={newCategory}
             />
+            <CourseSelector
+              choose={choose}
+              handleChange={handleChange}
+            />
+            <div>
+              <CourseCalender
+                newCourses={newCourses}
+                bookingData={bookingData}
+                getBookingData={getBookingData}
+                currentUserId={currentUserId}
+                getCoursesData={getCoursesData}
+                setNewCourses={setNewCourses}
+              />
+            </div>
           </div>
+          <div style={{ height: "2rem" }} />
+          {/* <Footer /> */}
         </div>
-        <div style={{height: "2rem"}} />
-        {/* <Footer /> */}
       </div>
     </>
   );
