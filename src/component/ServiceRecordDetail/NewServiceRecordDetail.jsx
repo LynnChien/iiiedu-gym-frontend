@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { FiFileText } from "react-icons/fi";
-import { AiOutlineClose } from "react-icons/ai";
+import { AiOutlineCloseSquare } from "react-icons/ai";
 import "./NewServiceRecordDetail.scss"
 
 
@@ -92,25 +92,25 @@ const ServiceRecordDetail = (props) => {
                     <div className="reply-content-body-content">
                         <div className="button-box">
                             <button className="close-button"
-                                onClick={handleClick}><AiOutlineClose />
+                                onClick={handleClick}><AiOutlineCloseSquare />
                             </button>
                         </div>
                         <div className="history-body" >
                             <div className={`${props.memberid}` === '1' ? 'history-right' : 'history-left'} >
                                 {props.memberid === '1'
-                                    ? <div >Admin:<br />{props.complainttextarea} 
-                                    <div className="reply-time">{complaintTime(props.createtime)}</div></div>
-                                    : <div >Member:<br />{props.complainttextarea}
-                                    <div className="reply-time">{complaintTime(props.createtime)}</div></div>}
+                                    ? <div><a className="history-admin">Admin:</a> <br />{props.complainttextarea}
+                                        <div className="reply-time">{complaintTime(props.createtime)}</div></div>
+                                    : <div><a className="history-member">Member:</a><br />{props.complainttextarea}
+                                        <div className="reply-time">{complaintTime(props.createtime)}</div></div>}
                             </div>
                             {/* <div className="history-left">會員-{props.name}：{props.complainttextarea}</div> */}
                             {Data.map((item, index) =>
                                 <div className={item.responder === '1' ? 'history-right' : 'history-left'} >
                                     {item.responder === '1'
-                                        ? <div >Admin: <br />{item.replycontent}
+                                        ? <div><a className="history-admin">Admin:</a><br />{item.replycontent}
                                             <div className="reply-time">{commentTime(item.replytime)}</div>
                                         </div>
-                                        : <div >Member: <br />{item.replycontent}
+                                        : <div><a className="history-member">Member:</a><br />{item.replycontent}
                                             <div className="reply-time">{commentTime(item.replytime)}</div>
                                         </div>}
                                 </div>

@@ -74,7 +74,7 @@ function CourseBox(props) {
     const thisUserCourseId = props.bookingData && props.bookingData.filter(i => i.memberId === currentUserId).map(p => p)
 
     //抓要取消的預約編號
-    const thisCanceld = thisUserCourseId && thisUserCourseId.filter(i => i.courseId === getThisCourseId).map(p => p.courseBookingId)
+    const thisCanceled = thisUserCourseId && thisUserCourseId.filter(i => i.courseId === getThisCourseId).map(p => p.courseBookingId)
     // console.log(thisUserCourseId)
 
     //取消預約
@@ -82,7 +82,7 @@ function CourseBox(props) {
         const updateBookingJson = {
             bookingState: 0
         }
-        const request = new Request(`http://localhost:5000/api/courses/bookingData/${thisCanceld}`, {
+        const request = new Request(`http://localhost:5000/api/courses/bookingData/${thisCanceled}`, {
             method: 'POST',
             body: JSON.stringify(updateBookingJson),
             headers: new Headers({
@@ -221,7 +221,7 @@ function CourseBox(props) {
     //課程彈跳視窗
     function showCJumpWindow() {
         Swal.fire({
-            width: 800,
+            width: 700,
             title: props.course.courseName,
             imageUrl: props.course.courseImg,
             imageWidth: 400,
@@ -232,7 +232,7 @@ function CourseBox(props) {
     //教練彈跳視窗
     function showEJumpWindow() {
         Swal.fire({
-            width: 800,
+            width: 700,
             title: props.course.Ename,
             imageUrl: props.course.Eimg,
             imageWidth: 400,

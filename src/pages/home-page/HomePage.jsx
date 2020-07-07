@@ -9,20 +9,20 @@ import CustomButton from "../../component/custom-button/Custom-button";
 const HomePage = () => {
   
   // window.addEventListener("scroll", function () {
-  //   if (((window.height = 987), window.scrollY > window.height)) {
+  //   if (((this.height = 987), this.scrollY > this.height)) {
   //     document.getElementById("page2-right").classList.add("sticky");
   //   } else {
   //     document.getElementById("page2-right").classList.remove("sticky");
   //   }
 
-  //   if (((window.height = 1900), window.scrollY > window.height)) {
+  //   if (((this.height = 1900), this.scrollY > this.height)) {
   //     document.getElementById("page3-right").classList.add("sticky");
   //     document.getElementById("page2-right").classList.remove("sticky");
   //   } else {
   //     document.getElementById("page3-right").classList.remove("sticky");
   //   }
 
-  //   if (((window.height = 2850), window.scrollY > window.height)) {
+  //   if (((this.height = 2850), this.scrollY > this.height)) {
   //     document.getElementById("page4-left").classList.add("sticky");
   //     document.getElementById("page3-right").classList.remove("sticky");
 
@@ -31,14 +31,14 @@ const HomePage = () => {
   //     document.getElementById("page4-left").classList.remove("sticky");
   //   }
 
-  //   if (((window.height = 3780), window.scrollY > window.height)) {
+  //   if (((this.height = 3780), this.scrollY > this.height)) {
   //     document.getElementById("page5-left").classList.add("sticky");
   //     document.getElementById("page4-left").classList.remove("sticky");
   //   } else {
   //     document.getElementById("page5-left").classList.remove("sticky");
   //   }
 
-  //   if (((window.height = 4750), window.scrollY > window.height)) {
+  //   if (((this.height = 4750), this.scrollY > this.height)) {
   //     document.getElementById("page5-left").classList.remove("sticky");
   //   } else {
   //   }
@@ -47,7 +47,7 @@ const HomePage = () => {
 
   return (
     <>
-      <div className="homepage">
+      <div className="homepage" id="homepagescroll">
         <div className="page1">
           <video autoPlay loop muted className="video">
             <source src={GYM2} type="video/mp4" />

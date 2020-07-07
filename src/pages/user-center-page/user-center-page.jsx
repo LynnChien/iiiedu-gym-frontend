@@ -28,8 +28,28 @@ function UserCenterPage(props) {
     <>
       <div className="user-center-page-wrapper">
         <div className="user-sidebar">
-          <div className="center-line"></div>
           <p className="sidebar-title">會員中心</p>
+
+          {/* <ul class="drop-down-menu">
+            <li>
+              <a href="#">關於我們</a>
+              <ul>
+                <li>
+                  <a href="#">服務據點</a>
+                </li>
+                <li>
+                  <a href="#">服務客戶</a>
+                </li>
+                <li>
+                  <a href="#">服務地區</a>
+                </li>
+                <li>
+                  <a href="#">徵才資訊</a>
+                </li>
+              </ul>
+            </li>
+          </ul> */}
+
           <ul className="list-unstyled">
             <li>
               <button

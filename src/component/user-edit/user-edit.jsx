@@ -8,7 +8,7 @@ import { currentUserSelect, userPath } from "../../redux/user/user-selector";
 
 function UserEdit({ currentUserSelect, userPath }) {
   // console.log(currentUserSelect);
-  const { id } = { ...currentUserSelect }
+  const { id } = { ...currentUserSelect };
   // console.log(id)
   // console.log(currentUserSelect)
   const [member, setMember] = useState([]);
@@ -33,30 +33,31 @@ function UserEdit({ currentUserSelect, userPath }) {
   //   }
   // }, [])
 
-
   // console.log("history", history);
   // console.log("location", location);
 
   async function AddFromToServer(e) {
-    const user = await axios.post("http://localhost:5000/api/user/profile/UpdateUser", {
-      data: {
-        memberName,
-        memberNickname,
-        memberGender,
-        memberBirth,
-        memberEmail,
-        memberPhoneNum,
-        memberAddress,
-        memberPwd,
-        memberImg,
-      },
-      memberid,
-      city,
-      contury,
-    });
+    const user = await axios.post(
+      "http://localhost:5000/api/user/profile/UpdateUser",
+      {
+        data: {
+          memberName,
+          memberNickname,
+          memberGender,
+          memberBirth,
+          memberEmail,
+          memberPhoneNum,
+          memberAddress,
+          memberPwd,
+          memberImg,
+        },
+        memberid,
+        city,
+        contury,
+      }
+    );
     // console.log(user)
   }
-
 
   useEffect(() => {
     const FetchData = async () => {
@@ -76,21 +77,19 @@ function UserEdit({ currentUserSelect, userPath }) {
       setmail(el.memberEmail);
       setmemberAccount(el.memberAccount);
       setimg(el.memberImg);
-      setpwd(el.memberPwd)
-      setdate(el.memberBirth)
-      setphone(el.memberPhoneNum)
-      setcity(el.city)
-      setcontury(el.contury)
-      setaddress(el.memberAddress)
-
+      setpwd(el.memberPwd);
+      setdate(el.memberBirth);
+      setphone(el.memberPhoneNum);
+      setcity(el.city);
+      setcontury(el.contury);
+      setaddress(el.memberAddress);
     });
   }, [member]);
 
-
   useEffect(() => {
-    setmemberid(id)
+    setmemberid(id);
     // console.log('test',memberid)
-  }, [id, memberid])
+  }, [id, memberid]);
   return (
     <>
       <div className="edit">
@@ -100,68 +99,82 @@ function UserEdit({ currentUserSelect, userPath }) {
           管理您的檔案以保護您的帳戶
         </p>
 
-        <div className="horizontally-line"></div>
         <p className="edit-account">使用者帳號: {memberAccount}</p>
-        <form >
+        <form>
           <div className="form-wrapper">
             <div className="left-form">
-              <div>使用者名字: {memberName}</div>
-              <input
-                className="user-input"
-                type="text"
-                placeholder=" 請輸入姓名"
-                onChange={(e) => setName(e.target.value)}
-              />
-              <div>暱稱: {memberNickname}</div>
-              <input
-                className="user-input"
-                type="text"
-                placeholder=" 請輸入暱稱"
-                onChange={(e) => setNickName(e.target.value)}
-              />
+              <div className="first-line">
+                <fieldset>
+                  <legend>姓名</legend>
+                  <input
+                    type="text"
+                    placeholder={memberName}
+                    onChange={(e) => setName(e.target.value)}
+                  />
+                </fieldset>
+                <fieldset>
+                  <legend>暱稱</legend>
+                  <input
+                    type="text"
+                    placeholder={memberNickname}
+                    onChange={(e) => setNickName(e.target.value)}
+                  />
+                </fieldset>
+              </div>
 
-              <div>生日:{memberBirth}</div>
-              <input
-                className="user-birth"
-                type="date"
-                placeholder=" 請輸入生日"
-                onChange={(e) => setdate(e.target.value)}
-              />
-              <div>性別:{memberGender}</div>
-              <select
-                className="user-sex"
-                onChange={(e) => setsex(e.target.value)}
-              >
-                <option value="男">男生</option>
-                <option value="女">女生</option>
-              </select>
-              <div>手機號碼:{memberPhoneNum}</div>
-              <input
-                className="user-input-long"
-                type="text"
-                minLength="10"
-                pattern="[0-9]*"
-                placeholder=" 請輸入手機號碼"
-                onChange={(e) => setphone(e.target.value)}
-              />
-              <div>地址:{memberAddress}</div>
+              <div className="first-line">
+                <fieldset>
+                  <legend>生日</legend>
+                  <input
+                    type="date"
+                    placeholder={memberBirth}
+                    onChange={(e) => setdate(e.target.value)}
+                  />
+                </fieldset>
+                <fieldset>
+                  <legend>性別: {memberGender}</legend>
+                  <select onChange={(e) => setsex(e.target.value)}>
+                    <option value="男">男</option>
+                    <option value="女">女</option>
+                  </select>
+                </fieldset>
+              </div>
 
-              <input
-                className="user-input-long"
-                maxLength="40"
-                type="text"
-                placeholder=" 請輸入地址"
-                onChange={(e) => setaddress(e.target.value)}
-              />
-              <div>電子郵件:{memberEmail}</div>
-              <input
-                className="user-input-long"
-                type="email"
-                placeholder=" 請輸入電子郵件"
-                onChange={(e) => setmail(e.target.value)}
-              />
+              <div className="first-line">
+                <fieldset>
+                  <legend>手機號碼</legend>
+                  <input
+                    type="text"
+                    minLength="10"
+                    pattern="[0-9]*"
+                    placeholder={memberPhoneNum}
+                    onChange={(e) => setphone(e.target.value)}
+                  />
+                </fieldset>
+                <fieldset>
+                  <legend>電子郵件</legend>
+                  <input
+                    type="email"
+                    placeholder={memberEmail}
+                    onChange={(e) => setmail(e.target.value)}
+                  />
+                </fieldset>
+              </div>
+
+              <div className="first-line">
+                <fieldset>
+                  <legend>居住地址</legend>
+                  <input
+                    className="address-input"
+                    maxLength="40"
+                    type="text"
+                    placeholder={memberAddress}
+                    onChange={(e) => setaddress(e.target.value)}
+                  />
+                </fieldset>
+              </div>
             </div>
-            <div className="center-line"></div>
+
             <div className="right-form">
               <div className="img-card">
                 <img className="user-img" alt="user-Img" src={memberImg}></img>
@@ -182,33 +195,35 @@ function UserEdit({ currentUserSelect, userPath }) {
                 <p>檔案大小:最大1Mb</p>
                 <p>檔案限制:JPEG、PNG</p>
               </div>
-              <div></div>
-              <div className="userCard">
-                <p className="right-title">修改密碼</p>
-                <input
-                  className="user-input-long"
-                  minLength="8"
-                  type="password"
-                  pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z a-z]).*$"
-                  placeholder=" 請輸入舊密碼"
-                  onChange={(e) => setpwd(e.target.value)}
-                />
-                <div></div>
-                <input
-                  className="user-input-long"
-                  minLength="8"
-                  type="password"
-                  pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z a-z]).*$"
-                  placeholder=" 請輸入新密碼"
-                />
-                <div></div>
-                <input
-                  className="user-input-long"
-                  minLength="8"
-                  type="password"
-                  pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z a-z]).*$"
-                  placeholder=" 請再輸入一次新密碼"
-                />
+
+              <div className="pwd-card">
+                <fieldset>
+                  <legend>修改密碼</legend>
+                  <input
+                    minLength="8"
+                    type="password"
+                    pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z a-z]).*$"
+                    placeholder=" 請輸入舊密碼"
+                    onChange={(e) => setpwd(e.target.value)}
+                  />
+                </fieldset>
+                <fieldset className="pwd-input">
+                  <input
+                    minLength="8"
+                    type="password"
+                    pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z a-z]).*$"
+                    placeholder=" 請輸入新密碼"
+                  />
+                </fieldset>
+                <fieldset className="pwd-input">
+                  <input
+                    minLength="8"
+                    type="password"
+                    pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z a-z]).*$"
+                    placeholder=" 請再輸入一次新密碼"
+                  />
+                </fieldset>
+
                 <div></div>
                 <button onClick={() => AddFromToServer()}>儲存</button>
               </div>
