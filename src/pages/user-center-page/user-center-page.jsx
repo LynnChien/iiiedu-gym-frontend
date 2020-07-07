@@ -14,8 +14,28 @@ function UserCenterPage(props) {
     <>
       <div className="user-center-page-wrapper">
         <div className="user-sidebar">
-          <div className="center-line"></div>
           <p className="sidebar-title">會員中心</p>
+
+          {/* <ul class="drop-down-menu">
+            <li>
+              <a href="#">關於我們</a>
+              <ul>
+                <li>
+                  <a href="#">服務據點</a>
+                </li>
+                <li>
+                  <a href="#">服務客戶</a>
+                </li>
+                <li>
+                  <a href="#">服務地區</a>
+                </li>
+                <li>
+                  <a href="#">徵才資訊</a>
+                </li>
+              </ul>
+            </li>
+          </ul> */}
+
           <ul className="list-unstyled">
             <li>
               <button
@@ -51,7 +71,7 @@ function UserCenterPage(props) {
           {nav === "個人資料修改" && <UserEdit />}
           {nav === "我的課程" && <UserCourses />}
           {nav === "文章管理" && <ArticlesEdit />}
-           {nav === "歷史訂單" && <OrderList />} 
+          {nav === "歷史訂單" && <OrderList />}
           {nav === "客訴紀錄" && <ServiceRecord />}
           {/* {nav === '' &&  </>  } */}
           {/* 依照state的字串，去顯示component */}
