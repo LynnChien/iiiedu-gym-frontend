@@ -63,6 +63,51 @@ const HeaderDropdown = ({
               </Link>
             ))}
           </div>
+          <h2 onClick={() => history.push("/courses")}>課程資訊</h2>
+          <div className="side-sub-link-container">
+            {navLink["courses"].map((linkInfo) => (
+              <Link
+                key={linkInfo.name + "h1"}
+                to={`${linkInfo.linkRoute}`}
+                onClick={() => {
+                  dispatch(shopShowFilterTag("選擇篩選"));
+                  setSubDiv(false);
+                }}
+              >
+                {linkInfo.name}
+              </Link>
+            ))}
+          </div>
+          <h2 onClick={() => history.push("/articles")}>心得討論</h2>
+          <div className="side-sub-link-container">
+            {navLink["articles"].map((linkInfo) => (
+              <Link
+                key={linkInfo.name + "h1"}
+                to={`${linkInfo.linkRoute}`}
+                onClick={() => {
+                  dispatch(shopShowFilterTag("選擇篩選"));
+                  setSubDiv(false);
+                }}
+              >
+                {linkInfo.name}
+              </Link>
+            ))}
+          </div>
+          {/* <h2 onClick={() => history.push("/ServiceCenter") setSubDiv(false);}>客服中心</h2> */}
+          {/* <div className="side-sub-link-container">
+            {navLink["articles"].map((linkInfo) => (
+              <Link
+                key={linkInfo.name + "h1"}
+                to={`${linkInfo.linkRoute}`}
+                onClick={() => {
+                  dispatch(shopShowFilterTag("選擇篩選"));
+                  setSubDiv(false);
+                }}
+              >
+                {linkInfo.name}
+              </Link>
+            ))} */}
+          {/* </div> */}
           {currentUser ? (
             <>
               <span className="side-sub-user-title">
