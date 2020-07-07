@@ -175,7 +175,7 @@ const Header = ({
 
         {currentUser ? (
           <>
-            <span clgassName="current-user-title">
+            <span className="current-user-title">
               嗨! {currentUser.memberName}
             </span>
             <CustomButton signin unMobileMode onClick={() => (userLogoutStart(), next())}>
