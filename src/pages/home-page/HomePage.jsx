@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./HomePage.scss";
 import GYM2 from "../../API/GYM.mp4";
 import PhotosImgbackground from "./PhotosImgbackground1.png";
@@ -7,44 +7,45 @@ import PhotosImgbackground from "./PhotosImgbackground1.png";
 import CustomButton from "../../component/custom-button/Custom-button";
 
 const HomePage = () => {
-  
-  // window.addEventListener("scroll", function () {
-  //   if (((this.height = 987), this.scrollY > this.height)) {
-  //     document.getElementById("page2-right").classList.add("sticky");
-  //   } else {
-  //     document.getElementById("page2-right").classList.remove("sticky");
-  //   }
+  // document.getElementById("homepagescroll").addEventListener("scroll");
 
-  //   if (((this.height = 1900), this.scrollY > this.height)) {
-  //     document.getElementById("page3-right").classList.add("sticky");
-  //     document.getElementById("page2-right").classList.remove("sticky");
-  //   } else {
-  //     document.getElementById("page3-right").classList.remove("sticky");
-  //   }
+useEffect(() => {
+  window.addEventListener("scroll", handlescroll)
 
-  //   if (((this.height = 2850), this.scrollY > this.height)) {
-  //     document.getElementById("page4-left").classList.add("sticky");
-  //     document.getElementById("page3-right").classList.remove("sticky");
+  return () => window.removeEventListener("scroll", handlescroll)
+}, [])
 
-  //     // document.getElementById("page6").classList.add("position");
-  //   } else {
-  //     document.getElementById("page4-left").classList.remove("sticky");
-  //   }
+  const handlescroll = function () {
 
-  //   if (((this.height = 3780), this.scrollY > this.height)) {
-  //     document.getElementById("page5-left").classList.add("sticky");
-  //     document.getElementById("page4-left").classList.remove("sticky");
-  //   } else {
-  //     document.getElementById("page5-left").classList.remove("sticky");
-  //   }
+    if (((this.height = 1050), this.scrollY > this.height)) {
+      document.getElementById("page2-right").classList.add("sticky");
+    } else {
+      document.getElementById("page2-right").classList.remove("sticky");
+    }
 
-  //   if (((this.height = 4750), this.scrollY > this.height)) {
-  //     document.getElementById("page5-left").classList.remove("sticky");
-  //   } else {
-  //   }
-  // }
-  // );
-
+    if (((this.height = 2000), this.scrollY > this.height)) {
+      document.getElementById("page3-right").classList.add("sticky");
+      document.getElementById("page2-right").classList.remove("sticky");
+    } else {
+      document.getElementById("page3-right").classList.remove("sticky");
+    }
+    if (((this.height = 2950), this.scrollY > this.height)) {
+      document.getElementById("page4-left").classList.add("sticky");
+      document.getElementById("page3-right").classList.remove("sticky");
+    } else {
+      document.getElementById("page4-left").classList.remove("sticky");
+    }
+    if (((this.height = 3880), this.scrollY > this.height)) {
+      document.getElementById("page5-left").classList.add("sticky");
+      document.getElementById("page4-left").classList.remove("sticky");
+    } else {
+      document.getElementById("page5-left").classList.remove("sticky");
+    }
+    if (((this.height = 4750), this.scrollY > this.height)) {
+      document.getElementById("page5-left").classList.remove("sticky");
+    } else {
+    }
+  }
   return (
     <>
       <div className="homepage" id="homepagescroll">
@@ -178,7 +179,7 @@ const HomePage = () => {
               <li>
                 <div class="view view-first">
                
-                  <img src="https://i.ibb.co/V9Fgzwq/3-STRIPES-04.jpg" />
+                  <img src="https://i.ibb.co/2KT3nqN/clothes66.jpg" />
                 
                   <div class="mask">
                     <h2>黑色無袖</h2>
