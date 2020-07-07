@@ -12,7 +12,7 @@ function UserCourseUpdateBtn(props) {
             return (
                 <>
                     <button
-                        className="userUpdateBtn"
+                        className="userFinishedBtn"
                         value={props.userBookingId}
                     >
                         已完成課程
