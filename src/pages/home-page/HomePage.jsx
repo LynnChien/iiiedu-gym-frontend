@@ -6,13 +6,13 @@ import ChrisHemsworth from "./Chris-Hemsworth.jpg";
 import ChrisEvans from "./Chris-Evans.jpg";
 import Alice from "./Alice.png";
 import CustomButton from "../../component/custom-button/Custom-button";
+import { FaArrowAltCircleUp } from "react-icons/fa";
 
 const HomePage = () => {
   // document.getElementById("homepagescroll").addEventListener("scroll");
 
   useEffect(() => {
     window.addEventListener("scroll", handlescroll);
-
     return () => window.removeEventListener("scroll", handlescroll);
   }, []);
 
@@ -45,10 +45,21 @@ const HomePage = () => {
       document.getElementById("page5-left").classList.remove("sticky");
     } else {
     }
+
+    if (((this.height = 1050), this.scrollY > this.height)) {
+      document.getElementById("clickreturn").classList.remove("hide");
+    } else {
+      document.getElementById("clickreturn").classList.add("hide");
+    }
+
   };
   return (
     <>
       <div className="homepage" id="homepagescroll">
+        <a id="clickreturn" href="javascript:window.scrollTo(0, 100);">
+          <FaArrowAltCircleUp />
+        </a>
+
         <div className="page1">
           <video autoPlay loop muted className="video">
             <source src={GYM2} type="video/mp4" />
@@ -170,7 +181,7 @@ const HomePage = () => {
                     <br />
                     Rumble Ruller 筋膜放鬆證
                     <br />
-                    CPR+AED證照 <br />  <br />
+                    CPR+AED證照 <br /> <br />
                     專長： <br />
                     體態調整、體態評估、各項運動專項表現強化、增重及減重、重訓規劃、核心強化訓練、曲線雕塑
                   </span>
@@ -194,7 +205,7 @@ const HomePage = () => {
                     THUMP Boxing L1﹒L2 證照
                     <br />
                     CPR+AED證照
-                    <br />  <br />
+                    <br /> <br />
                     專長：
                     <br />
                     墊上核心訓練、徒手協調訓練、體態雕塑、筋膜放鬆、健康減脂訓練、心肺健身規劃
@@ -220,7 +231,7 @@ const HomePage = () => {
                     <br />
                     CKC壺鈴教練認證Level 1<br />
                     CPR+AED證照
-                    <br />  <br />
+                    <br /> <br />
                     專長：
                     <br />
                     體適能訓練、健康減脂訓練、體態雕塑訓練
@@ -242,7 +253,7 @@ const HomePage = () => {
                     EMTI緊急救護員(CPR+AED)
                     <br />
                     中華奧會運動禁藥採樣員
-                    <br />  <br />
+                    <br /> <br />
                     專長： <br />
                     跆拳道、減重與體態雕塑、個人運動處方規劃、功能性訓練、運動按摩
                   </span>
