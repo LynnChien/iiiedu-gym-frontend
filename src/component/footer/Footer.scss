@@ -9,6 +9,7 @@
   text-align: center;
   align-items: center;
   font-family: 微軟正黑體;
+
   .copyright {
     flex: 1;
     background: #fecc2f;
@@ -23,7 +24,7 @@
   }
   .address {
     color: white;
-    font-size: 12px;
+    font-size: 16px;
     flex: 2;
     display: flex;
     justify-content: center;
@@ -40,14 +41,15 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    padding-right: 20px;
-    svg {
-      width: 25px;
-      height: 25px;
-    }
+    padding-right: 3vw;
+
     a {
       color: white;
       margin-right: 20px;
+      font-size: 30px;
+      &:hover {
+        color: #fecc2f;
+      }
     }
   }
 }
