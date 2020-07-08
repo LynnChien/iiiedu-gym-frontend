@@ -78,7 +78,8 @@ const App = ({ userListStart, employeeListStart }) => {
       <div>
         <Header />
         <div className="space" />
-        <Route exact path="/" component={HomePage} />
+        
+              <Route exact path="/" component={HomePage} />
         <main>
           <Switch>
             <ErrorBoundary>
