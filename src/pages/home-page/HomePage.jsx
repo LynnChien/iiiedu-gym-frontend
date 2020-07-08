@@ -55,7 +55,7 @@ const HomePage = () => {
   return (
     <>
       <div className="homepage" id="homepagescroll">
-        <a id="clickreturn" href="javascript:window.scrollTo(0, 100);">
+        <a id="clickreturn" href="javascript:window.scrollTo(0, 0);">
           <IoIosArrowDropupCircle />
         </a>
 
@@ -436,7 +436,7 @@ const HomePage = () => {
                     alt=""
                     src="https://i.ibb.co/Wprv96j/image-QC28847341-2000-2.jpg"
                   />
-                  
+
                   <div class="mask">
                     <h2>
                       Women's
