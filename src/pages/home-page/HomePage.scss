@@ -1,15 +1,20 @@
 .homepage {
   font-family: 微軟正黑體;
   #clickreturn {
+    display: none;
+  }
+  #clickreturn.show {
+    display: block;
     position: fixed;
-    font-size: 50px;
-    top: calc(100vh - 124px);
+    font-size: 60px;
+    top: calc(100vh - 134px);
     right: 1vw;
     z-index: 3;
-    color: #fecc2f;
-  }
-  #clickreturn.hide {
-    display: none;
+    color: white;
+
+    &:hover {
+      color: #fecc2f;
+    }
   }
   .page1 {
     // background: #fecc2f;
