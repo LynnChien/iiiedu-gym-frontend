@@ -121,13 +121,9 @@ function Articles(props) {
                 Swal.fire('請登入會員喔!!').then((result) => {
                   if (result.value) {
                     props.history.push("/login", {
-                      userPath: userPath
                     })
-                    props.history.push("/login")
-
                   }
                 })
-
               }
 
             }}>發表文章</button>
