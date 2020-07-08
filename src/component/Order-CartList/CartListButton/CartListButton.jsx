@@ -41,7 +41,6 @@ const CartListButton = ({ cartItems, history, SelectTotal, currentUserSelect }) 
             return false
         }
         else if (!currentUserSelect) {
-        } else if (!currentUserSelect) {
             Swal.fire({
                 width: 400,
                 height: 300,

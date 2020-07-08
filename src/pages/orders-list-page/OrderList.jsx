@@ -18,7 +18,7 @@ const OrderList = () => {
               <li className="icon"><FaHome /></li>
               <li>訂單紀錄</li>
             </ol>
-            <h3>訂單紀錄</h3>
+            <h3>OrderListDetail</h3>
           </div>
         </div>
 
