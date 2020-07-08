@@ -12,6 +12,8 @@
 .fav-wrap-ul {
   @extend .content-wrap-ul;
   grid-template-columns: 0.55fr 0.75fr 0.75fr 0.5fr 0.5fr;
+  background-color: transparent !important;
+  font-size: 18px;
 }
 .fav-content-wrap {
   @extend .content-wrap;

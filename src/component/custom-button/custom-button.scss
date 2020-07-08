@@ -2,7 +2,7 @@
   //   min-width: 165px;
   //   width: auto;
   border: none;
-  width: 60%;
+  width: 40%;
   min-height: 40px;
   letter-spacing: 0.5px;
   //   line-height: 45px;
@@ -103,7 +103,7 @@
 
   &::after {
     $v-side: if($vertical == "top", "bottom", "top");
-    
+
     border-#{$v-side}-width: $width;
     border-#{$horizontal}-width: $width;
   }
@@ -134,5 +134,11 @@
 }
 
 .google-draw-border {
-  @include btn-border-drawing(rgb(190, 55, 6), rgb(150, 10, 168), 4px, bottom, right);
+  @include btn-border-drawing(
+    rgb(190, 55, 6),
+    rgb(150, 10, 168),
+    4px,
+    bottom,
+    right
+  );
 }
