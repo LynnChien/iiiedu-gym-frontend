@@ -70,7 +70,7 @@ const Header = ({
           onMouseOver={() => {
             if (subDiv) return;
           }}
-          // onMouseLeave={() => setSubDiv(false)}
+        // onMouseLeave={() => setSubDiv(false)}
         >
           <Link
             to="/shopping"
@@ -128,7 +128,7 @@ const Header = ({
           >
             客服中心
           </Link>
-          <Link
+          {currentUser ? ("") : (<Link
             to={
               currentEmployee
                 ? `/employeecenter/${currentEmployee.Eid}`
@@ -138,7 +138,9 @@ const Header = ({
             onMouseEnter={() => setSubDiv(false)}
           >
             教練中心
-          </Link>
+          </Link>)
+
+          }
           <Link
             to={currentUser
               ? `/user`
@@ -170,8 +172,8 @@ const Header = ({
             教練登出
           </CustomButton>
         ) : (
-          ""
-        )}
+            ""
+          )}
 
         {currentUser ? (
           <>
@@ -183,14 +185,14 @@ const Header = ({
             </CustomButton>
           </>
         ) : (
-          <CustomButton
-            signin
-            unMobileMode
-            onClick={() => history.push("/login")}
-          >
-            登入
-          </CustomButton>
-        )}
+            <CustomButton
+              signin
+              unMobileMode
+              onClick={() => history.push("/login")}
+            >
+              登入
+            </CustomButton>
+          )}
         <CartIcon />
       </div>
       <HeaderDropdown setSubDiv={setSubDiv} subDiv={subDiv} />

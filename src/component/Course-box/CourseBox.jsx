@@ -113,11 +113,11 @@ function CourseBox(props) {
         // console.log(newData)
         return newData
     }
-
+// console.log(currentUser.length)
     //確認預約視窗
     function myConfirmAddBooking(addBooking) {
         // let a = window.confirm("確定要預約此課程嗎?")
-        if (currentUser !== '') {
+        if (currentUser.length !== 0) {
             const swalWithBootstrapButtons = Swal.mixin({
                 customClass: {
                     confirmButton: 'popupBtn confirmBtn',
