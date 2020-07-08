@@ -436,6 +436,7 @@ const HomePage = () => {
                     alt=""
                     src="https://i.ibb.co/Wprv96j/image-QC28847341-2000-2.jpg"
                   />
+                  
                   <div class="mask">
                     <h2>
                       Women's
