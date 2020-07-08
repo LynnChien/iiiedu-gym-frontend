@@ -6,10 +6,9 @@ import ChrisHemsworth from "./Chris-Hemsworth.jpg";
 import ChrisEvans from "./Chris-Evans.jpg";
 import Alice from "./Alice.png";
 import CustomButton from "../../component/custom-button/Custom-button";
-import { FaArrowAltCircleUp } from "react-icons/fa";
+import { IoIosArrowDropupCircle } from "react-icons/io";
 
 const HomePage = () => {
-  // document.getElementById("homepagescroll").addEventListener("scroll");
 
   useEffect(() => {
     window.addEventListener("scroll", handlescroll);
@@ -47,9 +46,9 @@ const HomePage = () => {
     }
 
     if (((this.height = 1050), this.scrollY > this.height)) {
-      document.getElementById("clickreturn").classList.remove("hide");
+      document.getElementById("clickreturn").classList.add("show");
     } else {
-      document.getElementById("clickreturn").classList.add("hide");
+      document.getElementById("clickreturn").classList.remove("show");
     }
 
   };
@@ -57,7 +56,7 @@ const HomePage = () => {
     <>
       <div className="homepage" id="homepagescroll">
         <a id="clickreturn" href="javascript:window.scrollTo(0, 100);">
-          <FaArrowAltCircleUp />
+          <IoIosArrowDropupCircle />
         </a>
 
         <div className="page1">
@@ -276,7 +275,7 @@ const HomePage = () => {
                       <br />
                       NEO (三條線運動上衣)
                     </h2>
-                    <a href="#" class="info">
+                    <a href="http://localhost:3000/shopitem/women/253" class="info">
                       More
                     </a>
                   </div>
@@ -291,7 +290,7 @@ const HomePage = () => {
                       <br />
                       PRO SPORT (運動上衣)
                     </h2>
-                    <a href="#" class="info">
+                    <a href="http://localhost:3000/shopitem/women/259" class="info">
                       More
                     </a>
                   </div>
@@ -306,7 +305,7 @@ const HomePage = () => {
                       <br />
                       FAKTEN (運動上衣)
                     </h2>
-                    <a href="#" class="info">
+                    <a href="http://localhost:3000/shopitem/women/238" class="info">
                       More
                     </a>
                   </div>
@@ -321,7 +320,7 @@ const HomePage = () => {
                       <br />
                       ID (短袖上衣)
                     </h2>
-                    <a href="#" class="info">
+                    <a href="http://localhost:3000/shopitem/women/232" class="info">
                       More
                     </a>
                   </div>
@@ -336,7 +335,7 @@ const HomePage = () => {
                       <br />
                       SHMOO 長袖
                     </h2>
-                    <a href={'#'} class="info">
+                    <a href='http://localhost:3000/shopitem/men/20' class="info">
                       More
                     </a>
                   </div>
@@ -351,7 +350,7 @@ const HomePage = () => {
                       <br />
                       WORK OUT (背心){" "}
                     </h2>
-                    <a href="#" class="info">
+                    <a href="http://localhost:3000/shopitem/men/6" class="info">
                       More
                     </a>
                   </div>
@@ -366,7 +365,7 @@ const HomePage = () => {
                       <br />
                       R.Y.V. (長袖){" "}
                     </h2>
-                    <a href="#" class="info">
+                    <a href="http://localhost:3000/shopitem/men/22" class="info">
                       More
                     </a>
                   </div>
@@ -389,7 +388,7 @@ const HomePage = () => {
                       <br />
                       ID (運動長褲)
                     </h2>
-                    <a href="#" class="info">
+                    <a href="http://localhost:3000/shopitem/men/208" class="info">
                       More
                     </a>
                   </div>
@@ -403,11 +402,11 @@ const HomePage = () => {
                   />
                   <div class="mask">
                     <h2>
-                      Women's
+                      Men's
                       <br />
                       LONG RUN (運動長褲)
                     </h2>
-                    <a href="#" class="info">
+                    <a href="http://localhost:3000/shopitem/men/214" class="info">
                       More
                     </a>
                   </div>
@@ -421,11 +420,11 @@ const HomePage = () => {
                   />
                   <div class="mask">
                     <h2>
-                      Women's
+                      Men's
                       <br />
                       ESSENTIALS (運動短褲)
                     </h2>
-                    <a href="#" class="info">
+                    <a href="http://localhost:3000/shopitem/men/218" class="info">
                       More
                     </a>
                   </div>
@@ -443,7 +442,7 @@ const HomePage = () => {
                       <br />
                       NEO (運動短褲)
                     </h2>
-                    <a href="#" class="info">
+                    <a href="http://localhost:3000/shopitem/men/226" class="info">
                       More
                     </a>
                   </div>
@@ -458,7 +457,7 @@ const HomePage = () => {
                       <br />
                       ID SPORT (短褲)
                     </h2>
-                    <a href="#" class="info">
+                    <a href="http://localhost:3000/shopitem/men/51" class="info">
                       More
                     </a>
                   </div>
@@ -476,7 +475,7 @@ const HomePage = () => {
                       <br />
                       LOGO (短褲)
                     </h2>
-                    <a href="#" class="info">
+                    <a href="http://localhost:3000/shopitem/men/53" class="info">
                       More
                     </a>
                   </div>
@@ -494,7 +493,7 @@ const HomePage = () => {
                       <br />
                       ADICOLOR (運動長褲)
                     </h2>
-                    <a href="#" class="info">
+                    <a href="http://localhost:3000/shopitem/men/34" class="info">
                       More
                     </a>
                   </div>

@@ -22,22 +22,32 @@
   top: 6.5rem;
   left: 0;
   width: 100vw;
-  height: 30vh;
-  background-color: white;
+  height: 104px;
+  background-color: rgba(black, 0.66);
   border: black 1px solid;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   z-index: -5;
+  padding: 10px 0;
+
   a {
-    color: black;
-    margin: 10px 0;
+    font-size: 18px;
+    color: white;
+    margin: 5px 0;
+    font-family: 微軟正黑體;
+    margin: 0 10px;
+    &:hover {
+      font-size: 20px;
+      color: #fecc2f;
+      font-weight: bold;
+    }
   }
   .top-sub-div {
     height: 100%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
 
@@ -55,7 +65,7 @@
 
   .side-sub-div {
     // justify-content: center;
-    margin-top:30px;
+    margin-top: 30px;
     align-items: flex-start;
     flex-direction: column;
     padding: 20% 0 0 0;
