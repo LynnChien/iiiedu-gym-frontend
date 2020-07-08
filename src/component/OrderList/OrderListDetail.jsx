@@ -48,7 +48,7 @@ const OrderListDetail = (props) => {
   useEffect(() => {
     // console.log(hiddenID)
   }, [hiddenID]);
-  
+
   return (
     <>
       <input
@@ -91,7 +91,7 @@ const OrderListDetail = (props) => {
                       )}
                   <li className="productdetail">
                     <button
-                      className="button-two"
+                      className="button-two CartListButton hover-shadow"
                       value={item.orderId}
                       onClick={(e) => ((
                         setHidden(!hidden),
@@ -131,7 +131,7 @@ const OrderListDetail = (props) => {
                     {hiddenID ? hiddenID.map((item, index) =>
                       (<ul key={index + index} className="wrap-ul-hidden">
                         <li>{item.ItemName}</li>
-                        <li>{item.ItemNamePrice}</li>
+                        <li>$ {item.ItemNamePrice}</li>
                         <li>{item.itemQuantity}</li>
                         <li>{item.itemType}</li>
                       </ul>)) : <LoadingSpinner />}

@@ -1,18 +1,35 @@
 import React, { useState, useEffect } from "react"
+import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
 import { withRouter } from "react-router-dom"
-import { connect } from "react-redux"
 import "./Articles.scss"
 import Swal from 'sweetalert2'
-
+import { IoIosArrowDropupCircle } from "react-icons/io";
 import ArticleCard from "../../component/article-card/ArticleCard"
 import ArticlePopular from "../../component/article-popular/ArticlePopular"
-
-import { createStructuredSelector } from "reselect"
-import { currentUserSelect } from "../../redux/user/user-selector"
+import { userPath, currentUserSelect } from "../../redux/user/user-selector";
 
 function Articles(props) {
+// Go to top btn--------------
+  // useEffect(() => {
+  //   window.addEventListener("scroll", handlescroll);
+  //   return () => window.removeEventListener("scroll", handlescroll);
+  // }, []);
 
-  const { currentUserData } = props
+  // const handlescroll = function () {
+  //   if (((this.height = 1050), this.scrollY > this.height)) {
+  //     document.getElementById("clickreturn").classList.add("show");
+  //   } else {
+  //     document.getElementById("clickreturn").classList.remove("show");
+  //   }
+
+  // };
+
+  const { currentUserData, userPath } = props
+
+
+  console.log(userPath)
+
   //該使用者的id
   const currentUserId = currentUserData ? currentUserData.id : ''
   // console.log(currentUserId)
@@ -50,6 +67,7 @@ function Articles(props) {
 
     <>
       <div className="articles-container">
+    
         <div className="articleCategory">
           <button
             className="articleCategoryButton"
@@ -102,6 +120,11 @@ function Articles(props) {
           </button>
         </div>
 
+
+
+
+
+
         <div className="articleHomePageAdd">
           <button className="articleHomePageAdd-btn"
             onClick={() => {
@@ -112,6 +135,9 @@ function Articles(props) {
               } else {
                 Swal.fire('請登入會員喔!!').then((result) => {
                   if (result.value) {
+                    props.history.push("/login", {
+                      userPath: userPath
+                    })
                     props.history.push("/login")
 
                   }
@@ -246,7 +272,15 @@ function Articles(props) {
     </>
   );
 }
+
+
 const mapStateToProps = createStructuredSelector({
+  userPath: userPath,
   currentUserData: currentUserSelect,
+
 });
+
+
+
+
 export default withRouter(connect(mapStateToProps)(Articles))

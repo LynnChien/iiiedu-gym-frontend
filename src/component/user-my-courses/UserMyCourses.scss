@@ -7,12 +7,11 @@
   height: 100%;
 }
 
-
-
 .userCoursesInfo {
   display: flex;
   list-style: none;
   margin: 10px 0;
+  height: 50px;
   justify-content: center;
   align-items: center;
   position: relative;
@@ -22,7 +21,7 @@
 
   li {
     font-size: 1.1rem;
-    width: 17%;
+    width: 20%;
     height: 40px;
     text-align: center;
     margin: 1rem;

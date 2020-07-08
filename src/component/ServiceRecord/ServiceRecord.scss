@@ -1,7 +1,12 @@
 .ServiceRecord {
-    .h3-span {
-        color: #1178b8;
+    .service-list-title {
+        margin: 0.5rem 0 1rem;
+
+        .h3-span {
+            color: #1178b8;
+        }
     }
+
     .service-list-title-box {
         width: 90%;
         margin-top: 3rem;

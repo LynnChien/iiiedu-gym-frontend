@@ -1,10 +1,25 @@
-// body {
-//   background-color: #555555;
-//   color: rgb(197, 194, 194);
-// }
-// a {
-//   color: rgb(216, 215, 215);
-// }
+// Default options
+$defaultDuration: 0.3s;
+$primaryColour: #ececec;
+$secondaryColour: #666;
+$shadowColour: rgba(0, 0, 0, 0.6);
+
+// As is often the case, some devices/browsers need additional code to get CSS to work
+// in the most desired way. These mixins are used to quickly drop in hacks for each element
+@mixin hideTapHighlightColor() {
+  //Prevent highlight colour when element is tapped
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+@mixin hardwareAccel() {
+  //Improve performance on mobile/tablet devices
+  transform: translateZ(0);
+}
+
+@mixin improveAntiAlias() {
+  //Improve aliasing on mobile/tablet devices
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+}
 
 .container {
   width: 1260px;
@@ -12,7 +27,7 @@
   margin: 0 auto;
 }
 
-.article {
+.Orderarticle {
   margin: 5px;
   margin-top: 15px;
   padding: 5px;
@@ -23,6 +38,13 @@
   justify-content: flex-start;
   flex-direction: column;
   align-items: center;
+}
+.OrderDetail-title {
+  width: 100%;
+  background-image: url(https://images4.alphacoders.com/692/692043.jpg);
+  background-position: bottom left;
+  height: 160px;
+  color: rgb(255, 255, 255);
 }
 
 .footer {
@@ -308,6 +330,7 @@ figure {
   padding: 0.5em 1em;
   overflow: hidden;
   --shine-width: 1.25em;
+  width: 125px;
 }
 
 .button-two::after {
@@ -340,5 +363,47 @@ figure {
   &:hover {
     position: relative;
     top: -20%;
+  }
+}
+$curlWidth: 25px;
+$curlHeight: 25px;
+
+// Curl colours
+$revealAreaColour: white; // reveal area behind the curl
+$curlLineColour: #aaa; // crease line
+$curlTransitionColour: #ccc; // colour transitioning from crease line to final colour
+$curlLastColour: white; // final colour of the back of the curl
+/* Curl Bottom Left */
+.curl-bottom-left {
+  display: inline-block;
+  position: relative;
+  @include hideTapHighlightColor();
+  @include hardwareAccel();
+  @include improveAntiAlias();
+
+  &:before {
+    pointer-events: none;
+    position: absolute;
+    content: "";
+    height: 0;
+    width: 0;
+    bottom: 0;
+    left: 0;
+    background: $revealAreaColour; /* IE9 */
+    background: linear-gradient(
+      45deg,
+      $revealAreaColour 45%,
+      $curlLineColour 50%,
+      $curlTransitionColour 56%,
+      $curlLastColour 80%
+    );
+    box-shadow: 1px -1px 1px rgba(0, 0, 0, 0.4);
+    transition-duration: $defaultDuration;
+    transition-property: width height;
+  }
+
+  &:hover:before {
+    width: $curlWidth;
+    height: $curlHeight;
   }
 }
