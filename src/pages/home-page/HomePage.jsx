@@ -6,10 +6,9 @@ import ChrisHemsworth from "./Chris-Hemsworth.jpg";
 import ChrisEvans from "./Chris-Evans.jpg";
 import Alice from "./Alice.png";
 import CustomButton from "../../component/custom-button/Custom-button";
-import { FaArrowAltCircleUp } from "react-icons/fa";
+import { IoIosArrowDropupCircle } from "react-icons/io";
 
 const HomePage = () => {
-  // document.getElementById("homepagescroll").addEventListener("scroll");
 
   useEffect(() => {
     window.addEventListener("scroll", handlescroll);
@@ -47,9 +46,9 @@ const HomePage = () => {
     }
 
     if (((this.height = 1050), this.scrollY > this.height)) {
-      document.getElementById("clickreturn").classList.remove("hide");
+      document.getElementById("clickreturn").classList.add("show");
     } else {
-      document.getElementById("clickreturn").classList.add("hide");
+      document.getElementById("clickreturn").classList.remove("show");
     }
 
   };
@@ -57,7 +56,7 @@ const HomePage = () => {
     <>
       <div className="homepage" id="homepagescroll">
         <a id="clickreturn" href="javascript:window.scrollTo(0, 100);">
-          <FaArrowAltCircleUp />
+          <IoIosArrowDropupCircle />
         </a>
 
         <div className="page1">
