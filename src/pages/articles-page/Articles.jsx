@@ -4,12 +4,26 @@ import { createStructuredSelector } from "reselect";
 import { withRouter } from "react-router-dom"
 import "./Articles.scss"
 import Swal from 'sweetalert2'
-
+import { IoIosArrowDropupCircle } from "react-icons/io";
 import ArticleCard from "../../component/article-card/ArticleCard"
 import ArticlePopular from "../../component/article-popular/ArticlePopular"
 import { userPath, currentUserSelect } from "../../redux/user/user-selector";
 
 function Articles(props) {
+// Go to top btn--------------
+  // useEffect(() => {
+  //   window.addEventListener("scroll", handlescroll);
+  //   return () => window.removeEventListener("scroll", handlescroll);
+  // }, []);
+
+  // const handlescroll = function () {
+  //   if (((this.height = 1050), this.scrollY > this.height)) {
+  //     document.getElementById("clickreturn").classList.add("show");
+  //   } else {
+  //     document.getElementById("clickreturn").classList.remove("show");
+  //   }
+
+  // };
 
   const { currentUserData, userPath } = props
 
@@ -53,6 +67,7 @@ function Articles(props) {
 
     <>
       <div className="articles-container">
+    
         <div className="articleCategory">
           <button
             className="articleCategoryButton"
