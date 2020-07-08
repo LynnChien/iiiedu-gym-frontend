@@ -7,15 +7,49 @@ import UserCourses from "../../component/user-courses/UserCourses";
 import ArticlesEdit from "../articles-edit-page/ArticlesEdit";
 import ServiceRecord from "../../component/ServiceRecord/ServiceRecord";
 import OrderList from "../orders-list-page/OrderList";
+
+//Redux userData---------------1
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
+import { createStructuredSelector } from "reselect";
+import { currentUserSelect } from "../../redux/user/user-selector";
+//---------------
+
 // Pages------------------------------------
 function UserCenterPage(props) {
   const [nav, setNav] = useState("個人資料修改");
+  //---------------2
+  const { currentUserData } = props
+  console.log(currentUserData);
+  //該使用者的id
+  //  const currentUserId = currentUserData ? currentUserData.id : ''
+  //---------------
   return (
     <>
       <div className="user-center-page-wrapper">
         <div className="user-sidebar">
-          <div className="center-line"></div>
           <p className="sidebar-title">會員中心</p>
+
+          {/* <ul class="drop-down-menu">
+            <li>
+              <a href="#">關於我們</a>
+              <ul>
+                <li>
+                  <a href="#">服務據點</a>
+                </li>
+                <li>
+                  <a href="#">服務客戶</a>
+                </li>
+                <li>
+                  <a href="#">服務地區</a>
+                </li>
+                <li>
+                  <a href="#">徵才資訊</a>
+                </li>
+              </ul>
+            </li>
+          </ul> */}
+
           <ul className="list-unstyled">
             <li>
               <button
@@ -52,7 +86,9 @@ function UserCenterPage(props) {
           {nav === "我的課程" && <UserCourses />}
           {nav === "文章管理" && <ArticlesEdit />}
            {nav === "歷史訂單" && <OrderList />} 
-          {nav === "客訴紀錄" && <ServiceRecord />}
+          {nav === "客訴紀錄" && <ServiceRecord 
+            currentUserData={currentUserData}
+          />}
           {/* {nav === '' &&  </>  } */}
           {/* 依照state的字串，去顯示component */}
         </div>
@@ -60,4 +96,11 @@ function UserCenterPage(props) {
     </>
   );
 }
-export default UserCenterPage;
+
+//---------------
+const mapStateToProps = createStructuredSelector({
+  currentUserData: currentUserSelect,
+});
+
+export default withRouter(connect(mapStateToProps)(UserCenterPage));
+//---------------

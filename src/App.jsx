@@ -31,9 +31,6 @@ import ArticlesUpdate from "./pages/articles-update-page/ArticlesUpdate";
 //客服中心-----------
 import ServiceCenter from "./pages/ServiceCenter-page/ServiceCenter";
 
-
-
-
 // Component------
 import LoadingSpinner from "./component/loading-spinner/LoadingSpinner";
 import ErrorBoundary from "./component/error-boundary/ErrorBoundary";
@@ -77,63 +74,65 @@ const App = ({ userListStart, employeeListStart }) => {
   }, [userListStart, employeeListStart]);
 
   return (
-    <div>
-      <Header />
-      <div className="space" />
-      <Route exact path="/" component={HomePage} />
-      <main>
-        <Switch>
-          <ErrorBoundary>
-            <Suspense fallback={<LoadingSpinner />}>
-              <Route exact path="/shopping" component={ShopPage} />
-              <Route
-                exact
-                path="/shop/:collection?/:itemType?"
-                component={ShopCollectionPage}
-              />
-              <Route
-                path="/shopitem/:collection/:itemId"
-                component={ShopItemPage}
-              />
-               <Route exact path="/checkout" component={CheckOutPage} />
-              <Route path="/login" component={SignInOutPage} />
+    <>
+      <div>
+        <Header />
+        <div className="space" />
+        <Route exact path="/" component={HomePage} />
+        <main>
+          <Switch>
+            <ErrorBoundary>
+              <Suspense fallback={<LoadingSpinner />}>
+                <Route exact path="/shopping" component={ShopPage} />
+                <Route
+                  exact
+                  path="/shop/:collection?/:itemType?"
+                  component={ShopCollectionPage}
+                />
+                <Route
+                  path="/shopitem/:collection/:itemId"
+                  component={ShopItemPage}
+                />
+                <Route exact path="/checkout" component={CheckOutPage} />
+                <Route path="/login" component={SignInOutPage} />
 
-              {/* Lola */}
-              <Route path="/employeeform" component={EmployeeFormPage} />
-              <Route
-                path={`/employeecenter/:employeeId`}
-                component={EmployeeCenterPage}
-              />
-              <Route path="/employeelogin" component={EmployeeSignInOutPage} />
-             
-              {/* 育琳 */}
-              <Route path="/courses" component={Courses} />
-              <Route path="/coaches" component={Coaches} />
-              {/* ＣhrisLin */}
-              <Route exact path="/articles" component={Articles} />
-              <Route path="/articles/:articleId" component={ArticlesPreview} />
-              <Route path="/articlesAdd" component={ArticlesAdd} />
-              <Route path="/articlesEdit" component={ArticlesEdit} />
-              <Route path="/articlesUpdate/:articleId" component={ArticlesUpdate} />
-              {/* 會員 */}
-              <Route path="/user" component={UserCenter} />
-              {/* Darren測試用 */}
-              <Route path="/OrderList" component={OrderList} />
-              <Route path="/CartList" component={CartList} />
-              <Route path="/OrderListDetail" component={OrderListDetail} />
-              <Route path="/CheckOutPage" component={CheckOutPage} />
-              <Route path="/OrderCompleted" component={OrderCompleted} />
-              <Route path="/UserEdit" component={UserEdit} />
-              <Route path="/CreditCardPage" component={CreditCardPage} />
-              {/* Jason */}
-              <Route path="/ServiceCenter" component={ServiceCenter} />
+                {/* Lola */}
+                <Route path="/employeeform" component={EmployeeFormPage} />
+                <Route
+                  path={`/employeecenter/:employeeId`}
+                  component={EmployeeCenterPage}
+                />
+                <Route path="/employeelogin" component={EmployeeSignInOutPage} />
 
-            </Suspense>
-          </ErrorBoundary>
-        </Switch>
-      </main>
+                {/* 育琳 */}
+                <Route path="/courses" component={Courses} />
+                <Route path="/coaches" component={Coaches} />
+                {/* ＣhrisLin */}
+                <Route exact path="/articles" component={Articles} />
+                <Route path="/articles/:articleId" component={ArticlesPreview} />
+                <Route path="/articlesAdd" component={ArticlesAdd} />
+                <Route path="/articlesEdit" component={ArticlesEdit} />
+                <Route path="/articlesUpdate/:articleId" component={ArticlesUpdate} />
+                {/* 會員 */}
+                <Route path="/user" component={UserCenter} />
+                {/* Darren測試用 */}
+                <Route path="/OrderList" component={OrderList} />
+                <Route path="/CartList" component={CartList} />
+                <Route path="/OrderListDetail" component={OrderListDetail} />
+                <Route path="/CheckOutPage" component={CheckOutPage} />
+                <Route path="/OrderCompleted" component={OrderCompleted} />
+                <Route path="/UserEdit" component={UserEdit} />
+                <Route path="/CreditCardPage" component={CreditCardPage} />
+                {/* Jason */}
+                <Route path="/ServiceCenter" component={ServiceCenter} />
+
+              </Suspense>
+            </ErrorBoundary>
+          </Switch>
+        </main>
+      </div>
       <Footer />
-    </div>
+    </>
   );
 };
 
@@ -142,4 +141,4 @@ const mapDispatchToProps = (dispatch) => ({
   employeeListStart: () => dispatch(employeeListStart()),
 });
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(null ,mapDispatchToProps)(App);

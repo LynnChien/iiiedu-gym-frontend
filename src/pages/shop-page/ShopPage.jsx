@@ -17,6 +17,7 @@ import {
 import LoadingSpinner from "../../component/loading-spinner/LoadingSpinner";
 import CustomButton from "../../component/custom-button/Custom-button";
 import ShopPageItem from "../../component/shop-page-item/ShopPageItem";
+import Footer from "../../component/footer/Footer";
 
 // Component-----------
 const ShopPage = ({ shopPageCollections, shopPageStart, isFetching }) => {
@@ -160,6 +161,7 @@ const ShopPage = ({ shopPageCollections, shopPageStart, isFetching }) => {
           </div>
         </div>
       )}
+      {/* {isFetching ? null : <Footer /> } */}
     </div>
   );
 };

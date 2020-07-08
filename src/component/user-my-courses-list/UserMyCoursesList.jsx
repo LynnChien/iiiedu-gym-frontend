@@ -13,11 +13,8 @@ function UserMyCoursesList(props) {
                 getCoursesDataInAllUser={props.getCoursesDataInAllUser}
                 getUserBooking={props.getUserBooking}
                 choose={props.choose}
+                filterCoursesOfData={props.filterCoursesOfData}
             />))
-
-
-
-
     // console.log(aa)
     return (
         <>

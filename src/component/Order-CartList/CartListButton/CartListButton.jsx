@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { SelectTotal } from '../../../redux/cart/cart-selector';
 import { withRouter } from 'react-router-dom';
+import Swal from "sweetalert2";
 
 import './CartListButton.scss'
 import CreditCardPage from '../../Order-CreditCardPage/CreditCardPage';
@@ -25,16 +26,30 @@ const CartListButton = ({ cartItems, history, SelectTotal, currentUserSelect }) 
 
     const next = (cartItems) => {
         // console.log(cartItems)
-        if (payType === 0 || payType === '0') {
+        if (cartItems.length === 0) {
+            Swal.fire({
+                width: 400,
+                height: 300,
+                icon: 'warning',
+                title: '請先添加商品',
+            }).then(() => {
+                history.push('/shopping')
+            })
+            return false
+        } else if (payType === 0 || payType === '0') {
             setpayselected("block")
             return false
-        } else if (cartItems.length === 0) {
-            alert('購物車無商品請先添加商品')
-            return false
+        }
+        else if (!currentUserSelect) {
         } else if (!currentUserSelect) {
-            alert('請先登入會員')
-            history.push('/login')
-            return false
+            Swal.fire({
+                width: 400,
+                height: 300,
+                icon: 'warning',
+                title: '請先登入會員',
+            }).then(() => {
+                history.push('/login')
+            })
         } else {
             history.push('/CheckOutPage', {
                 pay: payType,
@@ -85,7 +100,7 @@ const CartListButton = ({ cartItems, history, SelectTotal, currentUserSelect }) 
             </select>
             <div style={{ display: payselected }} className="paysuccess">請選擇付款方式！</div>
 
-            <div style={{ display: credit }} ><CreditCardPage /></div>
+            <div ClassName="CreditCardPage" style={{ display: credit }} ><CreditCardPage /></div>
 
             {/* <div>
                 <select disabled={select} id="select-pay-type" value={cubon} name="PayType"  className="select-type" onChange={(e) => (setcubon(e.target.value))}>
@@ -103,7 +118,7 @@ const CartListButton = ({ cartItems, history, SelectTotal, currentUserSelect }) 
                 </div>
             </div>
 
-            <button className="CartListButton wobble-vertical " type="submit" onClick={() => next(cartItems)}>下一步</button>
+            <button className="CartListButton wobble-vertical " type="submit" onClick={() => next(cartItems)}>Next</button>
         </div >
 
     )

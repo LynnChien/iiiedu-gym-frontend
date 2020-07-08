@@ -2,8 +2,8 @@ $midnight: #1178b8;
 $clouds: #ecf0f1;
 
 .faq-title-box {
-    width: 32.5rem;
-    height: 3rem;
+    width: 90%;
+    height: 2.5rem;
     background: $midnight;
     margin-top: 15px;
     display: flex;
@@ -18,27 +18,63 @@ $clouds: #ecf0f1;
         color: #fff;
     }
     svg {
-        width: 1.5rem;
-        height: 1.5rem;
+        font-size: 2rem;
         padding-right: 8px;
         display: inline-block;
+        color: #fff;
     }
     &:hover {
         background: darken($midnight, 10%);
         cursor: pointer;
     }
 }
+
 .faq-body-box {
-    width: 32.5rem;
-    display: flex;
-    line-height: 2rem;
+    max-height: 0px;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+    margin: 0 0 0 0px;
+    width: 90%;
     .faq-body {
         width: 100%;
         color: #000;
         word-break: break-all;
-        background: rgb(127, 227, 250);
+        background: #fff;
         border-radius: 0 0 3px 3px;
-        padding: 16px;
+        padding: 12px;
+        border: 1px solid #1178b8;
     }
 }
 
+.jason{
+    position: absolute;
+}
+.faq-active {
+    width:90%;
+    padding: 0;
+    max-height: 2000px;
+    transition: all 0.3s ease-in;
+}
+.faq-title-icon-1st{
+    transform: rotate(0deg);
+    transition: all 0.3s ease-in;
+}
+.faq-title-icon-2nd{
+    transform: rotate(90deg);
+    transition: all 0.3s ease-in;
+}
+// .faq-body-box {
+//     width: 90%;
+//     line-height: 2rem;
+//     // max-height: 15rem;
+//     margin-bottom: 5px;
+//     .faq-body {
+//         width: 100%;
+//         color: #000;
+//         word-break: break-all;
+//         background: #fff;
+//         border-radius: 0 0 3px 3px;
+//         padding: 12px;
+//         border: 1px solid #1178b8;
+//     }
+// }
