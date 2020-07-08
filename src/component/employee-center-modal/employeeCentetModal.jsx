@@ -88,6 +88,7 @@ function EmployeeCentetModal({
           <input
             className="input-content"
             type="file"
+            accept=".jpg,.png"
             onChange={(event) => {
               let input = event.target.files[0];
               let reader = new FileReader();
