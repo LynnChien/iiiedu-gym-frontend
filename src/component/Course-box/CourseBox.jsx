@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import "./CourseBox.scss";
 import CourseBookingButton from "../course-booking-button/CourseBookingButton";
 import Swal from "sweetalert2";
@@ -31,7 +31,7 @@ function CourseBox(props) {
     let newT = t.split(/[' ']/)[3]
     // 該課程id
     const getThisCourseId = props.course.courseId
-
+// console.log(props.value)
     //新增人數到資料庫
     async function getAddNumFromData() {
         const addNumPost = {
@@ -96,7 +96,7 @@ function CourseBox(props) {
     }
 
     //取消預約後減少人數
-    async function getReduceNumFromData() {
+    const getReduceNumFromData = useCallback(async()=>{
         const reduceNumJson = {
             courseId: getThisCourseId,
         }
@@ -112,7 +112,7 @@ function CourseBox(props) {
         const newData = await res.json()
         // console.log(newData)
         return newData
-    }
+    }, [getThisCourseId])
 // console.log(currentUser.length)
     //確認預約視窗
     function myConfirmAddBooking(addBooking) {
@@ -254,7 +254,7 @@ function CourseBox(props) {
             setNum([getReduceNumFunc.numberOfCourse])
         })()
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [changeState2])
+    }, [changeState2, getReduceNumFromData])
 
     return (
         <>
