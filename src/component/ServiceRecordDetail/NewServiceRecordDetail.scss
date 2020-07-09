@@ -115,7 +115,7 @@
         font-size: 16px;
         font-weight: bold;
         overflow: scroll;
-        .history-admin{
+        .history-admin {
             font-size: 10px;
             margin: 0.5rem 10px 0 auto;
             width: 48%;
@@ -155,13 +155,13 @@
                 text-align: right;
                 margin-left: auto;
                 font-size: 0.6rem;
-            }  
+            }
         }
     }
 }
 .textarea-box {
     width: 50rem;
-    height: 6.25rem;
+    height: 6rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -172,7 +172,7 @@
         max-width: 100%;
         max-height: 100%;
         resize: none;
-        padding: 5px ;
+        padding: 5px;
     }
 }
 .testPost-btn {
