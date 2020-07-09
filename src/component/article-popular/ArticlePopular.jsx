@@ -36,7 +36,7 @@ function ArticlePopular(props) {
   return (
     <>
  
-        {/* {hotdata
+        {hotdata
           ? hotdata.map((list, index) => (
             <div className="popularList" key={index}>
               <div className="hotArticle" >
@@ -58,7 +58,7 @@ function ArticlePopular(props) {
               </div>
             </div>
           ))
-          : ""} */}
+          : ""}
   
     </>
   );
