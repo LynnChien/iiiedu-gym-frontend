@@ -135,10 +135,8 @@ const App = ({ userListStart, employeeListStart }) => {
     </>
   );
 };
-
 const mapDispatchToProps = (dispatch) => ({
   userListStart: () => dispatch(userListStart()),
   employeeListStart: () => dispatch(employeeListStart()),
 });
-
 export default connect(null ,mapDispatchToProps)(App);
