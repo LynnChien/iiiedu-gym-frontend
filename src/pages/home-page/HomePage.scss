@@ -371,7 +371,6 @@
 }
 
 #page7 {
-  position: absolute;
   background: rgba(black, 0.66);
   height: calc(100vh - 104px);
   width: 100vw;
@@ -379,7 +378,7 @@
   grid-template-rows: 10% 40% auto;
   margin: 0 auto;
   align-items: center;
-  z-index: 0;
+  z-index: 3;
   padding-top: 50px;
 
   .page-7-title {
