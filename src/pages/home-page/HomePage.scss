@@ -1,6 +1,6 @@
 .homepage {
   font-family: 微軟正黑體;
-  
+
   #clickreturn {
     display: none;
   }
@@ -76,8 +76,7 @@
 
     #page2-right.sticky {
       position: fixed;
-      top: 44px;
-      // left: calc(49vw + 2px);
+      top: 0px;
     }
   }
 
@@ -99,8 +98,8 @@
           padding: 10vh 0;
         }
         span {
-          font-size: 16px;
-          line-height: 50px;
+          font-size: 22px;
+          line-height: 40px;
         }
       }
     }
@@ -121,7 +120,7 @@
 
     #page3-right.sticky {
       position: fixed;
-      top: 24px;
+      top: 0px;
       // left: calc(49vw + 2px);
     }
   }
