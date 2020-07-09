@@ -5,7 +5,7 @@ import FaqList from '../../component/Faq_list/FaqList'
 // import '../component/ServiceNav/ServiceNav.scss'
 import './ServiceCenter.scss'
 import { MdKeyboardArrowRight } from "react-icons/md"
-
+import Swal from 'sweetalert2'
 
 //---------------1
 import { connect } from "react-redux";
@@ -29,8 +29,12 @@ const ServiceCenter = (props) => {
     } 
     
     const checkHasLogin = (e) => {
-        id>0 ? setNav(e) : history.push('/login')
-
+        // id>0 ? setNav(e) : history.push('/login')
+        if(id>0){
+            setNav(e) 
+        }else {
+            Swal.fire("請先登入!") && setTimeout(() => { history.push('/login') }, 2000)
+        }
         // if(id>0){ 
         //     //判斷undefined或空值或空字串，改用數字判斷
         //     console.log(id)
