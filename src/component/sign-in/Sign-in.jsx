@@ -25,7 +25,7 @@ class SignIn extends React.Component {
 
   handleSubmit = async (e) => {
   
-
+    
     e.preventDefault();
     const { email, password } = this.state;
     const { userLoginStart } = this.props;
@@ -43,7 +43,7 @@ class SignIn extends React.Component {
   render() {
 
     const { userSignInUnVaild, history, userLoginRestart } = this.props;
-    // console.log("history", history)
+    console.log("history", history)
     return (
       <div className="sign-in">
         <h2 className="sign-in-title">會員登入</h2>
@@ -101,7 +101,7 @@ class SignIn extends React.Component {
 
         <ErrorModel
           unValid={userSignInUnVaild !== null && !userSignInUnVaild}
-          returnHome={() => history.goBack()}
+          returnHome={() => (history.goBack())}
         >
           登入成功！
         </ErrorModel>

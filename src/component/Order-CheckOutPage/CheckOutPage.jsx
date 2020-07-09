@@ -139,7 +139,7 @@ const CheckOutPage = ({ cartItems, history, SelectTotal, currentUserSelect }) =>
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes,Confirm It.'
+            confirmButtonText: 'Confirm It!'
         }).then((result) => {
             if (result.value) {
                 Swal.fire(

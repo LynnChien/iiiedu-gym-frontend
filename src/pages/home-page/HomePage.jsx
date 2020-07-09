@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
 import "./HomePage.scss";
 import GYM2 from "../../API/GYM.mp4";
+
 import PhotosImgbackground from "./PhotosImgbackground1.png";
 import ChrisHemsworth from "./Chris-Hemsworth.jpg";
 import ChrisEvans from "./Chris-Evans.jpg";
-import Alice from "./Alice.png";
+import JEANLIN from "./JEANLIN.png";
 import CustomButton from "../../component/custom-button/Custom-button";
 import { IoIosArrowDropupCircle } from "react-icons/io";
 
@@ -240,9 +241,9 @@ import { IoIosArrowDropupCircle } from "react-icons/io";
                 </div>
               </li>
               <li>
-                <img src={Alice} alt=""></img>
+                <img src={JEANLIN} alt=""></img>
                 <div className="page6-card-right">
-                  <h2>Alice</h2>
+                  <h2>Jean</h2>
                   <span>
                     證照： <br />
                     健身C級教練
