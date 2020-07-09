@@ -162,7 +162,6 @@ function Articles(props) {
             <div className="article-Tag-btn">
 
               <div className="article-Tag-popular">熱門標籤</div>
-              <div className="button-box">
               <button
                 className="articleTagButton"
                 onClick={() => {
@@ -259,8 +258,6 @@ function Articles(props) {
               >
                 <p>川字肌</p>
               </button>
-
-              </div>
             </div>
 
           </div>
