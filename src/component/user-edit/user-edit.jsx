@@ -83,6 +83,7 @@ function UserEdit({ currentUserSelect, userPath }) {
       setcity(el.city);
       setcontury(el.contury);
       setaddress(el.memberAddress);
+      setsex(el.memberGender)
     });
   }, [member]);
 
@@ -105,18 +106,18 @@ function UserEdit({ currentUserSelect, userPath }) {
             <div className="left-form">
               <div className="first-line">
                 <fieldset>
-                  <legend>姓名</legend>
+                  <legend>姓名:</legend>
                   <input
                     type="text"
-                    placeholder={memberName}
+                    value={memberName}
                     onChange={(e) => setName(e.target.value)}
                   />
                 </fieldset>
                 <fieldset>
-                  <legend>暱稱</legend>
+                  <legend>暱稱:</legend>
                   <input
                     type="text"
-                    placeholder={memberNickname}
+                    value={memberNickname}
                     onChange={(e) => setNickName(e.target.value)}
                   />
                 </fieldset>
@@ -124,10 +125,10 @@ function UserEdit({ currentUserSelect, userPath }) {
 
               <div className="first-line">
                 <fieldset>
-                  <legend>生日</legend>
+                  <legend>生日: </legend>
                   <input
                     type="date"
-                    placeholder={memberBirth}
+                    value={memberBirth}
                     onChange={(e) => setdate(e.target.value)}
                   />
                 </fieldset>
@@ -142,20 +143,20 @@ function UserEdit({ currentUserSelect, userPath }) {
 
               <div className="first-line">
                 <fieldset>
-                  <legend>手機號碼</legend>
+                  <legend>手機號碼:</legend>
                   <input
                     type="text"
                     minLength="10"
                     pattern="[0-9]*"
-                    placeholder={memberPhoneNum}
+                    value={memberPhoneNum}
                     onChange={(e) => setphone(e.target.value)}
                   />
                 </fieldset>
                 <fieldset>
-                  <legend>電子郵件</legend>
+                  <legend>電子郵件:</legend>
                   <input
                     type="email"
-                    placeholder={memberEmail}
+                    value={memberEmail}
                     onChange={(e) => setmail(e.target.value)}
                   />
                 </fieldset>
@@ -163,12 +164,12 @@ function UserEdit({ currentUserSelect, userPath }) {
 
               <div className="first-line">
                 <fieldset>
-                  <legend>居住地址</legend>
+                  <legend>居住地址:</legend>
                   <input
                     className="address-input"
-                    maxLength="40"
+                    maxLength="100"
                     type="text"
-                    placeholder={memberAddress}
+                    value={memberAddress}
                     onChange={(e) => setaddress(e.target.value)}
                   />
                 </fieldset>
@@ -198,28 +199,29 @@ function UserEdit({ currentUserSelect, userPath }) {
 
               <div className="pwd-card">
                 <fieldset>
-                  <legend>修改密碼</legend>
+                  <legend>修改密碼:</legend>
                   <input
-                    minLength="8"
-                    type="password"
-                    pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z a-z]).*$"
+                    // minLength="8"
+                    type="text"
+                    // pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z a-z]).*$"
                     placeholder=" 請輸入舊密碼"
-                    onChange={(e) => setpwd(e.target.value)}
                   />
                 </fieldset>
                 <fieldset className="pwd-input">
                   <input
-                    minLength="8"
-                    type="password"
-                    pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z a-z]).*$"
+                    // minLength="8"
+                    type="text"
+                    // pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z a-z]).*$"
                     placeholder=" 請輸入新密碼"
+                    onChange={(e) => setpwd(e.target.value)}
+
                   />
                 </fieldset>
                 <fieldset className="pwd-input">
                   <input
-                    minLength="8"
-                    type="password"
-                    pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z a-z]).*$"
+                    // minLength="8"
+                    type="text"
+                    // pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z a-z]).*$"
                     placeholder=" 請再輸入一次新密碼"
                   />
                 </fieldset>

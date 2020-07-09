@@ -9,52 +9,52 @@ import JEANLIN from "./JEANLIN.png";
 import CustomButton from "../../component/custom-button/Custom-button";
 import { IoIosArrowDropupCircle } from "react-icons/io";
 
-const HomePage = () => {
+  const HomePage = () => {
 
-  useEffect(() => {
-    window.addEventListener("scroll", handlescroll);
-    return () => window.removeEventListener("scroll", handlescroll);
-  }, []);
-
-  const handlescroll = function () {
-    
-    if (((this.height = 1224), this.scrollY > this.height)) {
-      document.getElementById("page2-right").classList.add("sticky");
-    } else {
-      document.getElementById("page2-right").classList.remove("sticky");
-    }
-
-    if (((this.height = 2304), this.scrollY > this.height)) {
-      document.getElementById("page3-right").classList.add("sticky");
-      document.getElementById("page2-right").classList.remove("sticky");
-    } else {
-      document.getElementById("page3-right").classList.remove("sticky");
-    }
-    if (((this.height = 3384), this.scrollY > this.height)) {
-      document.getElementById("page4-left").classList.add("sticky");
-      document.getElementById("page3-right").classList.remove("sticky");
-    } else {
-      document.getElementById("page4-left").classList.remove("sticky");
-    }
-    if (((this.height = 4464), this.scrollY > this.height)) {
-      document.getElementById("page5-left").classList.add("sticky");
-      document.getElementById("page4-left").classList.remove("sticky");
-    } else {
-      document.getElementById("page5-left").classList.remove("sticky");
-    }
- // 螢幕解析度高減去此數---------------   
-    if (((this.height = 5544), this.scrollY > this.height)) {
-      document.getElementById("page5-left").classList.remove("sticky");
-    } else {
-    }
-
-    if (((this.height = 1080), this.scrollY > this.height)) {
-      document.getElementById("clickreturn").classList.add("show");
-    } else {
-      document.getElementById("clickreturn").classList.remove("show");
-    }
-
-  };
+    useEffect(() => {
+      window.addEventListener("scroll", handlescroll);
+      return () => window.removeEventListener("scroll", handlescroll);
+    }, []);
+  
+    const handlescroll = function () {
+      // -螢幕高度-144--------------
+      if ((this.scrollY > this.screen.height   )) {
+        document.getElementById("page2-right").classList.add("sticky");
+      } else {
+        document.getElementById("page2-right").classList.remove("sticky");
+      }
+  
+      if ((this.scrollY > this.screen.height*2 )) {
+        document.getElementById("page3-right").classList.add("sticky");
+        document.getElementById("page2-right").classList.remove("sticky");
+      } else {
+        document.getElementById("page3-right").classList.remove("sticky");
+      }
+      if ((this.scrollY > this.screen.height*3 )) {
+        document.getElementById("page4-left").classList.add("sticky");
+        document.getElementById("page3-right").classList.remove("sticky");
+      } else {
+        document.getElementById("page4-left").classList.remove("sticky");
+      }
+      if ((this.scrollY > this.screen.height*4 )) {
+        document.getElementById("page5-left").classList.add("sticky");
+        document.getElementById("page4-left").classList.remove("sticky");
+      } else {
+        document.getElementById("page5-left").classList.remove("sticky");
+      }
+   // 螢幕解析度高減去此數---------------   
+      if ((this.scrollY > this.screen.height*5)) {
+        document.getElementById("page5-left").classList.remove("sticky");
+      } else {
+      }
+  
+      if ((this.scrollY > this.screen.height)) {
+        document.getElementById("clickreturn").classList.add("show");
+      } else {
+        document.getElementById("clickreturn").classList.remove("show");
+      }
+  
+    };
   return (
     <>
       <div className="homepage" id="homepagescroll">

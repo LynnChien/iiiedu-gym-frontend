@@ -63,7 +63,7 @@ class SignIn extends React.Component {
             value={this.state.password}
             onChange={this.handleChange}
             label="Password"
-            type="password"
+            type="text"
             required
           />
           <div className="buttons">

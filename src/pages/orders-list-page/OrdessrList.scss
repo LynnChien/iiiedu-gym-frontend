@@ -72,17 +72,17 @@ $shadowColour: rgba(0, 0, 0, 0.6);
   }
 }
 
-// :active,
-// :hover,
-// :focus {
-//   outline: 0 !important;
-//   outline-offset: 0;
-// }
-// ::before,
-// ::after {
-//   position: absolute;
-//   content: "";
-// }
+:active,
+:hover,
+:focus {
+  outline: 0 !important;
+  outline-offset: 0;
+}
+::before,
+::after {
+  position: absolute;
+  content: "";
+}
 
 .btn-holder {
   display: flex;
