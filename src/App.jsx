@@ -94,7 +94,6 @@ const App = ({ userListStart, employeeListStart }) => {
                   path="/shopitem/:collection/:itemId"
                   component={ShopItemPage}
                 />
-                <Route exact path="/checkout" component={CheckOutPage} />
                 <Route path="/login" component={SignInOutPage} />
 
                 {/* Lola */}

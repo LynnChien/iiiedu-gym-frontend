@@ -79,7 +79,7 @@ const ServiceCreate = ({ onClick, currentUserData, history }) => {
         }else if(selectType === "" || email === "" || listText === "" || name === "" || phoneNumber === "" || title === ""){
             Swal.fire("請將資料填寫完整!")
         }else {
-            createlist()
+            Swal.fire("新增成功!") && setTimeout(() => { createlist()}, 2000)
         }}
 
 // const clickData = () => {

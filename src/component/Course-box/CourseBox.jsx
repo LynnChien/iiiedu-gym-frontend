@@ -245,14 +245,14 @@ function CourseBox(props) {
             const getNumFunc = await getAddNumFromData()
             setNum([getNumFunc.numberOfCourse])
         })()
-    }, [changeState])
+    }, [changeState, getAddNumFromData])
 
     useEffect(() => {
         (async () => {
             const getReduceNumFunc = await getReduceNumFromData()
             setNum([getReduceNumFunc.numberOfCourse])
         })()
-    }, [changeState2])
+    }, [changeState2, getReduceNumFromData])
 
     return (
         <>

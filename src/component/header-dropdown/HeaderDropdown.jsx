@@ -97,6 +97,7 @@ const HeaderDropdown = ({
           </div>
             {currentUser ? (
               <>
+              <div className="logoutBtnMobile">
                 {/* <span className="side-sub-user-title">
                   嗨! {currentUser.memberName}
                 </span> */}
@@ -110,8 +111,11 @@ const HeaderDropdown = ({
                 >
                   登出
               </CustomButton>
+              </div>
               </>
             ) : (
+              <>
+              <div className="logoutBtnMobile">
                 <CustomButton
                   signin
                   mobileMode
@@ -122,6 +126,8 @@ const HeaderDropdown = ({
                 >
                   登入
                 </CustomButton>
+                </div>
+                </>
               )}
           </div>
         </div>
