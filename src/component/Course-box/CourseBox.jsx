@@ -270,7 +270,7 @@ function CourseBox(props) {
                     <div>
                         {+props.course.numberOfCourse >= +props.course.courseQuoda ? displayFullBtn() :
                             <CourseBookingButton
-                                value={props.course.courseId}
+                                value={props.value}
                                 bookingData={props.bookingData}
                                 addBooking={addBooking}
                                 userCancelBooking={userCancelBooking}
