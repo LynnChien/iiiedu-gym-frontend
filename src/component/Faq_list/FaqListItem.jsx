@@ -17,17 +17,21 @@ const FaqListItem = (props) => {
             <div className="faq-title-box" onClick={handleClick}>
                 {/* <div className="faq-id">No.{props.faqid}</div> */}
                 <div type="checkbox" className="faq-title">{props.faqtitle}</div>
-                
-                <FiChevronRight className={`jason${showFaq ?
-                "faq-title-icon-1st"
-                :
-                ".faq-title-icon-2nd"}`} /> 
+        
+                <FiChevronRight className={`${showFaq ?
+                    "faq-title-icon-1st"
+                    :
+                    "faq-title-icon-2nd"}`}  />
             </div>
-                <div className={showFaq ?"faq-body-box faq-active":"faq-body-box"}>
-                    <div className="faq-body" >{props.faqbody}
-                    </div>
-                    {/* <div>{showtime(props.createtime)}</div> */}
-                </div> 
+
+            <div className={showFaq ?
+                "faq-body-box faq-active"
+                :
+                "faq-body-box"}>
+                <div className="faq-body" >{props.faqbody}
+                </div>
+                {/* <div>{showtime(props.createtime)}</div> */}
+            </div>
 
             {/* <input type="checkbox" id="chck1" />
             <div className="faq-body-box" for="chck1" onClick={handleClick}>{props.faqtitle}</div>

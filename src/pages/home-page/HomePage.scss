@@ -1,5 +1,4 @@
 .homepage {
-
   font-family: 微軟正黑體;
 
   #clickreturn {
@@ -23,7 +22,7 @@
     video {
       object-fit: cover;
       width: 100vw;
-      height: calc(100% - 104px);
+      height: calc(100%);
       position: fixed;
       top: 104px;
       z-index: -9;
@@ -41,6 +40,8 @@
     display: flex;
     color: white;
     .page2-left-wrapper {
+      position: absolute;
+      top: calc(100vh);
       background: #4d4d4d;
       height: 100vh;
       width: 50vw;
@@ -62,7 +63,7 @@
 
     #page2-right {
       position: absolute;
-      top: calc(100vh + 144px);
+      top: calc(100vh);
 
       height: 100vh;
       width: 50vw;
@@ -78,6 +79,7 @@
     #page2-right.sticky {
       position: fixed;
       top: 0px;
+      // left: calc(49vw + 2px);
     }
   }
 
@@ -90,6 +92,8 @@
       background: #232323;
       height: 100vh;
       width: 50vw;
+      position: absolute;
+      top: calc(200vh);
       .page3-wrapper {
         margin-left: 5vw;
         margin-right: 10vw;
@@ -99,7 +103,7 @@
           padding: 10vh 0;
         }
         span {
-          font-size: 22px;
+          font-size: 18px;
           line-height: 40px;
         }
       }
@@ -107,7 +111,7 @@
 
     #page3-right {
       position: absolute;
-      top: calc(200vh + 144px);
+      top: calc(200vh);
       height: 100vh;
       width: 50vw;
       left: 50vw;
@@ -134,7 +138,7 @@
 
     #page4-left {
       position: absolute;
-      top: calc(300vh + 144px);
+      top: calc(300vh);
       height: 100vh;
       width: 50vw;
       background-image: url("./GYMMAIN.png");
@@ -154,7 +158,7 @@
     }
     .page4-right-wrapper {
       position: absolute;
-
+      top: calc(300vh);
       background: #4d4d4d;
       height: 100vh;
       width: 50vw;
@@ -179,7 +183,7 @@
 
   #page4-left.sticky {
     position: fixed;
-    top: 44px;
+    top: 0px;
   }
   .page4-left-wrapper-rwd {
     display: none;
@@ -187,6 +191,7 @@
   .page4-right-wrapper {
     position: absolute;
     background: black;
+    top: calc(300vh);
     height: 100vh;
     width: 50vw;
     left: 50vw;
@@ -220,7 +225,7 @@
 
   #page5-left {
     position: absolute;
-    top: calc(400vh + 144px);
+    top: calc(400vh);
     height: 100vh;
     width: 50vw;
     background-image: url("./Gy.png");
@@ -242,11 +247,11 @@
   .page5-right-wrapper {
     position: absolute;
     background: #232323;
-    height: 100vh;
+    height: 120vh;
     width: 50vw;
     left: 50vw;
     z-index: 0;
-
+    top: calc(400vh);
     .page5-right-news {
       margin-left: 5vw;
       margin-right: 10vw;
@@ -269,7 +274,7 @@
 }
 
 .page6 {
-  position: relative;
+  position: absolute;
   .page6-wrapper {
     background: rgba(black, 0.66);
     height: 100vh;
@@ -366,6 +371,7 @@
 }
 
 #page7 {
+  position: absolute;
   background: rgba(black, 0.66);
   height: calc(100vh - 104px);
   width: 100vw;
