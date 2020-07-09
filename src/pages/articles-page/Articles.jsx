@@ -258,8 +258,6 @@ function Articles(props) {
               >
                 <p>川字肌</p>
               </button>
-
-
             </div>
 
           </div>
