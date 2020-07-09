@@ -86,7 +86,7 @@ function UserMyCourses(props) {
             })
             swalWithBootstrapButtons.fire({
                 title: `取消課程：${props.userCourse.courseName}`,
-                text: `課程時間：${jumpT[0] + ' ' + jumpT2}`,
+                html: `<h2>課程時間：${jumpT[0] + ' ' + jumpT2}</h2><br />取消後無法再次預約，確定取消嗎？`,
                 icon: 'question',
                 showCancelButton: true,
                 cancelButtonText: '不取消了',

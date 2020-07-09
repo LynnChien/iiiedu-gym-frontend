@@ -28,7 +28,7 @@ const ServiceRecordDetail = (props) => {
         const data = await res.json()
         setReplyData(data)
         // 設定資料
-        console.log(data);
+        // console.log(data);
     }
 
 

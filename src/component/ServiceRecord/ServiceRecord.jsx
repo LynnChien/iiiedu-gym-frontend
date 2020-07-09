@@ -6,8 +6,8 @@ const ServiceRecord = (props) => {
     const [AllData, setAllData] = useState([])
     const currentUserData = props.currentUserData
     const {id} = {...currentUserData}
-    console.log(currentUserData);
-    console.log(id);
+    // console.log(currentUserData);
+    // console.log(id);
     // 取回報紀錄列表
     async function getData() {
         const request = new Request('http://localhost:5000/api/customerRoutes/', {
@@ -19,12 +19,12 @@ const ServiceRecord = (props) => {
         const res = await fetch(request)
         const data = await res.json()
         // 設定資料
-        console.log("data", data, "id", id)
-        console.log(data.filter(data => id === data.memberid))
+        // console.log("data", data, "id", id)
+        // console.log(data.filter(data => id === data.memberid))
         // setAllData((data => data.memberid===1? :memberId === data.memberid))
         setAllData(id === 1 ? data : data.filter(data => id === data.memberid))
     }
-    console.log(AllData);
+    // console.log(AllData);
     useEffect(() => {
         getData();
     }, [])

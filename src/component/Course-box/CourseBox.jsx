@@ -128,7 +128,7 @@ function CourseBox(props) {
 
             swalWithBootstrapButtons.fire({
                 title: `預定課程：${props.course.courseName}`,
-                text: `預定時間：${props.course.courseTime}`,
+                html: `<h2>預定時間：${props.course.courseTime}</h2>`,
                 icon: 'question',
                 showCancelButton: true,
                 cancelButtonText: '取消',
@@ -174,7 +174,7 @@ function CourseBox(props) {
 
         swalWithBootstrapButtons.fire({
             title: `取消課程：${props.course.courseName}`,
-            text: `課程時間：${props.course.courseTime}`,
+            html: `<h2>課程時間：${props.course.courseTime}</h2><br />取消後無法再次預約，確定取消嗎？`,
             icon: 'question',
             showCancelButton: true,
             cancelButtonText: '不取消了',
@@ -254,7 +254,7 @@ function CourseBox(props) {
             setNum([getReduceNumFunc.numberOfCourse])
         })()
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [changeState2, getReduceNumFromData])
+    }, [changeState2])
 
     return (
         <>
