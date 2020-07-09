@@ -8,7 +8,6 @@
   list-style: none;
   cursor: pointer;
   li {
-    position: relative;
    
     font-size: 18px;
     width: 20px;
@@ -16,8 +15,7 @@
   }
   .icon-left{
  
-      position: absolute;
-      left: 46%;
+     margin-bottom: 8px;
   }
 }
 
