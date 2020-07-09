@@ -17,36 +17,38 @@ const HomePage = () => {
   }, []);
 
   const handlescroll = function () {
-    if (((this.height = 1050), this.scrollY > this.height)) {
+    
+    if (((this.height = 1224), this.scrollY > this.height)) {
       document.getElementById("page2-right").classList.add("sticky");
     } else {
       document.getElementById("page2-right").classList.remove("sticky");
     }
 
-    if (((this.height = 2000), this.scrollY > this.height)) {
+    if (((this.height = 2304), this.scrollY > this.height)) {
       document.getElementById("page3-right").classList.add("sticky");
       document.getElementById("page2-right").classList.remove("sticky");
     } else {
       document.getElementById("page3-right").classList.remove("sticky");
     }
-    if (((this.height = 2950), this.scrollY > this.height)) {
+    if (((this.height = 3384), this.scrollY > this.height)) {
       document.getElementById("page4-left").classList.add("sticky");
       document.getElementById("page3-right").classList.remove("sticky");
     } else {
       document.getElementById("page4-left").classList.remove("sticky");
     }
-    if (((this.height = 3880), this.scrollY > this.height)) {
+    if (((this.height = 4464), this.scrollY > this.height)) {
       document.getElementById("page5-left").classList.add("sticky");
       document.getElementById("page4-left").classList.remove("sticky");
     } else {
       document.getElementById("page5-left").classList.remove("sticky");
     }
-    if (((this.height = 4750), this.scrollY > this.height)) {
+ // 螢幕解析度高減去此數---------------   
+    if (((this.height = 5544), this.scrollY > this.height)) {
       document.getElementById("page5-left").classList.remove("sticky");
     } else {
     }
 
-    if (((this.height = 1050), this.scrollY > this.height)) {
+    if (((this.height = 1080), this.scrollY > this.height)) {
       document.getElementById("clickreturn").classList.add("show");
     } else {
       document.getElementById("clickreturn").classList.remove("show");
