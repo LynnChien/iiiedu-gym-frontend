@@ -23,7 +23,7 @@ const CartItems = ({ cartItems, removeItemFromCart, addItemToCart, ReduceItem, C
                     <li>$ {item.price}</li>
                     <li >
                         <ul className="quan">
-                            {item.quantity === 1 ? <li>&#9664;</li> : <li onClick={() => (ReduceItem(item))}>&#9664;</li>}
+                            {item.quantity === 1 ? <li className="icon-left">&#9664;</li> : <li className="icon-left" onClick={() => (ReduceItem(item))}>&#9664;</li>}
                             <li className="quan-num">{item.quantity}</li>
                             <li onClick={() => (addItemToCart(item))} >&#9654;</li>
                         </ul>

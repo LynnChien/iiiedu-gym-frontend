@@ -1,15 +1,22 @@
 .homepage {
+
   font-family: 微軟正黑體;
+
   #clickreturn {
+    display: none;
+  }
+  #clickreturn.show {
+    display: block;
     position: fixed;
-    font-size: 50px;
-    top: calc(100vh - 124px);
+    font-size: 60px;
+    top: calc(100vh - 134px);
     right: 1vw;
     z-index: 3;
-    color: #fecc2f;
-  }
-  #clickreturn.hide {
-    display: none;
+    color: white;
+
+    &:hover {
+      color: #fecc2f;
+    }
   }
   .page1 {
     // background: #fecc2f;
@@ -70,8 +77,7 @@
 
     #page2-right.sticky {
       position: fixed;
-      top: 44px;
-      // left: calc(49vw + 2px);
+      top: 0px;
     }
   }
 
@@ -93,8 +99,8 @@
           padding: 10vh 0;
         }
         span {
-          font-size: 16px;
-          line-height: 50px;
+          font-size: 22px;
+          line-height: 40px;
         }
       }
     }
@@ -115,7 +121,7 @@
 
     #page3-right.sticky {
       position: fixed;
-      top: 24px;
+      top: 0px;
       // left: calc(49vw + 2px);
     }
   }

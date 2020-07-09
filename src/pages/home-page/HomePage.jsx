@@ -1,15 +1,15 @@
 import React, { useEffect } from "react";
 import "./HomePage.scss";
 import GYM2 from "../../API/GYM.mp4";
+
 import PhotosImgbackground from "./PhotosImgbackground1.png";
 import ChrisHemsworth from "./Chris-Hemsworth.jpg";
 import ChrisEvans from "./Chris-Evans.jpg";
-import Alice from "./Alice.png";
+import JEANLIN from "./JEANLIN.png";
 import CustomButton from "../../component/custom-button/Custom-button";
-import { FaArrowAltCircleUp } from "react-icons/fa";
+import { IoIosArrowDropupCircle } from "react-icons/io";
 
 const HomePage = () => {
-  // document.getElementById("homepagescroll").addEventListener("scroll");
 
   useEffect(() => {
     window.addEventListener("scroll", handlescroll);
@@ -17,47 +17,49 @@ const HomePage = () => {
   }, []);
 
   const handlescroll = function () {
-    if (((this.height = 1050), this.scrollY > this.height)) {
+    
+    if (((this.height = 1224), this.scrollY > this.height)) {
       document.getElementById("page2-right").classList.add("sticky");
     } else {
       document.getElementById("page2-right").classList.remove("sticky");
     }
 
-    if (((this.height = 2000), this.scrollY > this.height)) {
+    if (((this.height = 2304), this.scrollY > this.height)) {
       document.getElementById("page3-right").classList.add("sticky");
       document.getElementById("page2-right").classList.remove("sticky");
     } else {
       document.getElementById("page3-right").classList.remove("sticky");
     }
-    if (((this.height = 2950), this.scrollY > this.height)) {
+    if (((this.height = 3384), this.scrollY > this.height)) {
       document.getElementById("page4-left").classList.add("sticky");
       document.getElementById("page3-right").classList.remove("sticky");
     } else {
       document.getElementById("page4-left").classList.remove("sticky");
     }
-    if (((this.height = 3880), this.scrollY > this.height)) {
+    if (((this.height = 4464), this.scrollY > this.height)) {
       document.getElementById("page5-left").classList.add("sticky");
       document.getElementById("page4-left").classList.remove("sticky");
     } else {
       document.getElementById("page5-left").classList.remove("sticky");
     }
-    if (((this.height = 4750), this.scrollY > this.height)) {
+ // 螢幕解析度高減去此數---------------   
+    if (((this.height = 5544), this.scrollY > this.height)) {
       document.getElementById("page5-left").classList.remove("sticky");
     } else {
     }
 
-    if (((this.height = 1050), this.scrollY > this.height)) {
-      document.getElementById("clickreturn").classList.remove("hide");
+    if (((this.height = 1080), this.scrollY > this.height)) {
+      document.getElementById("clickreturn").classList.add("show");
     } else {
-      document.getElementById("clickreturn").classList.add("hide");
+      document.getElementById("clickreturn").classList.remove("show");
     }
 
   };
   return (
     <>
       <div className="homepage" id="homepagescroll">
-        <a id="clickreturn" href="javascript:window.scrollTo(0, 100);">
-          <FaArrowAltCircleUp />
+        <a id="clickreturn" href="javascript:window.scrollTo(0, 0);">
+          <IoIosArrowDropupCircle />
         </a>
 
         <div className="page1">
@@ -239,9 +241,9 @@ const HomePage = () => {
                 </div>
               </li>
               <li>
-                <img src={Alice} alt=""></img>
+                <img src={JEANLIN} alt=""></img>
                 <div className="page6-card-right">
-                  <h2>Alice</h2>
+                  <h2>Jean</h2>
                   <span>
                     證照： <br />
                     健身C級教練
@@ -276,7 +278,7 @@ const HomePage = () => {
                       <br />
                       NEO (三條線運動上衣)
                     </h2>
-                    <a href="#" class="info">
+                    <a href="http://localhost:3000/shopitem/women/253" class="info">
                       More
                     </a>
                   </div>
@@ -291,7 +293,7 @@ const HomePage = () => {
                       <br />
                       PRO SPORT (運動上衣)
                     </h2>
-                    <a href="#" class="info">
+                    <a href="http://localhost:3000/shopitem/women/259" class="info">
                       More
                     </a>
                   </div>
@@ -306,7 +308,7 @@ const HomePage = () => {
                       <br />
                       FAKTEN (運動上衣)
                     </h2>
-                    <a href="#" class="info">
+                    <a href="http://localhost:3000/shopitem/women/238" class="info">
                       More
                     </a>
                   </div>
@@ -321,7 +323,7 @@ const HomePage = () => {
                       <br />
                       ID (短袖上衣)
                     </h2>
-                    <a href="#" class="info">
+                    <a href="http://localhost:3000/shopitem/women/232" class="info">
                       More
                     </a>
                   </div>
@@ -336,7 +338,7 @@ const HomePage = () => {
                       <br />
                       SHMOO 長袖
                     </h2>
-                    <a href={'#'} class="info">
+                    <a href='http://localhost:3000/shopitem/men/20' class="info">
                       More
                     </a>
                   </div>
@@ -351,7 +353,7 @@ const HomePage = () => {
                       <br />
                       WORK OUT (背心){" "}
                     </h2>
-                    <a href="#" class="info">
+                    <a href="http://localhost:3000/shopitem/men/6" class="info">
                       More
                     </a>
                   </div>
@@ -366,7 +368,7 @@ const HomePage = () => {
                       <br />
                       R.Y.V. (長袖){" "}
                     </h2>
-                    <a href="#" class="info">
+                    <a href="http://localhost:3000/shopitem/men/22" class="info">
                       More
                     </a>
                   </div>
@@ -389,7 +391,7 @@ const HomePage = () => {
                       <br />
                       ID (運動長褲)
                     </h2>
-                    <a href="#" class="info">
+                    <a href="http://localhost:3000/shopitem/men/208" class="info">
                       More
                     </a>
                   </div>
@@ -403,11 +405,11 @@ const HomePage = () => {
                   />
                   <div class="mask">
                     <h2>
-                      Women's
+                      Men's
                       <br />
                       LONG RUN (運動長褲)
                     </h2>
-                    <a href="#" class="info">
+                    <a href="http://localhost:3000/shopitem/men/214" class="info">
                       More
                     </a>
                   </div>
@@ -421,11 +423,11 @@ const HomePage = () => {
                   />
                   <div class="mask">
                     <h2>
-                      Women's
+                      Men's
                       <br />
                       ESSENTIALS (運動短褲)
                     </h2>
-                    <a href="#" class="info">
+                    <a href="http://localhost:3000/shopitem/men/218" class="info">
                       More
                     </a>
                   </div>
@@ -437,13 +439,14 @@ const HomePage = () => {
                     alt=""
                     src="https://i.ibb.co/Wprv96j/image-QC28847341-2000-2.jpg"
                   />
+
                   <div class="mask">
                     <h2>
                       Women's
                       <br />
                       NEO (運動短褲)
                     </h2>
-                    <a href="#" class="info">
+                    <a href="http://localhost:3000/shopitem/men/226" class="info">
                       More
                     </a>
                   </div>
@@ -458,7 +461,7 @@ const HomePage = () => {
                       <br />
                       ID SPORT (短褲)
                     </h2>
-                    <a href="#" class="info">
+                    <a href="http://localhost:3000/shopitem/men/51" class="info">
                       More
                     </a>
                   </div>
@@ -476,7 +479,7 @@ const HomePage = () => {
                       <br />
                       LOGO (短褲)
                     </h2>
-                    <a href="#" class="info">
+                    <a href="http://localhost:3000/shopitem/men/53" class="info">
                       More
                     </a>
                   </div>
@@ -494,7 +497,7 @@ const HomePage = () => {
                       <br />
                       ADICOLOR (運動長褲)
                     </h2>
-                    <a href="#" class="info">
+                    <a href="http://localhost:3000/shopitem/men/34" class="info">
                       More
                     </a>
                   </div>

@@ -62,6 +62,7 @@ const Header = ({
         </div>
       </div>
       <div className="main">
+
         <Link to="/" className="logo-container">
           <Logo className="logo" />
         </Link>
@@ -70,7 +71,7 @@ const Header = ({
           onMouseOver={() => {
             if (subDiv) return;
           }}
-          // onMouseLeave={() => setSubDiv(false)}
+        // onMouseLeave={() => setSubDiv(false)}
         >
           <Link
             to="/shopping"
@@ -87,6 +88,7 @@ const Header = ({
           >
             精選商城
           </Link>
+
           <Link
             to="/courses"
             className="option"
@@ -128,17 +130,8 @@ const Header = ({
           >
             客服中心
           </Link>
-          <Link
-            to={
-              currentEmployee
-                ? `/employeecenter/${currentEmployee.Eid}`
-                : "/employeelogin"
-            }
-            className="option"
-            onMouseEnter={() => setSubDiv(false)}
-          >
-            教練中心
-          </Link>
+
+
           <Link
             to={currentUser
               ? `/user`
@@ -157,6 +150,18 @@ const Header = ({
           >
             會員中心
           </Link>
+
+          <Link
+            to={
+              currentEmployee
+                ? `/employeecenter/${currentEmployee.Eid}`
+                : "/employeelogin"
+            }
+            className="option"
+            onMouseEnter={() => setSubDiv(false)}
+          >
+            教練中心
+          </Link>
         </div>
       </div>
       <div className="sub sub-cart" onMouseOver={() => setSubDiv(false)}>
@@ -170,8 +175,8 @@ const Header = ({
             教練登出
           </CustomButton>
         ) : (
-          ""
-        )}
+            ""
+          )}
 
         {currentUser ? (
           <>
@@ -182,15 +187,14 @@ const Header = ({
               登出
             </CustomButton>
           </>
-        ) : (
-          <CustomButton
-            signin
-            unMobileMode
-            onClick={() => history.push("/login")}
-          >
-            登入
-          </CustomButton>
-        )}
+        ) : currentEmployee ? ''
+            : <CustomButton
+              signin
+              unMobileMode
+              onClick={() => history.push("/login")}
+            >
+              登入
+            </CustomButton>}
         <CartIcon />
       </div>
       <HeaderDropdown setSubDiv={setSubDiv} subDiv={subDiv} />

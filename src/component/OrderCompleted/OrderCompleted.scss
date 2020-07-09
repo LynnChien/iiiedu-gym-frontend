@@ -102,7 +102,7 @@ $shadowColour: rgba(0, 0, 0, 0.6);
   height: 65px;
   background-image: url(//s.azurecdns.com/sff/pazzo/static/img/img-cart-step-new.png);
   background-repeat: no-repeat;
-  background-position: 0px 0px;
+  background-position: -278px 0px;
 }
 .objectFit {
   width: 100%;
@@ -110,13 +110,14 @@ $shadowColour: rgba(0, 0, 0, 0.6);
   object-fit: cover;
 }
 
+
 .step2-active-ac {
   width: 250px;
   background-color: silver;
   height: 65px;
   background-image: url(//s.azurecdns.com/sff/pazzo/static/img/img-cart-step-new.png);
   background-repeat: no-repeat;
-  background-position: 0 -68px;
+  background-position: -278px -68px;
 }
 .step3-active-ac {
   width: 250px;

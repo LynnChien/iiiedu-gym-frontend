@@ -26,10 +26,7 @@ const CartListButton = ({ cartItems, history, SelectTotal, currentUserSelect }) 
 
     const next = (cartItems) => {
         // console.log(cartItems)
-        if (payType === 0 || payType === '0') {
-            setpayselected("block")
-            return false
-        } else if (cartItems.length === 0) {
+        if (cartItems.length === 0) {
             Swal.fire({
                 width: 400,
                 height: 300,
@@ -39,7 +36,11 @@ const CartListButton = ({ cartItems, history, SelectTotal, currentUserSelect }) 
                 history.push('/shopping')
             })
             return false
-        } else if (!currentUserSelect) {
+        } else if (payType === 0 || payType === '0') {
+            setpayselected("block")
+            return false
+        }
+        else if (!currentUserSelect) {
             Swal.fire({
                 width: 400,
                 height: 300,
