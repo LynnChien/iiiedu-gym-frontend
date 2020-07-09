@@ -2,9 +2,9 @@ import React, { useEffect } from "react";
 import "./HomePage.scss";
 import GYM2 from "../../API/GYM.mp4";
 
-import PhotosImgbackground from "./PhotosImgbackground1.png";
-import ChrisHemsworth from "./Chris-Hemsworth.jpg";
-import ChrisEvans from "./Chris-Evans.jpg";
+import chi from "./小志.jpg";
+import chang from "./小銓.JPG";
+import tang from "./小唐.jpg";
 import JEANLIN from "./JEANLIN.png";
 import CustomButton from "../../component/custom-button/Custom-button";
 import { IoIosArrowDropupCircle } from "react-icons/io";
@@ -156,7 +156,7 @@ import { IoIosArrowDropupCircle } from "react-icons/io";
                 👉2堂私人教練課程 <br />
               </span>
               <div className="space"> </div>
-              <CustomButton>了解更多</CustomButton>
+              {/* <CustomButton>了解更多</CustomButton> */}
             </div>
             <div className="page5-left-wrapper-rwd"></div>
           </div>
@@ -168,9 +168,9 @@ import { IoIosArrowDropupCircle } from "react-icons/io";
             <h1 className="page-6-title">優質教練群</h1>
             <ul>
               <li>
-                <img src={PhotosImgbackground} alt=""></img>
+                <img src={chi} alt=""></img>
                 <div className="page6-card-right">
-                  <h2>小隆</h2>
+                  <h2>小凱</h2>
                   <span>
                     證照： <br />
                     AASFP私人體適能教練
@@ -190,9 +190,9 @@ import { IoIosArrowDropupCircle } from "react-icons/io";
                 </div>
               </li>
               <li>
-                <img src={ChrisHemsworth} alt=""></img>
+                <img src={chang} alt=""></img>
                 <div className="page6-card-right">
-                  <h2>小宇</h2>
+                  <h2>小銓</h2>
                   <span>
                     證照：
                     <br />
@@ -215,9 +215,9 @@ import { IoIosArrowDropupCircle } from "react-icons/io";
                 </div>
               </li>
               <li>
-                <img src={ChrisEvans} alt=""></img>
+                <img src={tang} alt=""></img>
                 <div className="page6-card-right">
-                  <h2>小志</h2>
+                  <h2>小唐</h2>
                   <span>
                     證照：
                     <br />
