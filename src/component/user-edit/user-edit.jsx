@@ -202,7 +202,7 @@ function UserEdit({ currentUserSelect, userPath }) {
                   <legend>修改密碼:</legend>
                   <input
                     // minLength="8"
-                    type="text"
+                    type="Password"
                     // pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z a-z]).*$"
                     placeholder=" 請輸入舊密碼"
                   />
@@ -210,7 +210,7 @@ function UserEdit({ currentUserSelect, userPath }) {
                 <fieldset className="pwd-input">
                   <input
                     // minLength="8"
-                    type="text"
+                    type="Password"
                     // pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z a-z]).*$"
                     placeholder=" 請輸入新密碼"
                     onChange={(e) => setpwd(e.target.value)}
@@ -220,7 +220,7 @@ function UserEdit({ currentUserSelect, userPath }) {
                 <fieldset className="pwd-input">
                   <input
                     // minLength="8"
-                    type="text"
+                    type="Password"
                     // pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z a-z]).*$"
                     placeholder=" 請再輸入一次新密碼"
                   />
