@@ -72,15 +72,29 @@ const ServiceCreate = ({ onClick, currentUserData, history }) => {
     //       return "disabled"
     //     }
     //   }
-
+    // 新增客訴表單，再次判斷是否有登入及資料是否填寫完整。
     const clickData = () => {
         if (id === 0) {
             Swal.fire("請先登入!") && setTimeout(() => { history.push('/login') }, 1000)
         }else if(selectType === "" || email === "" || listText === "" || name === "" || phoneNumber === "" || title === ""){
             Swal.fire("請將資料填寫完整!")
         }else {
+            
             Swal.fire("新增成功!") && setTimeout(() => { createlist()}, 2000)
         }}
+
+        // swalWithBootstrapButtons.fire({
+        //     title: `預定課程：${props.course.courseName}`,
+        //     text: `預定時間：${props.course.courseTime}`,
+        //     icon: 'question',
+        //     showCancelButton: true,
+        //     cancelButtonText: '取消',
+        //     confirmButtonText: '確定預約',
+        //     reverseButtons: true,
+        //     customClass: {
+        //         confirmButton: 'popupBtn confirmBtn',
+        //         cancelButton: 'popupBtn cancelBtn'
+        //     }
 
 // const clickData = () => {
 //     id===0 ? Swal.fire("請先登入!") &&  setTimeout(() => {history.push('/login') }, 1000):
@@ -89,6 +103,8 @@ const ServiceCreate = ({ onClick, currentUserData, history }) => {
 //     :createlist()
 // {()=> props.setNav('回報紀錄列表')}}
 // console.log(selectType)
+
+
 const deleteData = () => {
     setListText('')
     setSelectType('')
