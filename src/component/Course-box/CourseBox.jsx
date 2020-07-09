@@ -245,14 +245,16 @@ function CourseBox(props) {
             const getNumFunc = await getAddNumFromData()
             setNum([getNumFunc.numberOfCourse])
         })()
-    }, [changeState, getAddNumFromData])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [changeState])
 
     useEffect(() => {
         (async () => {
             const getReduceNumFunc = await getReduceNumFromData()
             setNum([getReduceNumFunc.numberOfCourse])
         })()
-    }, [changeState2, getReduceNumFromData])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [changeState2])
 
     return (
         <>
