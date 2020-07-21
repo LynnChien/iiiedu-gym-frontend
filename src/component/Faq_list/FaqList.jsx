@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import FaqListItem from './FaqListItem'
 import './FaqList.scss'
+// import FaqImg from '../Faq_list/img/faqimg.jpg'
+import FaqImg  from './img/faqimg3.jpg';
+
 
 const FaqList = (props) => {
     const [faqData, setFaqData] = useState([])
@@ -70,6 +73,10 @@ const FaqList = (props) => {
    
     return (
         <>
+            <div className="faq-list-img-box">
+            <img className="faq-list-img" src={FaqImg}  >
+            </img>
+            </div>
             <div className="btn-box">
                 <button className={`${btnActive==="常見問題" ? "font-color-blue" :""} kindBtn`} name="常見問題" onClick={e => changeKind(e)}>常見問題</button>
                 <button className={`${btnActive==="課程問題" ? "font-color-blue" :""} kindBtn`} name="課程問題" onClick={e => changeKind(e)}>課程問題</button>
@@ -85,7 +92,9 @@ const FaqList = (props) => {
                             <FaqListItem key={index}{...item}>
                             </FaqListItem>)}
                     </>
-                    : <div>No Data!</div>
+                    : <div>
+                    <h2>搜尋不到資料，請重新搜尋。</h2>
+                    </div>
                 }
             </div>
         </>

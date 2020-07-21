@@ -4,6 +4,7 @@
 import React, { useState } from 'react'
 import { FaTrashAlt } from 'react-icons/fa';
 import LoadingSpinner from '../loading-spinner/LoadingSpinner';
+import { withRouter } from "react-router-dom";
 
 
 
@@ -26,7 +27,7 @@ const OrderCompleted = ({ data, hiddenID, ListToSever, history, DelToSever, addr
                     {item.OrderStatus === '1' ? <li>交易進行中</li> : item.OrderStatus == '2' ? <li> 交易取消 </li> : <li>交易完成</li>}
                     <li className="productdetail">
 
-                        <button className="button-two" value={item.orderId} onClick={(e) => (setHidden(!hidden), ListToSever(item.orderId), setValue(e.target.value))}>點我查看</button>
+                        <button className="button-two CartListButton curl-bottom-left" value={item.orderId} onClick={(e) => (setHidden(!hidden), ListToSever(item.orderId), setValue(e.target.value))}>點我查看</button>
                     </li>
                     {item.OrderStatus === '1' ? <button onClick={() => { DelToSever(item.orderId) }} className="motumb-btn">
                         <span></span>
@@ -35,7 +36,7 @@ const OrderCompleted = ({ data, hiddenID, ListToSever, history, DelToSever, addr
                         <li>
                             <a className="icon"><FaTrashAlt /></a>
                         </li>
-                    </button> : item.OrderStatus === '2' ? <li> 交易取消</li> : <li> 交易完成如需退貨請洽<span className="service" onClick={() => history.push('/customerservice')}>客服中心</span></li>}
+                    </button> : item.OrderStatus === '2' ? <li> 交易取消</li> : <li> 交易完成如需退貨請洽<span className="service" onClick={() => history.push('/ServiceCenter')}>客服中心</span></li>}
                 </ul>
                 {hidden && Number(Value) === item.orderId ? (
                     <div className="wrap-ul-hidden-container">
@@ -75,4 +76,4 @@ const OrderCompleted = ({ data, hiddenID, ListToSever, history, DelToSever, addr
     )
 }
 
-export default OrderCompleted;
+export default withRouter(OrderCompleted);

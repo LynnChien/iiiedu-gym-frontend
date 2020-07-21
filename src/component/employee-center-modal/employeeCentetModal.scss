@@ -38,7 +38,7 @@
 
   .modal-footer {
     position: fixed;
-    bottom: 7%;
+    bottom: 5%;
     left: 50%;
     transform: translate(-50%, -50%);
 
@@ -53,6 +53,7 @@
       &:hover {
         background: #1178b8;
         color: white;
+        cursor: pointer;
       }
     }
 
@@ -67,6 +68,7 @@
       &:hover {
         background: #1178b8;
         color: white;
+        cursor: pointer;
       }
     }
   }

@@ -16,8 +16,10 @@ const OrderListDetail = (props) => {
   const [hidden, setHidden] = useState(false);
   const [hiddenID, sethiddenID] = useState();
   const [address, setaddress] = useState();
-  const [deldata, setdeldata] = useState();
+  const [delate, setdeldata] = useState();
   const [Value, setValue] = useState();
+  const [alllength,setalllength]= useState();
+  const [shipping, setshipping] = useState();
   const Shipping = props.location.pathname === "/OrderList/shipping";
   const compeleted = props.location.pathname === "/OrderList/compeleted";
   const Cancel = props.location.pathname === "/OrderList/Cancel";
@@ -43,12 +45,18 @@ const OrderListDetail = (props) => {
       setData(result.data);
     };
     FetchData();
-  }, [deldata]);
+
+  }, [delate]);
 
   useEffect(() => {
-    // console.log(hiddenID)
-  }, [hiddenID]);
-  
+
+    const ship = data.rows.filter((i) => (i.OrderStatus === '2'))
+    const compelet = data.rows.filter((i) => (i.OrderStatus === '1'))
+    console.log(ship)
+    setshipping(ship.length)
+    setalllength(compelet.length)
+  }, [data]);
+
   return (
     <>
       <input
@@ -91,7 +99,7 @@ const OrderListDetail = (props) => {
                       )}
                   <li className="productdetail">
                     <button
-                      className="button-two"
+                      className="button-two CartListButton hover-shadow"
                       value={item.orderId}
                       onClick={(e) => ((
                         setHidden(!hidden),
@@ -131,7 +139,7 @@ const OrderListDetail = (props) => {
                     {hiddenID ? hiddenID.map((item, index) =>
                       (<ul key={index + index} className="wrap-ul-hidden">
                         <li>{item.ItemName}</li>
-                        <li>{item.ItemNamePrice}</li>
+                        <li>$ {item.ItemNamePrice}</li>
                         <li>{item.itemQuantity}</li>
                         <li>{item.itemType}</li>
                       </ul>)) : <LoadingSpinner />}
@@ -210,8 +218,8 @@ const OrderListDetail = (props) => {
           <span className="article-caption-list">注意事項</span>
           <br />
           <li>
-            ※您最近一年內的購買記錄共計<span>{data.rows.length}</span>筆，退貨
-            <span>0</span>次。
+            ※您最近一年內的購買記錄共計<span>{alllength}</span>筆，退貨
+            <span>{shipping}</span>次。
           </li>
           <li>
             ※尚未出貨的網路訂單可點選

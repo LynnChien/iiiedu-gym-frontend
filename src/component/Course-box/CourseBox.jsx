@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import "./CourseBox.scss";
 import CourseBookingButton from "../course-booking-button/CourseBookingButton";
 import Swal from "sweetalert2";
@@ -31,7 +31,7 @@ function CourseBox(props) {
     let newT = t.split(/[' ']/)[3]
     // 該課程id
     const getThisCourseId = props.course.courseId
-
+// console.log(props.value)
     //新增人數到資料庫
     async function getAddNumFromData() {
         const addNumPost = {
@@ -74,7 +74,7 @@ function CourseBox(props) {
     const thisUserCourseId = props.bookingData && props.bookingData.filter(i => i.memberId === currentUserId).map(p => p)
 
     //抓要取消的預約編號
-    const thisCanceld = thisUserCourseId && thisUserCourseId.filter(i => i.courseId === getThisCourseId).map(p => p.courseBookingId)
+    const thisCanceled = thisUserCourseId && thisUserCourseId.filter(i => i.courseId === getThisCourseId).map(p => p.courseBookingId)
     // console.log(thisUserCourseId)
 
     //取消預約
@@ -82,7 +82,7 @@ function CourseBox(props) {
         const updateBookingJson = {
             bookingState: 0
         }
-        const request = new Request(`http://localhost:5000/api/courses/bookingData/${thisCanceld}`, {
+        const request = new Request(`http://localhost:5000/api/courses/bookingData/${thisCanceled}`, {
             method: 'POST',
             body: JSON.stringify(updateBookingJson),
             headers: new Headers({
@@ -96,7 +96,7 @@ function CourseBox(props) {
     }
 
     //取消預約後減少人數
-    async function getReduceNumFromData() {
+    const getReduceNumFromData = useCallback(async()=>{
         const reduceNumJson = {
             courseId: getThisCourseId,
         }
@@ -112,12 +112,12 @@ function CourseBox(props) {
         const newData = await res.json()
         // console.log(newData)
         return newData
-    }
-
+    }, [getThisCourseId])
+// console.log(currentUser.length)
     //確認預約視窗
     function myConfirmAddBooking(addBooking) {
         // let a = window.confirm("確定要預約此課程嗎?")
-        if (currentUser !== '') {
+        if (currentUserId > 0) {
             const swalWithBootstrapButtons = Swal.mixin({
                 customClass: {
                     confirmButton: 'popupBtn confirmBtn',
@@ -128,7 +128,7 @@ function CourseBox(props) {
 
             swalWithBootstrapButtons.fire({
                 title: `預定課程：${props.course.courseName}`,
-                text: `預定時間：${props.course.courseTime}`,
+                html: `<h2>預定時間：${props.course.courseTime}</h2>`,
                 icon: 'question',
                 showCancelButton: true,
                 cancelButtonText: '取消',
@@ -174,7 +174,7 @@ function CourseBox(props) {
 
         swalWithBootstrapButtons.fire({
             title: `取消課程：${props.course.courseName}`,
-            text: `課程時間：${props.course.courseTime}`,
+            html: `<h2>課程時間：${props.course.courseTime}</h2><br />取消後無法再次預約，確定取消嗎？`,
             icon: 'question',
             showCancelButton: true,
             cancelButtonText: '不取消了',
@@ -221,7 +221,7 @@ function CourseBox(props) {
     //課程彈跳視窗
     function showCJumpWindow() {
         Swal.fire({
-            width: 800,
+            width: 700,
             title: props.course.courseName,
             imageUrl: props.course.courseImg,
             imageWidth: 400,
@@ -232,7 +232,7 @@ function CourseBox(props) {
     //教練彈跳視窗
     function showEJumpWindow() {
         Swal.fire({
-            width: 800,
+            width: 700,
             title: props.course.Ename,
             imageUrl: props.course.Eimg,
             imageWidth: 400,
@@ -245,6 +245,7 @@ function CourseBox(props) {
             const getNumFunc = await getAddNumFromData()
             setNum([getNumFunc.numberOfCourse])
         })()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [changeState])
 
     useEffect(() => {
@@ -252,6 +253,7 @@ function CourseBox(props) {
             const getReduceNumFunc = await getReduceNumFromData()
             setNum([getReduceNumFunc.numberOfCourse])
         })()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [changeState2])
 
     return (
@@ -268,7 +270,7 @@ function CourseBox(props) {
                     <div>
                         {+props.course.numberOfCourse >= +props.course.courseQuoda ? displayFullBtn() :
                             <CourseBookingButton
-                                value={props.course.courseId}
+                                value={props.value}
                                 bookingData={props.bookingData}
                                 addBooking={addBooking}
                                 userCancelBooking={userCancelBooking}

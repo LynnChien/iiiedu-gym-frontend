@@ -3,7 +3,6 @@ import React from 'react'
 import { FaTrashAlt, FaStar } from 'react-icons/fa';
 import './CartItems.scss'
 import { connect } from "react-redux";
-
 import { removeItemFromCart, addItemToCart, ReduceItem, ChangeFavr, FavCartItem } from '../../../redux/cart/cart-action';
 const CartItems = ({ cartItems, removeItemFromCart, addItemToCart, ReduceItem, ChangeFavr, FavCartItem }) => {
 
@@ -21,18 +20,18 @@ const CartItems = ({ cartItems, removeItemFromCart, addItemToCart, ReduceItem, C
                     <li><img className="objectFit" src={item.img1} /></li>
                     <li>{item.name}</li>
                     <li>{item.itemType}</li>
-                    <li>{item.price}</li>
+                    <li>$ {item.price}</li>
                     <li >
-                        <ul className="quan">
-                            {item.quantity === 1 ? <li>&#10094;</li> : <li onClick={() => (ReduceItem(item))}>&#10094;</li>}
-                            <li>{item.quantity}</li>
-                            <li onClick={() => (addItemToCart(item))} >&#10095;</li>
-                        </ul>
+                        <div className="quan">
+                            {item.quantity === 1 ? <li className="icon-left">&#9664;</li> : <li className="icon-left" onClick={() => (ReduceItem(item))}>&#9664;</li>}
+                            <li className="quan-num">{item.quantity}</li>
+                            <li onClick={() => (addItemToCart(item))} >&#9654;</li>
+                        </div>
                     </li>
-                    <li value={item.quantity * item.price} >{item.quantity * item.price}</li>
+                    <li value={item.quantity * item.price} >$ {item.quantity * item.price}</li>
                     <ul className="icon-list">
-                        <div className="icon" onClick={() => removeItemFromCart(item.itemId)} ><FaTrashAlt /></div>
-                        <div className="icon" onClick={() => FavCartItem(item)}><FaStar /></div>
+                        <div className="iconOne" onClick={() => removeItemFromCart(item.itemId)} ><FaTrashAlt /></div>
+                        <div className="iconTwo" onClick={() => FavCartItem(item)}><FaStar /></div>
                     </ul>
                 </ul>
 

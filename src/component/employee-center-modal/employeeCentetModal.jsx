@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router";
 import "./employeeCentetModal.scss";
 import moment from "moment";
+import Swal from 'sweetalert2';
 
 import { createStructuredSelector } from "reselect";
 import { currentEmployeeSelect } from "../../redux/employee/employee-selector";
@@ -87,6 +88,7 @@ function EmployeeCentetModal({
           <input
             className="input-content"
             type="file"
+            accept=".jpg,.png"
             onChange={(event) => {
               let input = event.target.files[0];
               let reader = new FileReader();
@@ -104,8 +106,6 @@ function EmployeeCentetModal({
 
   //req.body
   async function updataCourse() {
-    const confirmUpdata = window.confirm("確定要更改嗎？");
-    if (confirmUpdata === true) {
       const row = {
         courseId: itemID,
         staffId: currentEmployee.Eid,
@@ -135,7 +135,6 @@ function EmployeeCentetModal({
 
       // console.log("伺服器回傳的json資料", data);
       window.location.reload();
-    }
   }
 
   //載入
@@ -161,7 +160,26 @@ function EmployeeCentetModal({
         <button
           className="modal-edit"
           onClick={() => {
-            updataCourse();
+            Swal.fire({
+                    title: '編輯課程',
+                    text: "確認課程是否編輯!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: '確定',
+                    cancelButtonText: '取消'
+                  }).then((result) => {
+                    if (result.value) {
+                      Swal.fire(
+                        '完成!',
+                        '已編輯課程!!',
+                        'success'
+                      )
+                      updataCourse();
+                    
+                    }
+                  })
           }}
         >
           儲存並修改

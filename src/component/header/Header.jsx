@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
 import "./header.scss";
+import ErrorModel from "../error-model/ErrorModel";
 
 // Component-------------------------------
 import { ReactComponent as Logo } from "../../assets/logo.svg";
@@ -15,13 +16,15 @@ import CustomButton from "../custom-button/Custom-button";
 // Select
 import { cartHiddenSelect } from "../../redux/cart/cart-selector";
 import { navBarSelect } from "../../redux/nav-bar/navBar-action";
-import { currentUserSelect } from "../../redux/user/user-selector";
+import { currentUserSelect, userSignInUnVaildSelect } from "../../redux/user/user-selector";
 import { currentEmployeeSelect } from "../../redux/employee/employee-selector";
 
 // redux action-------------------------------
 import { userLogoutStart, NavBarOnClick } from "../../redux/user/user-action";
 import { employeeLogout } from "../../redux/employee/employee-action";
 import { shopShowFilterTag } from "../../redux/shop/shop-action";
+
+
 
 const Header = ({
   navBarSelect,
@@ -31,12 +34,20 @@ const Header = ({
   currentEmployee,
   employeeLogout,
   NavBarOnClick,
+  userSignInUnVaild,
 }) => {
   const [subDiv, setSubDiv] = useState(false);
   const history = useHistory();
 
   const path = history.location.pathname
   // console.log(history.location.pathname)
+
+  const next = () => {
+
+    history.push("/")
+
+  }
+
 
   return (
     <div className="header">
@@ -51,6 +62,7 @@ const Header = ({
         </div>
       </div>
       <div className="main">
+
         <Link to="/" className="logo-container">
           <Logo className="logo" />
         </Link>
@@ -59,7 +71,7 @@ const Header = ({
           onMouseOver={() => {
             if (subDiv) return;
           }}
-          // onMouseLeave={() => setSubDiv(false)}
+        // onMouseLeave={() => setSubDiv(false)}
         >
           <Link
             to="/shopping"
@@ -76,6 +88,7 @@ const Header = ({
           >
             精選商城
           </Link>
+
           <Link
             to="/courses"
             className="option"
@@ -117,17 +130,8 @@ const Header = ({
           >
             客服中心
           </Link>
-          <Link
-            to={
-              currentEmployee
-                ? `/employeecenter/${currentEmployee.Eid}`
-                : "/employeelogin"
-            }
-            className="option"
-            onMouseEnter={() => setSubDiv(false)}
-          >
-            教練中心
-          </Link>
+
+
           <Link
             to={currentUser
               ? `/user`
@@ -146,6 +150,18 @@ const Header = ({
           >
             會員中心
           </Link>
+
+          <Link
+            to={
+              currentEmployee
+                ? `/employeecenter/${currentEmployee.Eid}`
+                : "/employeelogin"
+            }
+            className="option"
+            onMouseEnter={() => setSubDiv(false)}
+          >
+            教練中心
+          </Link>
         </div>
       </div>
       <div className="sub sub-cart" onMouseOver={() => setSubDiv(false)}>
@@ -159,32 +175,31 @@ const Header = ({
             教練登出
           </CustomButton>
         ) : (
-          ""
-        )}
+            ""
+          )}
 
         {currentUser ? (
           <>
-            <span clgassName="current-user-title">
+            <span className="current-user-title">
               嗨! {currentUser.memberName}
             </span>
-            <CustomButton signin unMobileMode onClick={() => userLogoutStart()}>
+            <CustomButton signin unMobileMode onClick={() => (userLogoutStart(), next())}>
               登出
             </CustomButton>
           </>
-        ) : (
-          <CustomButton
-            signin
-            unMobileMode
-            onClick={() => history.push("/login")}
-          >
-            登入
-          </CustomButton>
-        )}
+        ) : currentEmployee ? ''
+            : <CustomButton
+              signin
+              unMobileMode
+              onClick={() => history.push("/login")}
+            >
+              登入
+            </CustomButton>}
         <CartIcon />
       </div>
       <HeaderDropdown setSubDiv={setSubDiv} subDiv={subDiv} />
       <CartDropdown />
-    </div>
+    </div >
   );
 };
 // redux mapState & mapDispatch
@@ -192,6 +207,8 @@ const mapStateToProps = createStructuredSelector({
   hidden: cartHiddenSelect,
   currentUser: currentUserSelect,
   currentEmployee: currentEmployeeSelect,
+  userSignInUnVaild: userSignInUnVaildSelect,
+
 });
 const mapDispatchToProps = (dispatch) => ({
   navBarSelect: (select) => dispatch(navBarSelect(select)),

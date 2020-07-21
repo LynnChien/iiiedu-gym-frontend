@@ -86,7 +86,7 @@ function UserMyCourses(props) {
             })
             swalWithBootstrapButtons.fire({
                 title: `取消課程：${props.userCourse.courseName}`,
-                text: `課程時間：${jumpT[0] + ' ' + jumpT2}`,
+                html: `<h2>課程時間：${jumpT[0] + ' ' + jumpT2}</h2><br />取消後無法再次預約，確定取消嗎？`,
                 icon: 'question',
                 showCancelButton: true,
                 cancelButtonText: '不取消了',
@@ -152,7 +152,7 @@ function UserMyCourses(props) {
     return (
         <>
             <ul className="userCoursesInfo">
-                {nowTime > newTime ? <div className="userCoursesInfoCover"></div> : ""}
+                {/* {nowTime > newTime ? <div className="userCoursesInfoCover"></div> : ""} */}
                 <li className="courseDayInUser">{newD}</li>
                 <li className="courseTimeInUser">{newT}</li>
                 <li className="courseNameInUser" onClick={() => showCJumpWindow()}>{props.userCourse.courseName}</li>
@@ -166,6 +166,8 @@ function UserMyCourses(props) {
                             userCancelBooking={userCancelBooking}
                             getThisBookingState={getThisBookingState}
                             choose={props.choose}
+                            filterCoursesOfData={props.filterCoursesOfData}
+                            userCourseId={props.userCourseId}
                         />
                     </div>
                 </li>

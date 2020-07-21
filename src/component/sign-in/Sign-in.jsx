@@ -24,10 +24,8 @@ class SignIn extends React.Component {
   };
 
   handleSubmit = async (e) => {
-    const { history } = this.props;
-    setTimeout(function () {
-      history.goBack();
-    }, 2500)
+  
+    
     e.preventDefault();
     const { email, password } = this.state;
     const { userLoginStart } = this.props;
@@ -45,7 +43,7 @@ class SignIn extends React.Component {
   render() {
 
     const { userSignInUnVaild, history, userLoginRestart } = this.props;
-    console.log(history)
+    console.log("history", history)
     return (
       <div className="sign-in">
         <h2 className="sign-in-title">會員登入</h2>
@@ -65,7 +63,7 @@ class SignIn extends React.Component {
             value={this.state.password}
             onChange={this.handleChange}
             label="Password"
-            type="password"
+            type="Password"
             required
           />
           <div className="buttons">
@@ -103,7 +101,7 @@ class SignIn extends React.Component {
 
         <ErrorModel
           unValid={userSignInUnVaild !== null && !userSignInUnVaild}
-          returnHome={() => history.push("/")}
+          returnHome={() => (history.goBack())}
         >
           登入成功！
         </ErrorModel>

@@ -66,7 +66,7 @@ class SingUP extends React.Component {
             value={this.state.password}
             onChange={this.handleChange}
             label="Password"
-            type="password"
+            type="Password"
           />
           <FormInput
             name="name"

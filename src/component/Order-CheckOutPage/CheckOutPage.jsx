@@ -5,17 +5,20 @@ import { FaRegListAlt } from "react-icons/fa";
 import axios from "axios";
 import city from "../../API/AllData.json";
 import CartCheckOutButton from '../Order-cart-checkOut/CartCheckOutButton.jsx'
-
+import Swal from "sweetalert2";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { cartItemsSelect, favoriteItemsSelect, SelectTotal } from '../../redux/cart/cart-selector';
 import { withRouter } from 'react-router-dom';
 import { currentUserSelect } from "../../redux/user/user-selector";
 
+
+
+
 async function addToSever(item) {
     // 注意資料格式要設定，伺服器才知道是json格式
     // console.log(item);
-    axios.post(`http://localhost:5000/Orders/api/addCheckOutPage`, {
+    await axios.post(`http://localhost:5000/Orders/api/addCheckOutPage`, {
         method: "POST",
         credentials: "include", // 需傳送 Cookie 必須開啟
         headers: new Headers({
@@ -45,7 +48,7 @@ async function addToSever(item) {
 async function additemToSever(cartItems, Total, Member) {
     // 注意資料格式要設定，伺服器才知道是json格式
     // console.log(cartItems);
-    axios.post(`http://localhost:5000/Orders/api/additem`, {
+    await axios.post(`http://localhost:5000/Orders/api/additem`, {
         method: "POST",
         credentials: "include", // 需傳送 Cookie 必須開啟
         headers: new Headers({
@@ -54,12 +57,13 @@ async function additemToSever(cartItems, Total, Member) {
         }),
         cartItems: cartItems, Total, Member
     });
+
 }
 
 async function addordersToSever(item) {
     // 注意資料格式要設定，伺服器才知道是json格式
     // console.log(cartItems);
-    axios.post(`http://localhost:5000/Orders/api/orders`, {
+    await axios.post(`http://localhost:5000/Orders/api/orders`, {
         method: "POST",
         credentials: "include", // 需傳送 Cookie 必須開啟
         headers: new Headers({
@@ -73,7 +77,7 @@ async function addordersToSever(item) {
 
 const CheckOutPage = ({ cartItems, history, SelectTotal, currentUserSelect }) => {
     // console.log(history.location.state.pay)
-    const { ...id } = {currentUserSelect}
+    const { ...id } = { currentUserSelect }
     // console.log(memberId)
     // console.log(props.location.state)
     const [Name, setName] = useState();
@@ -108,15 +112,52 @@ const CheckOutPage = ({ cartItems, history, SelectTotal, currentUserSelect }) =>
     }, [currentUserSelect, id])
     //////////
 
-    const next = () => {
-        history.push(`/OrderCompleted`)
-    }
 
+
+
+    const next = async () => {
+        Swal.fire({
+            customClass: {
+                container: 'container-class',
+                popup: 'popup-class',
+                header: 'header-class',
+                title: 'title-class',
+                closeButton: 'close-button-class',
+                icon: 'icon-class',
+                image: 'image-class',
+                content: 'content-class',
+                input: 'input-class',
+                actions: 'actions-class',
+                confirmButton: 'confirm-button-class',
+                cancelButton: 'cancel-button-class',
+                footer: 'footer-class'
+            },
+            width: '333',
+            heigth: '258',
+            title: '確定資訊無誤',
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Confirm It!'
+        }).then((result) => {
+            if (result.value) {
+                Swal.fire(
+                    '訂單完成',
+                    'Your Order has been Completed.',
+                    'success',
+                    history.push(`/OrderCompleted`)
+                )
+            }
+        })
+
+
+    }
 
 
     return (
         <>
-            <div className="title">
+            <div className="CheckOuttitle">
                 <div className="title-cotainer">
                     <ol className="title-ol">
                         <li className="icon">
@@ -134,8 +175,9 @@ const CheckOutPage = ({ cartItems, history, SelectTotal, currentUserSelect }) =>
                     <li className="step3-active"></li>
                 </ul>
                 <form
-                    className="content"
-                    onSubmit={() => {
+                    className="CartListcontent"
+                    onSubmit={(e) => {
+                        e.preventDefault()
                         addToSever({
                             Member,
                             Name,
@@ -150,7 +192,7 @@ const CheckOutPage = ({ cartItems, history, SelectTotal, currentUserSelect }) =>
                             recipientMobile,
                             recipientAddress,
                             recipientEmail,
-                        }, additemToSever(cartItems, Total, Member), (addordersToSever({ pay, Total, Member })), next())
+                        }, additemToSever(cartItems, Total, Member), (addordersToSever({ pay, Total, Member })), next(e))
                     }}
                 >
                     <div className="content-wrap-Checkoutpage">
@@ -196,6 +238,14 @@ const CheckOutPage = ({ cartItems, history, SelectTotal, currentUserSelect }) =>
                                 </select>
                             </div>
                             <input
+                                onChange={(event) => setAddress(event.target.value)}
+                                className="content-list-detail-input"
+                                type="text"
+                                name="address"
+                                placeholder="請輸入地址"
+                                required="required"
+                            />
+                            <input
                                 onChange={(event) => setMobile(event.target.value)}
                                 className="content-list-detail-input"
                                 type="text"
@@ -204,14 +254,7 @@ const CheckOutPage = ({ cartItems, history, SelectTotal, currentUserSelect }) =>
                                 placeholder="請輸入手機號碼"
                                 required="required"
                             ></input>
-                            <input
-                                onChange={(event) => setAddress(event.target.value)}
-                                className="content-list-detail-input"
-                                type="text"
-                                name="address"
-                                placeholder="請輸入地址"
-                                required="required"
-                            />
+
                             <input
                                 onChange={(event) => setEmail(event.target.value)}
                                 className="content-list-detail-input"

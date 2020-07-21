@@ -160,6 +160,7 @@ const ShopPage = ({ shopPageCollections, shopPageStart, isFetching }) => {
           </div>
         </div>
       )}
+      {/* {isFetching ? null : <Footer /> } */}
     </div>
   );
 };

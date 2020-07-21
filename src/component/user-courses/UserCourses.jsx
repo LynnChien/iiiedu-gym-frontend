@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react"
 import "./UserCourses.scss"
 import UserMyCoursesList from "../../component/user-my-courses-list/UserMyCoursesList"
-// import UserCanceledCourses from "../user-canceled-courses/UserCanceledCourses"
-// import UserFinishedCourses from "../user-finished-courses/UserFinishedCourses"
 //---------------
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
@@ -17,7 +15,7 @@ function UserCourses(props) {
     const [allCoursesOfThisUser, setAllCoursesOfThisUser] = useState([])
     const [filterCoursesOfData, setFilterCoursesOfData] = useState([])
     const [choose, setChoose] = useState("")
-
+    const nowTime = Date.now()
     //---------------
     const { currentUser } = props
     //該使用者的id
@@ -59,64 +57,50 @@ function UserCourses(props) {
         const response = await fetch(request);
         const data = await response.json();
         const courseOfUser = data.coursesRow.filter(i => i.id === currentUserId).map(f => f)
-
-        // console.log()
         setAllCoursesOfThisUser(courseOfUser)
     }
 
-
-
     const handleChange = (e) => {
         if (e.target.value === "預約的課程") {
-
             setChoose("預約的課程")
         } else if (e.target.value === "已取消的課程") {
             setChoose("已取消的課程")
         } else {
             setChoose("歷史課程")
         }
-
-        // console.log(e.target.value)
     }
 
     const filterCourse = function () {
         if (choose === "預約的課程") {
             // console.log('1')
-            const getBookingState = allCoursesOfThisUser && allCoursesOfThisUser.filter(i => +i.bookingState === +1).map(p => p)
+            const getBookingState = allCoursesOfThisUser && allCoursesOfThisUser.filter(i => +i.bookingState === +1 && i.courseTime2 > nowTime).map(p => p)
             // console.log(getBookingState)
             setFilterCoursesOfData(getBookingState)
         } else if (choose === "已取消的課程") {
-            const getBookingState2 = allCoursesOfThisUser && allCoursesOfThisUser.filter(i => +i.bookingState === +0).map(p => p)
+            const getBookingState2 = allCoursesOfThisUser && allCoursesOfThisUser.filter(i => +i.bookingState === +0 && i.courseTime2 > nowTime).map(p => p)
             // console.log(getBookingState2)
             setFilterCoursesOfData(getBookingState2)
         } else {
-            const nowTime = Date.now()
             const getCourseTime = allCoursesOfThisUser && allCoursesOfThisUser.filter(i => i.courseTime2 < nowTime).map(p=>p)
             setFilterCoursesOfData(getCourseTime)
         }
     }
 
-    // useEffect(() => {
-    //     // getCoursesDataInAllUser()
-    // }, [])
-
     useEffect(() => {
         getUserBooking()
         filterCourse()
         getCoursesDataInAllUser()
-        // console.log(choose)
     }, [choose])
 
 
     return (
         <>
             <div className="userCourseContainer">
-               
                 <div className="userMyCoursesContainer">
                 <div className="userCorsesBtnContainer">
                     <button className="bookedBtn" onClick={(e) => handleChange(e)} value={"預約的課程"}>預約的課程</button>
                     <button className="canceledBtn" onClick={(e) => handleChange(e)} value={"已取消的課程"}>已取消的課程</button>
-                    <button className="finishedBtn" onClick={(e) => handleChange(e)} value={"歷史課程"}>歷史課程</button>
+                    <button className="finishedBtn" onClick={(e) => handleChange(e)} value={"歷史紀錄"}>歷史紀錄</button>
                 </div>
                     <ul className="userCoursesTitle">
                         <li>課程日期</li>
@@ -137,7 +121,6 @@ function UserCourses(props) {
                         choose={choose}
                         currentUserId={currentUserId}
                     />
-
                 </div>
             </div>
         </>
