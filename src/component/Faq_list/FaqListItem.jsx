@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import "./FaqListItem.scss"
-import { FiChevronDown, FiChevronRight } from "react-icons/fi";
+import { FiChevronRight } from "react-icons/fi";
 
 
 const FaqListItem = (props) => {

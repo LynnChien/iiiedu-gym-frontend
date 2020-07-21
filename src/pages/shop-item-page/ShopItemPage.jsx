@@ -12,7 +12,6 @@ import {
 } from "../../redux/shop/shop-selector";
 import { shopItemStart } from "../../redux/shop/shop-action";
 import LoadingSpinner from "../../component/loading-spinner/LoadingSpinner";
-import Footer from "../../component/footer/Footer";
 
 const ShopItemPage = ({ isFetching, shopItemStart }) => {
   const itemId = useParams().itemId;
