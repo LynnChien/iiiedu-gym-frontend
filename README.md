@@ -4,9 +4,35 @@
 
 + 前端技術：html5 + sass + react.js + redux + javaScript
 + 後端技術：node.js + express.js + mysql
-+ 功能說明：
-  + 會員系統（CRUD）
-  + Google登入
+### 功能說明
+#### 首頁
+協作者 #ChrisHsu1221 #nevikwng
+![image](https://github.com/LynnChien/iiiedu-gym-frontend/blob/master/public/readMeImg/首頁.png)
+
+#### 會員登入註冊
+協作者 #nevikwng #TimChenOuO
++ Google登入串接
+![image](https://github.com/LynnChien/iiiedu-gym-frontend/blob/master/public/readMeImg/會員登入註冊.png)
+
+#### 會員系統
+協作者 #ChrisHsu1221 #nevikwng #LynnChien #ChrisLinOvO #jason-1120
++ 個人資料編輯（CRU）
++ 預約課程資訊（CRU）
++ 文章管理（CRUD）
++ 歷史訂單（CRU）
++ 客訴紀錄（CRU）
+![image](https://github.com/LynnChien/iiiedu-gym-frontend/blob/master/public/readMeImg/會員中心.png)
+
+#### 商城、購物車、歷史訂單
+協作者 #nevikwng #TimChenOuO
+![image](https://github.com/LynnChien/iiiedu-gym-frontend/blob/master/public/readMeImg/商城.png)
+![image](https://github.com/LynnChien/iiiedu-gym-frontend/blob/master/public/readMeImg/購物車.png)
++ 瀏覽商品資訊
++ 加入購物車（CRD）
++ 願望清單（CRD）
+
+
+
   + 商城（包含購物車、願望清單、訂單管理）
   + 課程預約系統（CRU）
   + 教練管理課程（CRUD）
