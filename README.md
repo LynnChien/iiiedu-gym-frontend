@@ -7,7 +7,7 @@ In the project directory, you can run:
 ### 第三組 健身房官方網站
 
 *前端技術：html5 + sass + react.js + redux + javaScript
-*後端技術：node.js + express.js + mysql
+-後端技術：node.js + express.js + mysql
 *功能說明：
   *會員系統（CRUD）
   *Google登入
@@ -19,7 +19,7 @@ In the project directory, you can run:
 
 ### 如何使用
 *安裝/yarn install
-*啟動/yarn start
+-啟動/yarn start
 
 ###其他
 *圖片僅做demo使用，無商業行為
