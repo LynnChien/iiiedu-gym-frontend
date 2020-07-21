@@ -260,7 +260,7 @@ function CourseBox(props) {
         <>
             <Fade bottom>
                 <div className="courseBox">
-                    {getTimeInData <= nowTime ? <div className="courseBoxCover"></div> : ''}
+                    {/* {getTimeInData <= nowTime ? <div className="courseBoxCover"></div> : ''} */}
                     <div className="courseName" onClick={() => showCJumpWindow()}>{props.course.courseName}</div>
                     <div className="courseTime">{newT}</div>
                     <div onClick={() => showEJumpWindow()} className="coachName">
