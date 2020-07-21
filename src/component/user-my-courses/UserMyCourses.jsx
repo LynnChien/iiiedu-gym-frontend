@@ -24,8 +24,8 @@ function UserMyCourses(props) {
     const newT = props.userCourse.courseTime3.split(" ")[3]
 
     //轉換時間格式比較先後
-    const newTime = new Date(T).getTime()
-    const nowTime = Date.now()
+    // const newTime = new Date(T).getTime()
+    // const nowTime = Date.now()
 
     //彈跳視窗的時間格式
     const jumpT = T.split("T")

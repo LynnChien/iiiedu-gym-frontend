@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
 import "./header.scss";
-import ErrorModel from "../error-model/ErrorModel";
+// import ErrorModel from "../error-model/ErrorModel";
 
 // Component-------------------------------
 import { ReactComponent as Logo } from "../../assets/logo.svg";

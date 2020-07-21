@@ -3,7 +3,7 @@ import './OrdessrList.scss'
 import { Link } from 'react-router-dom'
 import { FaHome } from 'react-icons/fa';
 import OrderListDetail from '../../component/OrderList/OrderListDetail.jsx'
-import UserCenterPage from '../user-center-page/user-center-page';
+// import UserCenterPage from '../user-center-page/user-center-page';
 
 
 const OrderList = () => {
