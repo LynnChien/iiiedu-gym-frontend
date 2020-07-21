@@ -1,8 +1,4 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 ## 資策會MFEE07大專題
-
-In the project directory, you can run:
 
 ### 第三組 健身房官方網站
 
@@ -23,4 +19,3 @@ In the project directory, you can run:
 
 ### 其他
 + 圖片僅做demo使用，無商業行為
-
