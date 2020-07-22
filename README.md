@@ -2,8 +2,8 @@
 此為前端程式碼，後端程式碼連結為：https://github.com/LynnChien/iiiedu-gym-backend/tree/master
 
 ## 第三組 健身房官方網站
-+ 前端技術：html5 + sass + react.js + redux + javaScript
-+ 後端技術：node.js + express.js + mysql
++ 前端技術：HTML5 + SASS + React.js + redux + JavaScript
++ 後端技術：Node.js + Express.js + MySQL
 
 ## 功能說明
 ### 首頁
