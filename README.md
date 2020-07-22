@@ -1,4 +1,5 @@
 # 資策會MFEE07大專題（React.js）
+此為前端程式碼，後端程式碼連結為：https://github.com/LynnChien/iiiedu-gym-backend/tree/master
 
 ## 第三組 健身房官方網站
 + 前端技術：html5 + sass + react.js + redux + javaScript
