@@ -22,13 +22,13 @@ function EmployeeForm({ currentEmployee ,history}) {
   let categoryId = "";
   switch (category) {
     case "有氧教室":
-      categoryId = 1;
-      break;
-    case "瑜伽教室":
       categoryId = 2;
       break;
-    default:
+    case "瑜伽教室":
       categoryId = 3;
+      break;
+    default:
+      categoryId = 8;
       break;
   }
 

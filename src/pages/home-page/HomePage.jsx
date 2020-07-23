@@ -2,9 +2,9 @@ import React, { useEffect } from "react";
 import "./HomePage.scss";
 import GYM2 from "../../API/GYM.mp4";
 
-import PhotosImgbackground from "./PhotosImgbackground1.png";
-import ChrisHemsworth from "./Chris-Hemsworth.jpg";
-import ChrisEvans from "./Chris-Evans.jpg";
+import chi from "./小志.jpg";
+import chang from "./小銓.JPG";
+import tang from "./小唐.jpg";
 import JEANLIN from "./JEANLIN.png";
 import CustomButton from "../../component/custom-button/Custom-button";
 import { IoIosArrowDropupCircle } from "react-icons/io";
@@ -156,7 +156,7 @@ import { IoIosArrowDropupCircle } from "react-icons/io";
                 👉2堂私人教練課程 <br />
               </span>
               <div className="space"> </div>
-              <CustomButton>了解更多</CustomButton>
+              {/* <CustomButton>了解更多</CustomButton> */}
             </div>
             <div className="page5-left-wrapper-rwd"></div>
           </div>
@@ -168,9 +168,9 @@ import { IoIosArrowDropupCircle } from "react-icons/io";
             <h1 className="page-6-title">優質教練群</h1>
             <ul>
               <li>
-                <img src={PhotosImgbackground} alt=""></img>
+                <img src={chi} alt=""></img>
                 <div className="page6-card-right">
-                  <h2>小隆</h2>
+                  <h2>小凱</h2>
                   <span>
                     證照： <br />
                     AASFP私人體適能教練
@@ -190,9 +190,9 @@ import { IoIosArrowDropupCircle } from "react-icons/io";
                 </div>
               </li>
               <li>
-                <img src={ChrisHemsworth} alt=""></img>
+                <img src={chang} alt=""></img>
                 <div className="page6-card-right">
-                  <h2>小宇</h2>
+                  <h2>小銓</h2>
                   <span>
                     證照：
                     <br />
@@ -215,9 +215,9 @@ import { IoIosArrowDropupCircle } from "react-icons/io";
                 </div>
               </li>
               <li>
-                <img src={ChrisEvans} alt=""></img>
+                <img src={tang} alt=""></img>
                 <div className="page6-card-right">
-                  <h2>小志</h2>
+                  <h2>小唐</h2>
                   <span>
                     證照：
                     <br />
@@ -269,106 +269,106 @@ import { IoIosArrowDropupCircle } from "react-icons/io";
           <div className="shop-item-list">
             <ul>
               <li>
-                <div class="view view-first">
+                <div className="view view-first">
                   <img src="https://i.ibb.co/2KT3nqN/clothes66.jpg" />
 
-                  <div class="mask">
+                  <div className="mask">
                     <h2>
                       Women's
                       <br />
                       NEO (三條線運動上衣)
                     </h2>
-                    <a href="http://localhost:3000/shopitem/women/253" class="info">
+                    <a href="http://localhost:3000/shopitem/women/253" className="info">
                       More
                     </a>
                   </div>
                 </div>
               </li>
               <li>
-                <div class="view view-first">
+                <div className="view view-first">
                   <img alt="" src="https://i.ibb.co/3m0Cp19/clothes94.jpg" />
-                  <div class="mask">
+                  <div className="mask">
                     <h2>
                       Women's
                       <br />
                       PRO SPORT (運動上衣)
                     </h2>
-                    <a href="http://localhost:3000/shopitem/women/259" class="info">
+                    <a href="http://localhost:3000/shopitem/women/259" className="info">
                       More
                     </a>
                   </div>
                 </div>
               </li>
               <li>
-                <div class="view view-first">
+                <div className="view view-first">
                   <img alt="" src="https://i.ibb.co/kqjHd2f/clothes21.jpg" />
-                  <div class="mask">
+                  <div className="mask">
                     <h2>
                       Women's
                       <br />
                       FAKTEN (運動上衣)
                     </h2>
-                    <a href="http://localhost:3000/shopitem/women/238" class="info">
+                    <a href="http://localhost:3000/shopitem/women/238" className="info">
                       More
                     </a>
                   </div>
                 </div>
               </li>
               <li>
-                <div class="view view-first">
+                <div className="view view-first">
                   <img alt="" src="https://i.ibb.co/rMwSmzB/clothes3.jpg" />
-                  <div class="mask">
+                  <div className="mask">
                     <h2>
                       Women's
                       <br />
                       ID (短袖上衣)
                     </h2>
-                    <a href="http://localhost:3000/shopitem/women/232" class="info">
+                    <a href="http://localhost:3000/shopitem/women/232" className="info">
                       More
                     </a>
                   </div>
                 </div>
               </li>
               <li>
-                <div class="view view-first">
+                <div className="view view-first">
                   <img alt="" src="https://i.ibb.co/0p5xS62/10.jpg" />
-                  <div class="mask">
+                  <div className="mask">
                     <h2>
                       men's
                       <br />
                       SHMOO 長袖
                     </h2>
-                    <a href='http://localhost:3000/shopitem/men/20' class="info">
+                    <a href='http://localhost:3000/shopitem/men/20' className="info">
                       More
                     </a>
                   </div>
                 </div>
               </li>
               <li>
-                <div class="view view-first">
+                <div className="view view-first">
                   <img alt="" src="https://i.ibb.co/mF6Wmn4/WORK-OUT-13.jpg" />
-                  <div class="mask">
+                  <div className="mask">
                     <h2>
                       men's
                       <br />
                       WORK OUT (背心){" "}
                     </h2>
-                    <a href="http://localhost:3000/shopitem/men/6" class="info">
+                    <a href="http://localhost:3000/shopitem/men/6" className="info">
                       More
                     </a>
                   </div>
                 </div>
               </li>
               <li>
-                <div class="view view-first">
+                <div className="view view-first">
                   <img alt="" src="https://i.ibb.co/GsRcQC8/13.jpg" />
-                  <div class="mask">
+                  <div className="mask">
                     <h2>
                       Men's
                       <br />
                       R.Y.V. (長袖){" "}
                     </h2>
-                    <a href="http://localhost:3000/shopitem/men/22" class="info">
+                    <a href="http://localhost:3000/shopitem/men/22" className="info">
                       More
                     </a>
                   </div>
@@ -380,124 +380,124 @@ import { IoIosArrowDropupCircle } from "react-icons/io";
           <div className="shop-item-list2">
             <ul>
               <li>
-                <div class="view view-first">
+                <div className="view view-first">
                   <img
                     alt=""
                     src="https://i.ibb.co/vPpKg48/image-QC28852702-2000-1.jpg"
                   />
-                  <div class="mask">
+                  <div className="mask">
                     <h2>
                       Women's
                       <br />
                       ID (運動長褲)
                     </h2>
-                    <a href="http://localhost:3000/shopitem/men/208" class="info">
+                    <a href="http://localhost:3000/shopitem/men/208" className="info">
                       More
                     </a>
                   </div>
                 </div>
               </li>
               <li>
-                <div class="view view-first">
+                <div className="view view-first">
                   <img
                     alt=""
                     src="https://i.ibb.co/Yd6Pfd5/image-QC28830101-2000-1.jpg"
                   />
-                  <div class="mask">
+                  <div className="mask">
                     <h2>
                       Men's
                       <br />
                       LONG RUN (運動長褲)
                     </h2>
-                    <a href="http://localhost:3000/shopitem/men/214" class="info">
+                    <a href="http://localhost:3000/shopitem/men/214" className="info">
                       More
                     </a>
                   </div>
                 </div>
               </li>
               <li>
-                <div class="view view-first">
+                <div className="view view-first">
                   <img
                     alt=""
                     src="https://i.ibb.co/jHBhfzT/image-QC28855581-2000-2.jpg"
                   />
-                  <div class="mask">
+                  <div className="mask">
                     <h2>
                       Men's
                       <br />
                       ESSENTIALS (運動短褲)
                     </h2>
-                    <a href="http://localhost:3000/shopitem/men/218" class="info">
+                    <a href="http://localhost:3000/shopitem/men/218" className="info">
                       More
                     </a>
                   </div>
                 </div>
               </li>
               <li>
-                <div class="view view-first">
+                <div className="view view-first">
                   <img
                     alt=""
                     src="https://i.ibb.co/Wprv96j/image-QC28847341-2000-2.jpg"
                   />
 
-                  <div class="mask">
+                  <div className="mask">
                     <h2>
                       Women's
                       <br />
                       NEO (運動短褲)
                     </h2>
-                    <a href="http://localhost:3000/shopitem/men/226" class="info">
+                    <a href="http://localhost:3000/shopitem/men/226" className="info">
                       More
                     </a>
                   </div>
                 </div>
               </li>
               <li>
-                <div class="view view-first">
+                <div className="view view-first">
                   <img alt="" src="https://i.ibb.co/qm6vTXR/10.jpg" />
-                  <div class="mask">
+                  <div className="mask">
                     <h2>
                       men's
                       <br />
                       ID SPORT (短褲)
                     </h2>
-                    <a href="http://localhost:3000/shopitem/men/51" class="info">
+                    <a href="http://localhost:3000/shopitem/men/51" className="info">
                       More
                     </a>
                   </div>
                 </div>
               </li>
               <li>
-                <div class="view view-first">
+                <div className="view view-first">
                   <img
                     alt=""
                     src="https://i.ibb.co/9sBWgCD/ADIDAS-X-SPEZIAL-HESWALL-1.jpg"
                   />
-                  <div class="mask">
+                  <div className="mask">
                     <h2>
                       men's
                       <br />
                       LOGO (短褲)
                     </h2>
-                    <a href="http://localhost:3000/shopitem/men/53" class="info">
+                    <a href="http://localhost:3000/shopitem/men/53" className="info">
                       More
                     </a>
                   </div>
                 </div>
               </li>
               <li>
-                <div class="view view-first">
+                <div className="view view-first">
                   <img
                     alt=""
                     src="https://i.ibb.co/0jxVyrz/Women-s-Project-Rock-Terry-Joggers-Trousers-black-grey.png"
                   />
-                  <div class="mask">
+                  <div className="mask">
                     <h2>
                       men's
                       <br />
                       ADICOLOR (運動長褲)
                     </h2>
-                    <a href="http://localhost:3000/shopitem/men/34" class="info">
+                    <a href="http://localhost:3000/shopitem/men/34" className="info">
                       More
                     </a>
                   </div>

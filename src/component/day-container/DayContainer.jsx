@@ -9,6 +9,7 @@ function DayContainer(props) {
         .map(course => (
             <CourseBox
                 key={course.courseId}
+                value={course.courseId}
                 course={course}
                 bookingData={props.bookingData}
                 getBookingData={props.getBookingData}
